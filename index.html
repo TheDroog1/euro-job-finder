@@ -97,9 +97,14 @@
                 <button class="filter-chip" data-category="Product">Product</button>
             </div>
 
+            <div class="external-search-links">
+                <button class="text-link" onclick="openExternalSearch('linkedin')">Cerca su LinkedIn ↗</button>
+                <button class="text-link" onclick="openExternalSearch('indeed')">Cerca su Indeed ↗</button>
+            </div>
+
             <div class="section-title-group">
                 <h2>Lavori Consigliati</h2>
-                <button class="text-link">Vedi tutti</button>
+                <button class="btn-primary-mini" onclick="showManualEntry()">+ Aggiungi</button>
             </div>
 
             <div id="jobs-container" class="ios-list">
@@ -156,7 +161,7 @@
             <span class="tab-label">Tracker</span>
         </button>
         <button class="tab-item" data-view="saved-view">
-            <span class="tab-icon">🔖</span>
+            <span class="tab-icon">★</span>
             <span class="tab-label">Salvati</span>
         </button>
     </nav>
