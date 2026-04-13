@@ -76,9 +76,37 @@ function setupNavigation() {
 async function fetchJobs() {
     showLoader();
     try {
+        // Carica dati reali API
         const res = await fetch(API_URL);
         const data = await res.json();
         allJobs = data.data;
+        
+        // Carica dati dallo Scout (se disponibili)
+        try {
+            const scoutRes = await fetch('data/jobs.json');
+            if (scoutRes.ok) {
+                const scoutJobs = await scoutRes.json();
+                // Merge semplice: aggiungiamo i lavori dello scout in cima
+                // Evitiamo duplicati se possibile
+                const scoutSlugs = new Set(scoutJobs.map(j => j.id));
+                const filteredApiJobs = allJobs.filter(j => !scoutSlugs.has(j.slug));
+                
+                // Trasformiamo i lavori scout nel formato dell'API per uniformità
+                const formattedScout = scoutJobs.map(j => ({
+                    slug: j.id,
+                    title: j.title,
+                    company_name: j.company,
+                    location: j.location,
+                    url: j.url,
+                    description: "Selezionato dallo Scout 🤖",
+                    tags: ["🤖 Scout Pick", j.is_junior ? "Junior" : "Tech"],
+                    remote: j.location.toLowerCase().includes('remote')
+                }));
+
+                allJobs = [...formattedScout, ...filteredApiJobs];
+            }
+        } catch(e) { console.log("Scout data non ancora disponibile."); }
+
         renderJobs(allJobs);
     } catch (err) {
         jobsContainer.innerHTML = '<div class="empty-state">Errore di connessione. Riprova più tardi.</div>';

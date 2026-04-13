@@ -1,0 +1,34 @@
+name: Daily Job Scout
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Ogni giorno alle 4:00 AM
+  workflow_dispatch: # Permette di lanciarlo manualmente da GitHub
+
+jobs:
+  scout_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Job Scout
+        run: python scout.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "EuroJob Scout"
+          git config --global user.email "scout@eurojob.finder"
+          git add data/jobs.json
+          git commit -m "Auto-update: Nuovi lavori trovati dallo Scout 🤖" || echo "Nessun nuovo lavoro oggi"
+          git push
