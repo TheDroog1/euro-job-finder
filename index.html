@@ -31,7 +31,26 @@
         <section id="discovery-view" class="view active">
             <div class="search-bar-apple">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="job-query" placeholder="Cerca ruoli tech o design...">
+                <input type="text" id="job-query" placeholder="Titolo o parola chiave...">
+            </div>
+
+            <div class="advanced-filters">
+                <select id="country-filter" class="ios-select">
+                    <option value="">Tutta Europa</option>
+                    <option value="germany">Germania</option>
+                    <option value="netherlands">Paesi Bassi</option>
+                    <option value="spain">Spagna</option>
+                    <option value="france">Francia</option>
+                    <option value="italy">Italia</option>
+                    <option value="united kingdom">Regno Unito</option>
+                    <option value="sweden">Svezia</option>
+                    <option value="remote">Remote</option>
+                </select>
+                
+                <label class="toggle-container">
+                    <input type="checkbox" id="english-only" checked>
+                    <span class="toggle-label">Solo EN/IT</span>
+                </label>
             </div>
 
             <div class="horizontal-scroll-filters">

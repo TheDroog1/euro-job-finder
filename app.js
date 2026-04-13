@@ -11,6 +11,8 @@ const savedContainer = document.getElementById('saved-container');
 const appContent = document.getElementById('app-content');
 const pageTitle = document.getElementById('page-title');
 const jobQueryInput = document.getElementById('job-query');
+const countryFilter = document.getElementById('country-filter');
+const englishOnlyToggle = document.getElementById('english-only');
 const modal = document.getElementById('job-detail-modal');
 const modalBody = document.getElementById('modal-body');
 
@@ -32,8 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Ricerca
+    // Ricerca e Filtri
     jobQueryInput.addEventListener('input', debounce(handleSearch, 500));
+    countryFilter.addEventListener('change', handleSearch);
+    englishOnlyToggle.addEventListener('change', handleSearch);
     
     // Chiudi modal cliccando fuori
     modal.addEventListener('click', (e) => {
@@ -83,11 +87,24 @@ async function fetchJobs() {
 
 function handleSearch() {
     const query = jobQueryInput.value.toLowerCase();
-    const filtered = allJobs.filter(job => 
-        job.title.toLowerCase().includes(query) || 
-        job.company_name.toLowerCase().includes(query) ||
-        job.tags.some(t => t.toLowerCase().includes(query))
-    );
+    const country = countryFilter.value.toLowerCase();
+    const englishOnly = englishOnlyToggle.checked;
+
+    let filtered = allJobs.filter(job => {
+        const matchesQuery = !query || 
+            job.title.toLowerCase().includes(query) || 
+            job.company_name.toLowerCase().includes(query) ||
+            job.tags.some(t => t.toLowerCase().includes(query));
+            
+        const matchesCountry = !country || 
+            job.location.toLowerCase().includes(country);
+
+        const isEnglish = detectEnglish(job);
+        const matchesLanguage = !englishOnly || isEnglish;
+
+        return matchesQuery && matchesCountry && matchesLanguage;
+    });
+
     renderJobs(filtered);
 }
 
@@ -111,7 +128,7 @@ function renderJobs(jobs) {
                         <div class="card-subtitle">${job.company_name}</div>
                     </div>
                     <button class="save-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); toggleSave('${job.slug}')">
-                        ${isSaved ? '🔖' : '🔖'}
+                        ${isSaved ? '★' : '☆'}
                     </button>
                 </div>
                 <div class="card-tags">
@@ -155,7 +172,26 @@ function renderSaved() {
         savedContainer.innerHTML = '<div class="empty-state">Non hai ancora salvato nulla.</div>';
         return;
     }
-    renderJobsInContainer(savedData, savedContainer);
+    
+    savedContainer.innerHTML = savedData.map(job => {
+        return `
+            <div class="ios-card" onclick="showJobDetail('${job.slug}')">
+                <div class="card-header">
+                    <div class="card-icon">${job.company_name.charAt(0)}</div>
+                    <div class="card-title-group">
+                        <div class="card-title">${job.title}</div>
+                        <div class="card-subtitle">${job.company_name}</div>
+                    </div>
+                    <button class="save-btn active" onclick="event.stopPropagation(); toggleSave('${job.slug}')">
+                        ★
+                    </button>
+                </div>
+                <div class="card-footer">
+                    <span class="card-location">📍 ${job.location}</span>
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 
 // MODAL DETTAGLI
@@ -163,6 +199,8 @@ window.showJobDetail = function(slug) {
     const job = allJobs.find(j => j.slug === slug);
     if (!job) return;
 
+    const isSaved = savedJobs.some(s => s.slug === job.slug);
+    
     modalBody.innerHTML = `
         <h2 style="font-size: 1.5rem; margin-bottom: 5px;">${job.title}</h2>
         <p style="color: var(--ios-secondary-label); margin-bottom: 20px;">${job.company_name} • ${job.location}</p>
@@ -174,12 +212,20 @@ window.showJobDetail = function(slug) {
             ${detectRequirements(job).map(r => `<span class="mini-tag green" style="font-size: 0.8rem; padding: 6px 12px;">${r}</span>`).join('')}
         </div>
 
-        <div class="job-description-preview" style="font-size: 0.95rem; color: #444; max-height: 200px; overflow-y: auto; margin-bottom: 20px;">
-            ${job.description.substring(0, 500)}...
+        <div style="background: #F2F2F7; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--ios-secondary-label); margin-bottom: 8px;">Descrizione Preview</p>
+            <div class="job-description-preview" style="font-size: 0.9rem; color: #444; max-height: 150px; overflow-y: auto;">
+                ${job.description}
+            </div>
         </div>
 
-        <button class="btn-apple-primary" onclick="applyToJob('${job.slug}')">Candidati Ora</button>
-        <button class="btn-apple-secondary" onclick="modal.classList.remove('active')">Chiudi</button>
+        <div class="modal-actions">
+            <button class="btn-apple-primary" onclick="applyToJob('${job.slug}')">Candidati Ora</button>
+            <button class="btn-apple-secondary" onclick="toggleSave('${job.slug}'); showJobDetail('${job.slug}')">
+                ${isSaved ? 'Rimuovi dai Salvati' : 'Salva Lavoro'}
+            </button>
+        </div>
+        <button class="text-link" style="width: 100%; margin-top: 15px; text-align: center;" onclick="modal.classList.remove('active')">Chiudi</button>
     `;
     modal.classList.add('active');
 };
@@ -240,6 +286,16 @@ function detectRequirements(job) {
     if (text.includes('english')) reqs.push('English Req');
     
     return reqs.length ? reqs : ['General Tech'];
+}
+
+function detectEnglish(job) {
+    const text = (job.title + job.description).toLowerCase();
+    // Parole chiave per Inglese e Italiano
+    const allowedKeywords = [
+        'english', 'proficiency', 'fluency', 'the role', 'we are looking', 'experience in',
+        'italiano', 'requisiti', 'siamo alla ricerca', 'esperienza', 'responsabilità', 'candidati'
+    ];
+    return allowedKeywords.some(kw => text.includes(kw));
 }
 
 function updateStats() {
