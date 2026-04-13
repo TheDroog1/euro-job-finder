@@ -345,6 +345,63 @@ function showLoader() {
     jobsContainer.innerHTML = '<div class="empty-state">Caricamento lavori in corso...</div>';
 }
 
+// RICERCA ESTERNA
+window.openExternalSearch = function(platform) {
+    const query = jobQueryInput.value || 'UX UI designer junior';
+    const country = countryFilter.value || 'Europe';
+    let url = '';
+
+    if (platform === 'linkedin') {
+        url = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(query)}&location=${encodeURIComponent(country)}&f_E=1%2C2`;
+    } else {
+        url = `https://it.indeed.com/jobs?q=${encodeURIComponent(query)}&l=${encodeURIComponent(country)}&explvl=entry_level`;
+    }
+    window.open(url, '_blank');
+};
+
+// INSERIMENTO MANUALE
+window.showManualEntry = function() {
+    modalBody.innerHTML = `
+        <h2 style="font-size: 1.5rem; margin-bottom: 20px;">Aggiungi Candidatura</h2>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" id="m-company" class="ios-select" style="width:100%" placeholder="Azienda (es. Google)">
+            <input type="text" id="m-title" class="ios-select" style="width:100%" placeholder="Titolo (es. UX Designer Junior)">
+            <input type="text" id="m-url" class="ios-select" style="width:100%" placeholder="Link Annuncio (LinkedIn/Indeed)">
+        </div>
+        <button class="btn-apple-primary" onclick="saveManualEntry()">Salva nel Tracker</button>
+        <button class="text-link" style="width: 100%; margin-top: 15px; text-align: center;" onclick="modal.classList.remove('active')">Annulla</button>
+    `;
+    modal.classList.add('active');
+};
+
+window.saveManualEntry = function() {
+    const company = document.getElementById('m-company').value;
+    const title = document.getElementById('m-title').value;
+    const url = document.getElementById('m-url').value;
+
+    if (!company || !title) {
+        alert('Inserisci almeno Azienda e Titolo');
+        return;
+    }
+
+    const appId = 'm-' + Date.now();
+    applications.push({
+        id: appId,
+        slug: appId,
+        title: title,
+        company: company,
+        url: url,
+        date: new Date().toLocaleDateString(),
+        status: 'Inviata'
+    });
+
+    localStorage.setItem('ej_applications', JSON.stringify(applications));
+    updateStats();
+    modal.classList.remove('active');
+    alert('Candidatura manuale salvata!');
+    renderTracker();
+};
+
 function debounce(func, timeout = 300) {
     let timer;
     return (...args) => {
