@@ -89,20 +89,41 @@ function handleSearch() {
     const query = jobQueryInput.value.toLowerCase();
     const country = countryFilter.value.toLowerCase();
     const englishOnly = englishOnlyToggle.checked;
+    const level = levelFilter.value.toLowerCase();
 
     let filtered = allJobs.filter(job => {
+        const titleAndDesc = (job.title + job.description).toLowerCase();
+
+        // 1. Filtro Parole Chiave / Titolo
         const matchesQuery = !query || 
             job.title.toLowerCase().includes(query) || 
             job.company_name.toLowerCase().includes(query) ||
             job.tags.some(t => t.toLowerCase().includes(query));
             
+        // 2. Filtro Nazione
         const matchesCountry = !country || 
             job.location.toLowerCase().includes(country);
 
-        const isEnglish = detectEnglish(job);
-        const matchesLanguage = !englishOnly || isEnglish;
+        // 3. Filtro Lingua (molto più severo)
+        const isEnglishOrItalian = detectAllowedLanguage(job);
+        const matchesLanguage = !englishOnly || isEnglishOrItalian;
 
-        return matchesQuery && matchesCountry && matchesLanguage;
+        // 4. Filtro Livello (Anti-Senior rigoroso)
+        let matchesLevel = true;
+        if (level === 'internship' || level === 'entry') {
+            const seniorTerms = ['senior', 'lead', 'manager', 'head', 'principal', 'staff', 'direttore', 'director'];
+            const hasSeniorTerm = seniorTerms.some(term => job.title.toLowerCase().includes(term));
+            
+            const juniorTerms = ['intern', 'stage', 'entry', 'junior', 'apprendistato', 'trainee', 'graduate', 'tirocinio'];
+            const hasJuniorTerm = juniorTerms.some(term => titleAndDesc.includes(term));
+            
+            // Se cerco junior, non deve avere termini senior nel titolo
+            matchesLevel = !hasSeniorTerm && (level === '' || hasJuniorTerm || job.title.toLowerCase().includes('junior'));
+        } else if (level) {
+            matchesLevel = titleAndDesc.includes(level);
+        }
+
+        return matchesQuery && matchesCountry && matchesLanguage && matchesLevel;
     });
 
     renderJobs(filtered);
@@ -288,13 +309,25 @@ function detectRequirements(job) {
     return reqs.length ? reqs : ['General Tech'];
 }
 
-function detectEnglish(job) {
+function detectAllowedLanguage(job) {
     const text = (job.title + job.description).toLowerCase();
-    // Parole chiave per Inglese e Italiano
+    
+    // Lista Nera: se contiene troppe parole di queste lingue, scartalo
+    const forbiddenKeywords = [
+        ' und ', ' die ', ' der ', ' das ', ' mit ', ' für ', // Tedesco
+        ' est ', ' avec ', ' nelle ', ' pour ', ' une ', ' des ', // Francese
+        ' och ', ' för ', ' som ' // Svedese/Altro
+    ];
+    
+    const hasForbidden = forbiddenKeywords.filter(kw => text.includes(kw)).length > 2;
+    if (hasForbidden) return false;
+
+    // Lista Bianca: deve contenere termini EN o IT
     const allowedKeywords = [
         'english', 'proficiency', 'fluency', 'the role', 'we are looking', 'experience in',
         'italiano', 'requisiti', 'siamo alla ricerca', 'esperienza', 'responsabilità', 'candidati'
     ];
+    
     return allowedKeywords.some(kw => text.includes(kw));
 }
 
