@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EuroJob | Career Tracker</title>
+    <meta name="description" content="Gestisci la tua carriera Tech & Design in Europa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EuroJob">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/942/942799.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ios-theme">
+    
+    <!-- Header dinamico stile Apple -->
+    <header class="app-header">
+        <div class="header-top">
+            <span class="date-label" id="current-date">Lunedì 13 Aprile</span>
+            <div class="user-avatar">SM</div>
+        </div>
+        <h1 id="page-title">Scopri</h1>
+    </header>
+
+    <main id="app-content">
+        <!-- SEZIONE SCOPERTA (DEFAULT) -->
+        <section id="discovery-view" class="view active">
+            <div class="search-bar-apple">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="job-query" placeholder="Cerca ruoli tech o design...">
+            </div>
+
+            <div class="horizontal-scroll-filters">
+                <button class="filter-chip active" data-category="all">Tutti</button>
+                <button class="filter-chip" data-category="UX/UI">UX/UI</button>
+                <button class="filter-chip" data-category="Frontend">Frontend</button>
+                <button class="filter-chip" data-category="Backend">Backend</button>
+                <button class="filter-chip" data-category="Product">Product</button>
+            </div>
+
+            <div class="section-title-group">
+                <h2>Lavori Consigliati</h2>
+                <button class="text-link">Vedi tutti</button>
+            </div>
+
+            <div id="jobs-container" class="ios-list">
+                <!-- I lavori verranno inseriti qui -->
+            </div>
+        </section>
+
+        <!-- SEZIONE TRACKER (CANDIDATURE) -->
+        <section id="tracker-view" class="view">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value" id="count-applied">0</span>
+                    <span class="stat-label">Inviate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="count-interviews">0</span>
+                    <span class="stat-label">Colloqui</span>
+                </div>
+            </div>
+
+            <div class="section-title-group">
+                <h2>Le mie candidature</h2>
+            </div>
+            
+            <div id="tracker-container" class="ios-list">
+                <!-- Candidature salvate qui -->
+                <div class="empty-state">
+                    <p>Non hai ancora salvato nessuna candidatura.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE SALVATI -->
+        <section id="saved-view" class="view">
+            <div class="section-title-group">
+                <h2>Salvati per dopo</h2>
+            </div>
+            <div id="saved-container" class="ios-list">
+                <div class="empty-state">
+                    <p>I lavori che salvi appariranno qui.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- TAB BAR INFERIORE -->
+    <nav class="tab-bar">
+        <button class="tab-item active" data-view="discovery-view">
+            <span class="tab-icon">🌐</span>
+            <span class="tab-label">Scopri</span>
+        </button>
+        <button class="tab-item" data-view="tracker-view">
+            <span class="tab-icon">📋</span>
+            <span class="tab-label">Tracker</span>
+        </button>
+        <button class="tab-item" data-view="saved-view">
+            <span class="tab-icon">🔖</span>
+            <span class="tab-label">Salvati</span>
+        </button>
+    </nav>
+
+    <!-- Overlay per Dettagli Lavoro -->
+    <div id="job-detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-handle"></div>
+            <div id="modal-body">
+                <!-- Dettagli dinamici -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
