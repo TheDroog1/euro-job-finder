@@ -100,10 +100,51 @@ def fetch_devjobsscanner():
         except Exception as e: print(f"   ❌ Errore DevScanner: {e}")
     return jobs
 
+def fetch_bebee():
+    print("📡 Scansionando beBee (EU Search)...")
+    urls = [
+        "https://bebee.com/it/jobs/role/user-experience-ux",
+        "https://bebee.com/hu/jobs/role/product-designer",
+        "https://bebee.com/uk/jobs/role/user-experience-ux",
+        "https://bebee.com/jobs?q=junior+ux+designer+europe"
+    ]
+    jobs, seen_ids = [], set()
+    for url in urls:
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
+            slugs = re.findall(r'([a-zA-Z0-9-]{10,}-[0-9]{8})', html)
+            for slug in slugs:
+                if slug in seen_ids or 'global-error' in slug: continue
+                seen_ids.add(slug)
+                
+                # Il titolo vero è sfumato nel link, estraiamo l'intero testo formattato bene!
+                raw_text = slug.split('--')[0] if '--' in slug else slug
+                raw_text = re.sub(r'-[0-9]{8}$', '', raw_text) # remove id
+                clean_title = raw_text.replace('-', ' ').title()
+                
+                if not is_relevant_role(clean_title): continue
+                
+                jobs.append({
+                    "id": f"bebee-{slug[-8:]}",
+                    "title": clean_title, 
+                    "company": "beBee 🔗", 
+                    "location": "Località nell'annuncio",
+                    "url": f"https://bebee.com/job/{slug}", 
+                    "source": "🐝 beBee",
+                    "date": datetime.now().strftime("%d/%m/%Y"), 
+                    "is_junior": True,
+                    "description": f"Dettagli (Azienda, Sede) estraibili visitando il link: {clean_title}"
+                })
+        except Exception as e: print(f"   ❌ Errore beBee: {e}")
+    return jobs
+
 def main():
     all_jobs = []
     all_jobs.extend(fetch_jobstobedone())
     all_jobs.extend(fetch_devjobsscanner())
+    all_jobs.extend(fetch_bebee())
+
     
     seen_urls, unique_jobs = set(), []
     for j in all_jobs:

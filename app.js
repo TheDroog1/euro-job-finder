@@ -191,7 +191,7 @@ function renderJobs(jobs) {
                 <div class="card-header">
                     <div class="card-icon" style="background:${getRandomGradient()}">${(job.company || '?').charAt(0)}</div>
                     <div class="card-title-group">
-                        <div class="card-title">${job.title}</div>
+                        <div class="card-title" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3;">${job.title}</div>
                         <div class="card-subtitle">${job.company}</div>
                     </div>
                     <button class="save-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); toggleSave('${safeId}')">
@@ -261,7 +261,7 @@ function renderSaved() {
                 <div class="card-header">
                     <div class="card-icon" style="background:${getRandomGradient()}">${(job.company || '?').charAt(0)}</div>
                     <div class="card-title-group">
-                        <div class="card-title">${job.title}</div>
+                        <div class="card-title" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3;">${job.title}</div>
                         <div class="card-subtitle">${job.company}</div>
                     </div>
                 </div>
