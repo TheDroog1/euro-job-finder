@@ -283,12 +283,11 @@ window.showJobDetail = function(id) {
     const isSaved = savedJobs.some(s => s.id === job.id);
     const safeId = id.replace(/'/g, "\\'");
     
-    // Pulisci la descrizione HTML
+    // Pulisci la descrizione HTML, ma manteniamo tutta la lunghezza
     const cleanDesc = (job.description || 'Nessuna descrizione disponibile.')
         .replace(/<[^>]*>/g, ' ')
         .replace(/\s+/g, ' ')
-        .trim()
-        .substring(0, 800);
+        .trim();
     
     modalBody.innerHTML = `
         <h2 style="font-size: 1.5rem; margin-bottom: 5px;">${job.title}</h2>
@@ -303,8 +302,8 @@ window.showJobDetail = function(id) {
 
         <div style="background: #F2F2F7; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
             <p style="font-size: 0.9rem; font-weight: 600; color: var(--ios-secondary-label); margin-bottom: 8px;">Descrizione</p>
-            <div style="font-size: 0.9rem; color: #444; max-height: 200px; overflow-y: auto; line-height: 1.6;">
-                ${cleanDesc}${cleanDesc.length >= 800 ? '...' : ''}
+            <div style="font-size: 0.9rem; color: #444; max-height: 400px; overflow-y: auto; line-height: 1.6;">
+                ${cleanDesc}
             </div>
         </div>
 
