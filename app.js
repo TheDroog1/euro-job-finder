@@ -233,26 +233,26 @@ function renderJobs(jobs) {
     if (countEl) countEl.textContent = `${jobs.length} lavori trovati`;
 
     jobsContainer.innerHTML = jobs.map(job => {
-        const isSaved = savedJobs.some(s => s.slug === job.slug);
+        const isSaved = savedJobs.some(s => s.id === job.id);
         const requirements = detectRequirements(job);
-        const safeslug = (job.slug || '').replace(/'/g, "\\'");
+        const safeId = (job.id || '').replace(/'/g, "\\'");
         
         return `
-            <div class="ios-card" onclick="showJobDetail('${safeslug}')">
+            <div class="ios-card" onclick="showJobDetail('${safeId}')">
                 <div class="card-header">
-                    <div class="card-icon">${(job.company_name || '?').charAt(0)}</div>
+                    <div class="card-icon" style="background:${getRandomGradient()}">${(job.company || '?').charAt(0)}</div>
                     <div class="card-title-group">
                         <div class="card-title">${job.title}</div>
-                        <div class="card-subtitle">${job.company_name}</div>
+                        <div class="card-subtitle">${job.company}</div>
                     </div>
-                    <button class="save-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); toggleSave('${safeslug}')">
+                    <button class="save-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); toggleSave('${safeId}')">
                         ${isSaved ? '★' : '☆'}
                     </button>
                 </div>
                 <div class="card-tags">
                     ${requirements.map(req => `<span class="mini-tag green">${req}</span>`).join('')}
-                    ${(job.tags || []).filter(t => t && t.startsWith('💼') || t && t.startsWith('🟢') || t && t.startsWith('✨') || t && t.startsWith('🌍') || t && t.startsWith('🔍') || t && t.startsWith('🟡') || t && t.startsWith('🟣')).map(t => `<span class="mini-tag">${t}</span>`).join('')}
-                    ${job.remote ? '<span class="mini-tag">Remote</span>' : ''}
+                    ${job.remote ? '<span class="mini-tag blue">Remote</span>' : ''}
+                    <span class="mini-tag purple">${job.source}</span>
                 </div>
                 <div class="card-footer">
                     <span class="card-location">📍 ${job.location}</span>
@@ -260,6 +260,16 @@ function renderJobs(jobs) {
             </div>
         `;
     }).join('');
+}
+
+function getRandomGradient() {
+    const gradients = [
+        'linear-gradient(135deg, #6366F1 0%, #A855F7 100%)',
+        'linear-gradient(135deg, #3B82F6 0%, #2DD4BF 100%)',
+        'linear-gradient(135deg, #F59E0B 0%, #EF4444 100%)',
+        'linear-gradient(135deg, #10B981 0%, #3B82F6 100%)'
+    ];
+    return gradients[Math.floor(Math.random() * gradients.length)];
 }
 
 function renderTracker() {
@@ -286,25 +296,22 @@ function renderTracker() {
 }
 
 function renderSaved() {
-    const savedData = allJobs.filter(j => savedJobs.some(s => s.slug === j.slug));
+    const savedData = allJobs.filter(j => savedJobs.some(s => s.id === j.id));
     if (savedData.length === 0) {
         savedContainer.innerHTML = '<div class="empty-state">Non hai ancora salvato nulla.</div>';
         return;
     }
     
     savedContainer.innerHTML = savedData.map(job => {
-        const safeslug = (job.slug || '').replace(/'/g, "\\'");
+        const safeId = (job.id || '').replace(/'/g, "\\'");
         return `
-            <div class="ios-card" onclick="showJobDetail('${safeslug}')">
+            <div class="ios-card" onclick="showJobDetail('${safeId}')">
                 <div class="card-header">
-                    <div class="card-icon">${(job.company_name || '?').charAt(0)}</div>
+                    <div class="card-icon" style="background:${getRandomGradient()}">${(job.company || '?').charAt(0)}</div>
                     <div class="card-title-group">
                         <div class="card-title">${job.title}</div>
-                        <div class="card-subtitle">${job.company_name}</div>
+                        <div class="card-subtitle">${job.company}</div>
                     </div>
-                    <button class="save-btn active" onclick="event.stopPropagation(); toggleSave('${safeslug}')">
-                        ★
-                    </button>
                 </div>
                 <div class="card-footer">
                     <span class="card-location">📍 ${job.location}</span>
@@ -317,12 +324,12 @@ function renderSaved() {
 // =============================================
 // MODAL DETTAGLI
 // =============================================
-window.showJobDetail = function(slug) {
-    const job = allJobs.find(j => j.slug === slug);
+window.showJobDetail = function(id) {
+    const job = allJobs.find(j => j.id === id);
     if (!job) return;
 
-    const isSaved = savedJobs.some(s => s.slug === job.slug);
-    const safeslug = slug.replace(/'/g, "\\'");
+    const isSaved = savedJobs.some(s => s.id === job.id);
+    const safeId = id.replace(/'/g, "\\'");
     
     // Pulisci la descrizione HTML
     const cleanDesc = (job.description || 'Nessuna descrizione disponibile.')
@@ -350,8 +357,8 @@ window.showJobDetail = function(slug) {
         </div>
 
         <div class="modal-actions">
-            <button class="btn-apple-primary" onclick="applyToJob('${safeslug}')">Candidati Ora</button>
-            <button class="btn-apple-secondary" onclick="toggleSave('${safeslug}'); showJobDetail('${safeslug}')">
+            <button class="btn-apple-primary" onclick="applyToJob('${safeId}')">Candidati Ora</button>
+            <button class="btn-apple-secondary" onclick="toggleSave('${safeId}'); showJobDetail('${safeId}')">
                 ${isSaved ? 'Rimuovi dai Salvati' : 'Salva Lavoro'}
             </button>
         </div>
@@ -363,27 +370,27 @@ window.showJobDetail = function(slug) {
 // =============================================
 // LOGICA CORE
 // =============================================
-window.toggleSave = function(slug) {
-    const index = savedJobs.findIndex(s => s.slug === slug);
+window.toggleSave = function(id) {
+    const index = savedJobs.findIndex(s => s.id === id);
     if (index > -1) savedJobs.splice(index, 1);
-    else savedJobs.push({ slug, date: new Date().toLocaleDateString() });
+    else savedJobs.push({ id, date: new Date().toLocaleDateString() });
     
     localStorage.setItem('ej_saved', JSON.stringify(savedJobs));
     applyFilters();
     renderSaved();
 };
 
-window.applyToJob = function(slug) {
-    const job = allJobs.find(j => j.slug === slug);
+window.applyToJob = function(id) {
+    const job = allJobs.find(j => j.id === id);
     if (!job) return;
     
     const appId = Date.now().toString();
     
     applications.push({
         id: appId,
-        slug: job.slug,
+        jobId: job.id,
         title: job.title,
-        company: job.company_name,
+        company: job.company,
         date: new Date().toLocaleDateString(),
         status: 'Inviata'
     });
