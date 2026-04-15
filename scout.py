@@ -156,29 +156,32 @@ def fetch_bebee():
             html = response.read().decode('utf-8')
             
         jobs = []
-        # beBee inserisce i titoli e i link in un formato JSON quasi leggibile nel HTML
-        # Cerchiamo blocchi che sembrano titoli di lavori
-        titles = re.findall(r'children\\":\\"(.*? UX.*?)\\"', html)
-        links = re.findall(r'href\\":\\"/it/job/(.*?)\\"', html)
+        # beBee usa "jobTitle" e "jobSlug" o "title" e "slug" in base al template
+        matches = re.finditer(r'\\"(?:jobT|t)itle\\":\\"(.*?)\\",\\"(?:jobS|s)lug\\":\\"(.*?)\\"', html)
         
-        # Uniamo i dati trovati (metodo euristico basato sulla struttura della pagina)
-        for i in range(min(len(titles), len(links))):
-            title = titles[i].replace('\\u0026', '&')
+        for m in matches:
+            title, slug = m.groups()
+            title = title.replace('\\u0026', '&')
             
-            # Filtro Junior/Senior
-            if 'senior' in title.lower() or 'lead' in title.lower():
+            # Filtro Junior/Senior + Parole chiave UX
+            t_lower = title.lower()
+            if 'senior' in t_lower or 'lead' in t_lower:
+                continue
+            
+            # Solo se pertinente a UX/Design
+            if not any(x in t_lower for x in ['ux', 'ui', 'design', 'user experience', 'grafic']):
                 continue
                 
             jobs.append({
-                "id": "bebee-" + links[i][:30],
+                "id": "bebee-" + slug[:30],
                 "title": title,
                 "company": "beBee Network",
                 "location": "Italia / Remote",
-                "url": f"https://bebee.com/it/job/{links[i]}",
+                "url": f"https://bebee.com/it/job/{slug}",
                 "source": "🐝 beBee",
                 "date": datetime.now().strftime("%d/%m/%Y"),
                 "is_junior": True,
-                "description": "Annuncio trovato su beBee. Clicca per i dettagli dell'azienda."
+                "description": "Annuncio trovato via beBee. Clicca per visualizzare l'offerta."
             })
             
         print(f"   ✅ Trovati {len(jobs)} lavori da beBee")
