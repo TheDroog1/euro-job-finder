@@ -238,7 +238,10 @@ function renderTracker() {
             </div>
             <div class="card-footer">
                 <span class="card-location">Data: ${app.date}</span>
-                <button class="text-link" onclick="updateAppStatus('${app.id}')">Aggiorna Step</button>
+                <div style="display: flex; gap: 15px;">
+                    <button class="text-link" style="color: #ff3b30;" onclick="removeApplication('${app.id}')">Elimina</button>
+                    <button class="text-link" onclick="updateAppStatus('${app.id}')">Aggiorna Step</button>
+                </div>
             </div>
         </div>
     `).join('');
@@ -371,6 +374,15 @@ window.updateAppStatus = function(id) {
     localStorage.setItem('ej_applications', JSON.stringify(applications));
     renderTracker();
     updateStats();
+};
+
+window.removeApplication = function(id) {
+    if (confirm('Vuoi rimuovere questa candidatura dal tracker?')) {
+        applications = applications.filter(a => a.id !== id);
+        localStorage.setItem('ej_applications', JSON.stringify(applications));
+        renderTracker();
+        updateStats();
+    }
 };
 
 // =============================================
