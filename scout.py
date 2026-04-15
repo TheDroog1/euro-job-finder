@@ -5,8 +5,8 @@ import os
 from datetime import datetime
 
 # ============================================================
-# SCOUT v2 - Raccoglie lavori REALI da fonti gratuite
-# Fonti: Arbeitnow API + Jobstobedone.works (scraping)
+# SCOUT v3 - Raccoglie lavori REALI da fonti gratuite
+# Fonti: Arbeitnow API + Jobstobedone + DevJobScanner
 # ============================================================
 
 def fetch_arbeitnow():
@@ -111,11 +111,95 @@ def fetch_jobstobedone():
         return []
 
 
+def fetch_devjobsscanner():
+    """Scraping massivo da DevJobScanner (Aggregatore di LinkedIn e altri)"""
+    print("📡 Scansionando DevJobScanner...")
+    try:
+        # Cerchiamo UX designer in Europa/Italia (generico)
+        req = urllib.request.Request(
+            "https://www.devjobsscanner.com/search/?search=ux%20junior",
+            headers={'User-Agent': 'Mozilla/5.0'}
+        )
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8')
+            
+        matches = re.finditer(r'\\"company\\":\\"(.*?)\\".*?\\"location\\":\\"(.*?)\\".*?\\"title\\":\\"(.*?)\\".*?\\"url\\":\\"(.*?)\\"', html)
+        jobs = []
+        for match in matches:
+            company, location, title, job_url = match.groups()
+            
+            # Pulisci eventuale escape
+            title = title.replace('\\u0026', '&')
+            company = company.replace('\\u0026', '&')
+            
+            # Filtri (già pre-filtrati su junior tramite la search, ma controlliamo doppiamente)
+            if 'senior' in title.lower() or 'lead' in title.lower() or 'head' in title.lower():
+                continue
+                
+            jobs.append({
+                "id": "djs-" + "".join(filter(str.isalnum, title.lower()))[:20] + "-" + str(len(jobs)),
+                "title": title,
+                "company": company,
+                "location": location.replace('\\/', '/'),
+                "url": job_url.replace('\\/', '/'),
+                "source": "💻 DevScanner",
+                "date": datetime.now().strftime("%d/%m/%Y"),
+                "is_junior": True,
+                "description": "Lavoro UX trovato da DevJobScanner (" + company + ")"
+            })
+            
+        print(f"   ✅ Trovati {len(jobs)} lavori (pre-filtrati Junior) da DevJobScanner")
+        return jobs
+    except Exception as e:
+        print(f"   ❌ Errore DevJobScanner: {e}")
+        return []
+
+def fetch_uiuxjobsboard():
+    """Scraping specializzato per UI/UX da uiuxjobsboard.com"""
+    print("📡 Scansionando UIUXJobsBoard...")
+    try:
+        req = urllib.request.Request(
+            "https://uiuxjobsboard.com/",
+            headers={'User-Agent': 'Mozilla/5.0'}
+        )
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8')
+            
+        jobs = []
+        matches = re.finditer(r'\\"title\\",\\"(.*?)\\",\\"slug\\",\\"([0-9a-zA-Z-]+)\\"', html)
+        for match in matches:
+            title, slug = match.groups()
+            title = title.replace('\\u0026', '&')
+            
+            # Filtro base
+            if 'senior' in title.lower() or 'lead' in title.lower() or 'head' in title.lower():
+                continue
+                
+            jobs.append({
+                "id": "uiux-" + slug[:20],
+                "title": title,
+                "company": "UIUXJobsBoard",
+                "location": "Vedi Dettagli",
+                "url": f"https://uiuxjobsboard.com/jobs/{slug}",
+                "source": "🎨 UIUX Jobs",
+                "date": datetime.now().strftime("%d/%m/%Y"),
+                "is_junior": True,
+                "description": "Portati alla pagina sorgente per i dettagli completi su azienda e location."
+            })
+            
+        print(f"   ✅ Trovati {len(jobs)} lavori (Entry/Mid) da UIUXJobsBoard")
+        return jobs
+    except Exception as e:
+        print(f"   ❌ Errore UIUXJobsBoard: {e}")
+        return []
+
 def main():
     all_jobs = []
     
     all_jobs.extend(fetch_jobstobedone())
     all_jobs.extend(fetch_arbeitnow())
+    all_jobs.extend(fetch_devjobsscanner())
+    all_jobs.extend(fetch_uiuxjobsboard())
     
     # Rimuovi duplicati per URL
     seen_urls = set()
