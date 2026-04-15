@@ -190,48 +190,6 @@ def fetch_bebee():
         print(f"   ❌ Errore beBee: {e}")
         return []
 
-def fetch_recruitee():
-    """Scraping mirato per UX Studio e altre agenzie su Recruitee"""
-    print("📡 Scansionando UX Studio (Recruitee)...")
-    sources = [
-        {"name": "UX Studio", "url": "https://uxstudio.recruitee.com/"}
-    ]
-    jobs = []
-    for src in sources:
-        try:
-            req = urllib.request.Request(src["url"], headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=15) as r:
-                html = r.read().decode('utf-8')
-            
-            # Estrazione link e titoli
-            matches = re.finditer(r'href="/o/(.*?)".*?>(.*?)</a>', html)
-            for m in matches:
-                slug, title = m.groups()
-                title = re.sub('<[^>]*>', '', title).strip() # Pulizia tag HTML
-                
-                # Filtro Junior/Intern
-                t_lower = title.lower()
-                if 'senior' in t_lower or 'lead' in t_lower:
-                    continue
-                
-                if any(x in t_lower for x in ['junior', 'intern', 'stage', 'entry', 'trainee']):
-                    jobs.append({
-                        "id": f"rec-{src['name'].lower()}-{slug[:20]}",
-                        "title": title,
-                        "company": src["name"],
-                        "location": "Budapest / Hybrid",
-                        "url": f"{src['url']}o/{slug}",
-                        "source": "🏢 Agency Hub",
-                        "date": datetime.now().strftime("%d/%m/%Y"),
-                        "is_junior": True,
-                        "description": f"Posizione aperta presso l'agenzia {src['name']}."
-                    })
-        except Exception as e:
-            print(f"   ❌ Errore {src['name']}: {e}")
-            
-    print(f"   ✅ Trovati {len(jobs)} lavori da Recruitee Agencies")
-    return jobs
-
 def main():
     all_jobs = []
     
@@ -239,7 +197,6 @@ def main():
     all_jobs.extend(fetch_devjobsscanner())
     all_jobs.extend(fetch_uiuxjobsboard())
     all_jobs.extend(fetch_bebee())
-    all_jobs.extend(fetch_recruitee())
     
     # Rimuovi duplicati per URL
     seen_urls = set()
