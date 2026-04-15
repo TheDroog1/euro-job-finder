@@ -5,61 +5,9 @@ import os
 from datetime import datetime
 
 # ============================================================
-# SCOUT v3 - Raccoglie lavori REALI da fonti gratuite
-# Fonti: Arbeitnow API + Jobstobedone + DevJobScanner
+# SCOUT v4 - Raccoglie lavori REALI tramite SCRAPING
+# Fonti: Jobstobedone + DevJobScanner + UIUXJobsBoard
 # ============================================================
-
-def fetch_arbeitnow():
-    """Recupera lavori dall'API pubblica di Arbeitnow"""
-    print("📡 Scansionando Arbeitnow...")
-    try:
-        req = urllib.request.Request(
-            "https://www.arbeitnow.com/api/job-board-api",
-            headers={'User-Agent': 'Mozilla/5.0'}
-        )
-        with urllib.request.urlopen(req, timeout=15) as response:
-            data = json.loads(response.read().decode('utf-8'))
-        
-        jobs = []
-        for j in data.get("data", []):
-            title_lower = j["title"].lower()
-            desc_lower = j.get("description", "").lower()
-            text = title_lower + " " + desc_lower
-            
-            # Escludi Senior
-            senior_terms = ['senior', 'lead', 'manager', 'head', 'principal', 'staff', 'director', 'architect']
-            if any(x in title_lower for x in senior_terms):
-                continue
-            
-            # Solo Entry Level
-            junior_terms = ['junior', 'intern', 'stage', 'apprendistato', 'trainee', 
-                          'graduate', 'tirocinio', 'praktikum', 'entry', 'werkstudent']
-            is_junior = any(x in text for x in junior_terms)
-            
-            # Solo EN/IT - escludi tedesco/francese/svedese puro
-            forbidden = [' und ', ' die ', ' der ', ' das ', ' mit ', ' für ',
-                        ' avec ', ' pour ', ' une ', ' och ', ' för ']
-            forbidden_count = sum(1 for kw in forbidden if kw in desc_lower)
-            if forbidden_count > 2:
-                continue
-            
-            jobs.append({
-                "id": j["slug"],
-                "title": j["title"],
-                "company": j["company_name"],
-                "location": j["location"],
-                "url": j["url"],
-                "source": "Arbeitnow",
-                "date": datetime.now().strftime("%d/%m/%Y"),
-                "is_junior": is_junior,
-                "description": j.get("description", "")[:500]
-            })
-        
-        print(f"   ✅ Trovati {len(jobs)} lavori da Arbeitnow")
-        return jobs
-    except Exception as e:
-        print(f"   ❌ Errore Arbeitnow: {e}")
-        return []
 
 
 def fetch_jobstobedone():
@@ -197,7 +145,6 @@ def main():
     all_jobs = []
     
     all_jobs.extend(fetch_jobstobedone())
-    all_jobs.extend(fetch_arbeitnow())
     all_jobs.extend(fetch_devjobsscanner())
     all_jobs.extend(fetch_uiuxjobsboard())
     

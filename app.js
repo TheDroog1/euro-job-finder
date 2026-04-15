@@ -1,9 +1,4 @@
 // CONFIGURAZIONE E STATO
-const ARBEITNOW_API = 'https://www.arbeitnow.com/api/job-board-api';
-const JSEARCH_API = 'https://jsearch.p.rapidapi.com/search';
-const JSEARCH_KEY = 'e5fdbe04ecmsh29df789ca9ffd51p1b4e09jsne5d9ea1bd1f4';
-const REMOTIVE_API = 'https://remotive.com/api/remote-jobs';
-
 let allJobs = [];
 let savedJobs = JSON.parse(localStorage.getItem('ej_saved')) || [];
 let applications = JSON.parse(localStorage.getItem('ej_applications')) || [];
@@ -73,121 +68,40 @@ function setupNavigation() {
 }
 
 // =============================================
-// RECUPERO DATI DA TUTTE LE FONTI
+// RECUPERO DATI DALLO SCOUT LOCALE
 // =============================================
 async function fetchAllJobs() {
-    showLoader('Caricamento lavori da LinkedIn, Indeed e altre fonti...');
-    allJobs = [];
-
-    // Lancia tutte le fetch in parallelo
-    const [localJobs, jsearchJobs, arbeitnowJobs, remotiveJobs] = await Promise.all([
-        fetchLocalScout(),
-        fetchJSearch(),
-        fetchArbeitnow(),
-        fetchRemotive()
-    ]);
-
-    // Unisci tutto
-    allJobs = [...jsearchJobs, ...localJobs, ...arbeitnowJobs, ...remotiveJobs];
-
-    // Deduplica per titolo+azienda (slug può differire tra fonti)
-    const seen = new Set();
-    allJobs = allJobs.filter(job => {
-        const key = (job.title + '|' + job.company_name).toLowerCase();
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-    });
-
-    console.log(`Totale lavori caricati: ${allJobs.length}`);
-    applyFilters();
-}
-
-// 1. JSEARCH (LinkedIn, Indeed, Glassdoor via Google for Jobs)
-async function fetchJSearch() {
-    // Query + paese europeo. Il parametro "country" di JSearch funziona benissimo.
-    // Ogni chiamata conta 1 richiesta (budget: 200/mese, ~6 per caricamento)
-    const searches = [
-        { query: 'junior designer intern stage', country: 'it' },
-        { query: 'junior developer intern stage apprendistato', country: 'it' },
-        { query: 'junior UX UI designer intern', country: 'gb' },
-        { query: 'junior frontend developer intern', country: 'de' },
-        { query: 'junior product designer intern', country: 'nl' },
-        { query: 'junior designer developer intern', country: 'es' },
-    ];
-
-    let jobs = [];
+    showLoader('Sincronizzazione lavori in corso...');
     
-    // Fetch in parallelo per velocità
-    const results = await Promise.allSettled(
-        searches.map(async ({ query, country }) => {
-            try {
-                const url = `${JSEARCH_API}?query=${encodeURIComponent(query)}&page=1&num_pages=3&date_posted=month&country=${country}`;
-                const res = await fetch(url, {
-                    headers: {
-                        'X-RapidAPI-Key': JSEARCH_KEY,
-                        'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
-                    }
-                });
-                
-                if (!res.ok) {
-                    console.log(`JSearch [${country}] failed: ${res.status}`);
-                    return [];
-                }
-                
-                const data = await res.json();
-                if (data.data) {
-                    return data.data.map(j => ({
-                        slug: j.job_id || Math.random().toString(),
-                        title: j.job_title || '',
-                        company_name: j.employer_name || '',
-                        location: [j.job_city, j.job_state, j.job_country].filter(Boolean).join(', ') || 'Remote',
-                        url: j.job_apply_link || j.job_google_link || '',
-                        description: j.job_description || '',
-                        tags: [getSourceTag(j.job_publisher), j.job_is_remote ? 'Remote' : ''].filter(Boolean),
-                        remote: j.job_is_remote || false
-                    }));
-                }
-                return [];
-            } catch (e) {
-                console.log(`Errore JSearch [${country}]:`, e);
-                return [];
-            }
-        })
-    );
+    try {
+        const jobs = await fetchLocalScout();
+        allJobs = jobs;
 
-    for (const result of results) {
-        if (result.status === 'fulfilled') {
-            jobs = jobs.concat(result.value);
-        }
+        // Deduplica per titolo+azienda
+        const seen = new Set();
+        allJobs = allJobs.filter(job => {
+            const key = (job.title + '|' + job.company_name).toLowerCase();
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+
+        console.log(`Totale lavori caricati: ${allJobs.length}`);
+        applyFilters();
+    } catch (e) {
+        console.error("Errore caricamento lavori:", e);
+        showLoader('Errore durante il caricamento. Riprova più tardi.');
     }
-    
-    console.log(`JSearch: ${jobs.length} lavori trovati`);
-    return jobs;
 }
 
-function getSourceTag(publisher) {
-    if (!publisher) return '🔍 Google Jobs';
-    const p = publisher.toLowerCase();
-    if (p.includes('linkedin')) return '💼 LinkedIn';
-    if (p.includes('indeed')) return '🟢 Indeed';
-    if (p.includes('glassdoor')) return '🟡 Glassdoor';
-    if (p.includes('ziprecruiter')) return '🟣 ZipRecruiter';
-    return '🔍 ' + publisher;
-}
-
-// 2. DATI SCOUT LOCALI (jobstobedone.works, etc)
+// DATI SCOUT LOCALI (generati da scout.py)
 async function fetchLocalScout() {
     try {
+        // Cache busting per avere sempre i dati più recenti
         const res = await fetch('data/jobs.json?v=' + new Date().getTime());
         if (!res.ok) return [];
         const scoutJobs = await res.json();
         return scoutJobs.map(j => {
-            let sourceTag = '🤖 Scout';
-            if (j.source && j.source.toLowerCase().includes('jobstobedone')) sourceTag = '✨ Jobstobedone';
-            else if (j.source && j.source.toLowerCase().includes('linkedin')) sourceTag = '💼 LinkedIn';
-            else if (j.source && j.source.toLowerCase().includes('indeed')) sourceTag = '🟢 Indeed';
-
             return {
                 slug: j.id || Math.random().toString(),
                 title: j.title || '',
@@ -195,58 +109,14 @@ async function fetchLocalScout() {
                 location: j.location || '',
                 url: j.url || '',
                 description: j.description || '',
-                tags: [sourceTag, j.is_junior ? 'Entry Level' : 'Tech'],
+                tags: [j.source || '🤖 Scout', j.is_junior ? 'Entry Level' : 'Tech'],
                 remote: (j.location || '').toLowerCase().includes('remote')
             };
         });
     } catch (e) {
-        console.log('Errore locale:', e);
+        console.log('Errore fetch locale:', e);
         return [];
     }
-}
-
-// 3. API ARBEITNOW
-async function fetchArbeitnow() {
-    try {
-        const res = await fetch(ARBEITNOW_API);
-        const data = await res.json();
-        return (data.data || []).map(j => ({
-            ...j,
-            tags: j.tags || [],
-            remote: j.remote || false
-        }));
-    } catch (e) {
-        console.log('Errore Arbeitnow:', e);
-        return [];
-    }
-}
-
-// 4. API REMOTIVE (Lavori Tech Remote)
-async function fetchRemotive() {
-    let jobs = [];
-    const categories = ['software-dev', 'design'];
-    for (const cat of categories) {
-        try {
-            const res = await fetch(`${REMOTIVE_API}?category=${cat}`);
-            const data = await res.json();
-            if (data && data.jobs) {
-                const mapped = data.jobs.map(j => ({
-                    slug: j.id ? j.id.toString() : Math.random().toString(),
-                    title: j.title || '',
-                    company_name: j.company_name || '',
-                    location: j.candidate_required_location || 'Remote',
-                    url: j.url || '',
-                    description: j.description || '',
-                    tags: ['🌍 Remotive', j.job_type || ''].filter(Boolean),
-                    remote: true
-                }));
-                jobs = jobs.concat(mapped);
-            }
-        } catch (e) {
-            console.log(`Errore Remotive ${cat}:`, e);
-        }
-    }
-    return jobs;
 }
 
 // =============================================
