@@ -5,13 +5,31 @@ import os
 from datetime import datetime
 
 # ============================================================
-# SCOUT v5 - 100% EUROPE PAN-GLOBAL ENGINE
-# Fonti: Jobstobedone + DevJobScanner + UIUXJobsBoard + beBee
+# SCOUT v6 - ULTRA-FILTERED ENGINE (UX/UI + FRONTEND + IT/EN)
 # ============================================================
 
+def is_it_or_en(text):
+    """Semplice rilevamento lingua: cerca parole comuni IT/EN"""
+    text = text.lower()
+    it_words = ['requisiti', 'esperienza', 'azienda', 'lavoro', 'cercasi', 'offriamo']
+    en_words = ['experience', 'requirements', 'skills', 'apply', 'looking for', 'work', 'job']
+    # Se ha parole IT o EN allora è ok. Altrimenti scarta (es: tedesco, francese stretto)
+    return any(w in text for w in it_words) or any(w in text for w in en_words)
+
+def is_relevant_role(title):
+    """Filtra solo ruoli UX/UI, Design o Frontend"""
+    t = title.lower()
+    # Ruoli desiderati
+    targets = ['ux', 'ui', 'design', 'frontend', 'front-end', 'product designer', 'researcher', 'grafic']
+    # Esclusioni (Senior/Lead/Management)
+    exclusions = ['senior', 'lead', 'head', 'manager', 'director', 'direttore', 'principal', 'architect']
+    
+    if any(ex in t for ex in exclusions): return False
+    return any(tr in t for tr in targets)
+
 def fetch_jobstobedone():
-    """Scraping dei lavori curati da jobstobedone.works (Focus Europa)"""
-    print("📡 Scansionando Jobstobedone.works (Europe Curated)...")
+    """TUTTI i lavori da JTBD (già filtrati alla fonte)"""
+    print("📡 Scansionando Jobstobedone.works (Premium Source)...")
     try:
         req = urllib.request.Request("https://www.jobstobedone.works/", headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as r: html = r.read().decode('utf-8')
@@ -29,17 +47,15 @@ def fetch_jobstobedone():
                 "source": "✨ Jobstobedone",
                 "date": datetime.now().strftime("%d/%m/%Y"),
                 "is_junior": True,
-                "description": f"Curated entry-level design job from Europe-wide sources."
+                "description": "Curated entry-level design role."
             })
-        print(f"   ✅ Trovati {len(jobs)} lavori (Curated)")
+        print(f"   ✅ Trovati {len(jobs)} lavori (JTBD)")
         return jobs
-    except Exception as e:
-        print(f"   ❌ Errore Jobstobedone: {e}"); return []
+    except Exception as e: print(f"   ❌ Errore JTBD: {e}"); return []
 
 def fetch_devjobsscanner():
-    """Massive Aggregator (LinkedIn/TotalJobs/Indeed) - Pan-European Search"""
-    print("📡 Scansionando DevJobScanner (Pan-Europe Aggregator)...")
-    queries = ["ux%20junior", "product%20designer%20junior", "ui%20intern"]
+    print("📡 Scansionando DevJobScanner...")
+    queries = ["ux%20junior", "frontend%20junior", "product%20designer%20junior"]
     jobs = []
     for q in queries:
         try:
@@ -49,7 +65,8 @@ def fetch_devjobsscanner():
             matches = re.finditer(r'\\"company\\":\\"(.*?)\\".*?\\"location\\":\\"(.*?)\\".*?\\"title\\":\\"(.*?)\\".*?\\"url\\":\\"(.*?)\\"', html)
             for m in matches:
                 company, location, title, job_url = m.groups()
-                if any(x in title.lower() for x in ['senior', 'lead', 'head']): continue
+                if not is_relevant_role(title): continue
+                # Qui non abbiamo la descrizione facile, ma il titolo è quasi sempre EN/IT su DJS
                 jobs.append({
                     "id": "djs-" + "".join(filter(str.isalnum, title.lower()))[:15] + "-" + str(len(jobs)),
                     "title": title.replace('\\u0026', '&'),
@@ -59,49 +76,42 @@ def fetch_devjobsscanner():
                     "source": "💻 DevScanner",
                     "date": datetime.now().strftime("%d/%m/%Y"),
                     "is_junior": True,
-                    "description": f"Aggregated role via DevScanner. Location: {location}"
+                    "description": f"Role via DevScanner. Location: {location}"
                 })
-        except Exception as e: print(f"   ❌ Errore DevScanner [{q}]: {e}")
-    print(f"   ✅ Trovati {len(jobs)} lavori (Massive Europe)")
+        except Exception as e: print(f"   ❌ Errore DevScanner: {e}")
     return jobs
 
 def fetch_bebee():
-    """Pan-European beBee Scanner (Bypassing JS constraints across EU domains)"""
-    print("📡 Scansionando beBee (Total Europe Coverage: IT, DE, UK, ES, HU)...")
+    print("📡 Scansionando beBee (EU Search)...")
     urls = [
         "https://bebee.com/it/jobs/role/user-experience-ux",
         "https://bebee.com/hu/jobs/role/product-designer",
         "https://bebee.com/uk/jobs/role/user-experience-ux",
-        "https://bebee.com/de/jobs/role/user-experience-ux",
-        "https://bebee.com/es/jobs/role/user-experience-ux",
-        "https://bebee.com/jobs?q=junior+ux+designer+europe",
-        "https://bebee.com/jobs?q=junior+product+designer+budapest"
+        "https://bebee.com/jobs?q=junior+ux+designer+europe"
     ]
     jobs, seen_ids = [], set()
     for url in urls:
         try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'})
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
             slugs = re.findall(r'([a-zA-Z0-9-]{10,}-[0-9]{8})', html)
             for slug in slugs:
                 if slug in seen_ids or 'global-error' in slug: continue
                 seen_ids.add(slug)
                 title = slug.split('--')[0].replace('-', ' ').title()
-                if any(x in title.lower() for x in ['senior', 'lead', 'direttore', 'head']): continue
+                if not is_relevant_role(title): continue
                 jobs.append({
                     "id": f"bebee-{slug[-8:]}",
                     "title": title, "company": "beBee Network", "location": "Europe / Remote",
                     "url": f"https://bebee.com/job/{slug}", "source": "🐝 beBee",
                     "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
-                    "description": "Portati alla pagina originale per i dettagli sull'azienda e sede specifica."
+                    "description": "Portati alla pagina originale per i dettagli (IT/EN supportati)."
                 })
-        except Exception as e: print(f"   ❌ Errore beBee [{url[:30]}...]: {e}")
-    print(f"   ✅ Trovati {len(jobs)} lavori (All Europe)")
+        except Exception as e: print(f"   ❌ Errore beBee: {e}")
     return jobs
 
 def fetch_uiuxjobsboard():
-    """Global Design Board (US/EU/Remote)"""
-    print("📡 Scansionando UIUXJobsBoard (Design Focus)...")
+    print("📡 Scansionando UIUXJobsBoard...")
     try:
         req = urllib.request.Request("https://uiuxjobsboard.com/", headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
@@ -109,7 +119,7 @@ def fetch_uiuxjobsboard():
         matches = re.finditer(r'\\"title\\",\\"(.*?)\\",\\"slug\\",\\"([0-9a-zA-Z-]+)\\"', html)
         for match in matches:
             title, slug = match.groups()
-            if any(x in title.lower() for x in ['senior', 'lead']): continue
+            if not is_relevant_role(title): continue
             jobs.append({
                 "id": "uiux-" + slug[:20],
                 "title": title.replace('\\u0026', '&'), "company": "Design Agency", "location": "Remote / Europe",
@@ -117,9 +127,8 @@ def fetch_uiuxjobsboard():
                 "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
                 "description": "Specialized UI/UX design board posting."
             })
-        print(f"   ✅ Trovati {len(jobs)} lavori (Design Global)")
         return jobs
-    except Exception as e: print(f"   ❌ Errore UIUXJobsBoard: {e}"); return []
+    except Exception as e: print(f"   ❌ Errore UIUX: {e}"); return []
 
 def main():
     all_jobs = []
@@ -137,7 +146,7 @@ def main():
     os.makedirs("data", exist_ok=True)
     with open("data/jobs.json", "w", encoding="utf-8") as f:
         json.dump(unique_jobs, f, ensure_ascii=False, indent=2)
-    print(f"\n🎯 Sync 100% Europa completato: {len(unique_jobs)} lavori unici salvati.")
+    print(f"\n🎯 Scansione completata. {len(unique_jobs)} lavori filtrati salvati.")
 
 if __name__ == "__main__":
     main()
