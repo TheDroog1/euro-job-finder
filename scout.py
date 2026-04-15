@@ -142,53 +142,59 @@ def fetch_uiuxjobsboard():
         return []
 
 def fetch_bebee():
-    """Scraping specializzato per beBee.com (estrae dai JSON di idratazione)"""
-    print("📡 Scansionando beBee...")
-    try:
-        url = "https://bebee.com/it/jobs/role/user-experience-ux"
-        req = urllib.request.Request(
-            url,
-            headers={
-                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            }
-        )
-        with urllib.request.urlopen(req, timeout=15) as response:
-            html = response.read().decode('utf-8')
+    """Scraping avanzato Bebee via regex su JSON idratazione"""
+    print("📡 Scansionando beBee (IT + Global)...")
+    urls = [
+        "https://bebee.com/it/jobs/role/user-experience-ux",
+        "https://bebee.com/jobs?q=junior+product+designer",
+        "https://bebee.com/jobs?q=ux+intern+budapest"
+    ]
+    
+    jobs = []
+    seen_ids = set()
+    
+    for url in urls:
+        try:
+            req = urllib.request.Request(
+                url,
+                headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+            )
+            with urllib.request.urlopen(req, timeout=15) as response:
+                html = response.read().decode('utf-8')
             
-        jobs = []
-        # beBee usa "jobTitle" e "jobSlug" o "title" e "slug" in base al template
-        matches = re.finditer(r'\\"(?:jobT|t)itle\\":\\"(.*?)\\",\\"(?:jobS|s)lug\\":\\"(.*?)\\"', html)
-        
-        for m in matches:
-            title, slug = m.groups()
-            title = title.replace('\\u0026', '&')
+            # Regex magica per catturare gli slug di beBee
+            slugs = re.findall(r'([a-zA-Z0-9-]{10,}-[0-9]{8})', html)
             
-            # Filtro Junior/Senior + Parole chiave UX
-            t_lower = title.lower()
-            if 'senior' in t_lower or 'lead' in t_lower:
-                continue
-            
-            # Solo se pertinente a UX/Design
-            if not any(x in t_lower for x in ['ux', 'ui', 'design', 'user experience', 'grafic']):
-                continue
+            for slug in slugs:
+                if slug in seen_ids or 'global-error' in slug:
+                    continue
+                seen_ids.add(slug)
                 
-            jobs.append({
-                "id": "bebee-" + slug[:30],
-                "title": title,
-                "company": "beBee Network",
-                "location": "Italia / Remote",
-                "url": f"https://bebee.com/it/job/{slug}",
-                "source": "🐝 beBee",
-                "date": datetime.now().strftime("%d/%m/%Y"),
-                "is_junior": True,
-                "description": "Annuncio trovato via beBee. Clicca per visualizzare l'offerta."
-            })
+                # Crea un titolo leggibile dallo slug
+                title = slug.split('--')[0].replace('-', ' ').title()
+                if 'At' in title: title = title.split(' At ')[0]
+                
+                # Filtro Junior/Senior
+                t_lower = title.lower()
+                if 'senior' in t_lower or 'lead' in t_lower or 'direttore' in t_lower:
+                    continue
+                
+                jobs.append({
+                    "id": f"bebee-{slug[-8:]}",
+                    "title": title,
+                    "company": "beBee Network",
+                    "location": "Vedi Originale",
+                    "url": f"https://bebee.com/job/{slug}",
+                    "source": "🐝 beBee",
+                    "date": datetime.now().strftime("%d/%m/%Y"),
+                    "is_junior": True,
+                    "description": "Annuncio trovato via beBee. Clicca per i dettagli completi."
+                })
+        except Exception as e:
+            print(f"   ❌ Errore beBee URL {url}: {e}")
             
-        print(f"   ✅ Trovati {len(jobs)} lavori da beBee")
-        return jobs
-    except Exception as e:
-        print(f"   ❌ Errore beBee: {e}")
-        return []
+    print(f"   ✅ Trovati {len(jobs)} lavori da beBee")
+    return jobs
 
 def main():
     all_jobs = []
