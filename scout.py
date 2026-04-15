@@ -100,6 +100,7 @@ def fetch_devjobsscanner():
         except Exception as e: print(f"   ❌ Errore DevScanner: {e}")
     return jobs
 
+
 def fetch_bebee():
     print("📡 Scansionando beBee (EU Search)...")
     urls = [
@@ -113,16 +114,13 @@ def fetch_bebee():
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
-            slugs = re.findall(r'([a-zA-Z0-9-]{10,}-[0-9]{8})', html)
+            slugs = re.findall(r'([a-zA-Z0-9-]{10,}-(?:[0-9]{5,10}))', html)
             for slug in slugs:
-                if slug in seen_ids or 'global-error' in slug: continue
+                if slug in seen_ids or 'global-error' in slug or 'user-experience' not in slug.lower() and 'designer' not in slug.lower(): continue
                 seen_ids.add(slug)
                 
-                # Il titolo vero è sfumato nel link, estraiamo l'intero testo formattato bene!
-                raw_text = slug.split('--')[0] if '--' in slug else slug
-                raw_text = re.sub(r'-[0-9]{8}$', '', raw_text) # remove id
+                raw_text = re.sub(r'-[0-9]{5,}$', '', slug.split('--')[0] if '--' in slug else slug)
                 clean_title = raw_text.replace('-', ' ').title()
-                
                 if not is_relevant_role(clean_title): continue
                 
                 jobs.append({
@@ -134,7 +132,7 @@ def fetch_bebee():
                     "source": "🐝 beBee",
                     "date": datetime.now().strftime("%d/%m/%Y"), 
                     "is_junior": True,
-                    "description": f"Dettagli (Azienda, Sede) estraibili visitando il link: {clean_title}"
+                    "description": f"Dettagli completi e nome dell'azienda sono accessibili visitando il link: {clean_title}"
                 })
         except Exception as e: print(f"   ❌ Errore beBee: {e}")
     return jobs
@@ -145,25 +143,28 @@ def fetch_uiuxjobsboard():
         req = urllib.request.Request("https://uiuxjobsboard.com/", headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
         jobs = []
-        matches = re.finditer(r'\\"title\\",\\"(.*?)\\",\\"slug\\",\\"([0-9a-zA-Z-]+)\\"', html)
+        # URL corretto per UIUXJobsBoard è /job/id-titolo-localita
+        matches = re.finditer(r'href=[\'\"](/job/[a-zA-Z0-9-]+)[\'\"]', html)
+        seen_slugs = set()
         for match in matches:
-            title, slug = match.groups()
+            slug_path = match.group(1) # es: /job/1435526-product-designer-london
+            slug = slug_path.replace('/job/', '')
+            if slug in seen_slugs: continue
+            seen_slugs.add(slug)
             
-            # Ricostruiamo un titolo pulito dal raw slug come fatto per beBee
-            clean_title = slug.replace('-', ' ').title()
-            
-            if not is_relevant_role(title) and not is_relevant_role(clean_title): continue
+            clean_title = re.sub(r'^[0-9]+-', '', slug).replace('-', ' ').title()
+            if not is_relevant_role(clean_title): continue
             
             jobs.append({
-                "id": "uiux-" + slug[:20],
-                "title": title.replace('\\u0026', '&') + " (Dettagli nel Link)", 
+                "id": "uiux-" + slug[:15],
+                "title": clean_title, 
                 "company": "UIUX Board 🎨", 
-                "location": "Località nel link",
-                "url": f"https://uiuxjobsboard.com/jobs/{slug}", 
+                "location": "Vedi Dettagli",
+                "url": f"https://uiuxjobsboard.com{slug_path}", 
                 "source": "🎨 UIUX Jobs",
                 "date": datetime.now().strftime("%d/%m/%Y"), 
                 "is_junior": True,
-                "description": f"Questo ruolo è ospitato su UIUXJobsBoard. Contenuto decifrato dal link originale: {clean_title}"
+                "description": f"Annuncio da UIUX Jobs Board. Informazioni originarie: {clean_title}"
             })
         return jobs
     except Exception as e: print(f"   ❌ Errore UIUX: {e}"); return []
@@ -174,8 +175,6 @@ def main():
     all_jobs.extend(fetch_devjobsscanner())
     all_jobs.extend(fetch_bebee())
     all_jobs.extend(fetch_uiuxjobsboard())
-
-
     
     seen_urls, unique_jobs = set(), []
     for j in all_jobs:
