@@ -1,5 +1,9 @@
 // CONFIGURAZIONE E STATO
-const API_URL = 'https://www.arbeitnow.com/api/job-board-api';
+const ARBEITNOW_API = 'https://www.arbeitnow.com/api/job-board-api';
+const JSEARCH_API = 'https://jsearch.p.rapidapi.com/search';
+const JSEARCH_KEY = 'e5fdbe04ecmsh29df789ca9ffd51p1b4e09jsne5d9ea1bd1f4';
+const REMOTIVE_API = 'https://remotive.com/api/remote-jobs';
+
 let allJobs = [];
 let savedJobs = JSON.parse(localStorage.getItem('ej_saved')) || [];
 let applications = JSON.parse(localStorage.getItem('ej_applications')) || [];
@@ -20,7 +24,7 @@ const modalBody = document.getElementById('modal-body');
 document.addEventListener('DOMContentLoaded', () => {
     updateDate();
     setupNavigation();
-    fetchJobs();
+    fetchAllJobs();
     updateStats();
     
     // Filtri rapidi
@@ -30,14 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
             chip.classList.add('active');
             const cat = chip.dataset.category;
             jobQueryInput.value = cat === 'all' ? '' : cat;
-            handleSearch();
+            applyFilters();
         });
     });
 
     // Ricerca e Filtri
-    jobQueryInput.addEventListener('input', debounce(handleSearch, 500));
-    countryFilter.addEventListener('change', handleSearch);
-    englishOnlyToggle.addEventListener('change', handleSearch);
+    jobQueryInput.addEventListener('input', debounce(applyFilters, 500));
+    countryFilter.addEventListener('change', applyFilters);
+    englishOnlyToggle.addEventListener('change', applyFilters);
     
     // Chiudi modal cliccando fuori
     modal.addEventListener('click', (e) => {
@@ -54,134 +58,330 @@ function setupNavigation() {
         tab.addEventListener('click', () => {
             const targetView = tab.dataset.view;
             
-            // Aggiorna UI Tab
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
             
-            // Aggiorna Vista
             views.forEach(v => v.classList.remove('active'));
             document.getElementById(targetView).classList.add('active');
             
-            // Aggiorna Titolo
             pageTitle.textContent = tab.querySelector('.tab-label').textContent;
             
-            // Refresh dati se necessario
             if (targetView === 'tracker-view') renderTracker();
             if (targetView === 'saved-view') renderSaved();
         });
     });
 }
 
-// RECUPERO DATI
-async function fetchJobs() {
-    showLoader();
-    try {
-        // Carica dati reali API
-        const res = await fetch(API_URL);
-        const data = await res.json();
-        allJobs = data.data;
-        
-        // Carica dati dallo Scout (se disponibili)
-        try {
-            const scoutRes = await fetch('data/jobs.json');
-            if (scoutRes.ok) {
-                const scoutJobs = await scoutRes.json();
-                // Merge semplice: aggiungiamo i lavori dello scout in cima
-                // Evitiamo duplicati se possibile
-                const scoutSlugs = new Set(scoutJobs.map(j => j.id));
-                const filteredApiJobs = allJobs.filter(j => !scoutSlugs.has(j.slug));
+// =============================================
+// RECUPERO DATI DA TUTTE LE FONTI
+// =============================================
+async function fetchAllJobs() {
+    showLoader('Caricamento lavori da LinkedIn, Indeed e altre fonti...');
+    allJobs = [];
+
+    // Lancia tutte le fetch in parallelo
+    const [localJobs, jsearchJobs, arbeitnowJobs, remotiveJobs] = await Promise.all([
+        fetchLocalScout(),
+        fetchJSearch(),
+        fetchArbeitnow(),
+        fetchRemotive()
+    ]);
+
+    // Unisci tutto
+    allJobs = [...jsearchJobs, ...localJobs, ...arbeitnowJobs, ...remotiveJobs];
+
+    // Deduplica per titolo+azienda (slug può differire tra fonti)
+    const seen = new Set();
+    allJobs = allJobs.filter(job => {
+        const key = (job.title + '|' + job.company_name).toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
+
+    console.log(`Totale lavori caricati: ${allJobs.length}`);
+    applyFilters();
+}
+
+// 1. JSEARCH (LinkedIn, Indeed, Glassdoor via Google for Jobs)
+async function fetchJSearch() {
+    // Query + paese europeo. Il parametro "country" di JSearch funziona benissimo.
+    // Ogni chiamata conta 1 richiesta (budget: 200/mese, ~6 per caricamento)
+    const searches = [
+        { query: 'junior designer intern stage', country: 'it' },
+        { query: 'junior developer intern stage apprendistato', country: 'it' },
+        { query: 'junior UX UI designer intern', country: 'gb' },
+        { query: 'junior frontend developer intern', country: 'de' },
+        { query: 'junior product designer intern', country: 'nl' },
+        { query: 'junior designer developer intern', country: 'es' },
+    ];
+
+    let jobs = [];
+    
+    // Fetch in parallelo per velocità
+    const results = await Promise.allSettled(
+        searches.map(async ({ query, country }) => {
+            try {
+                const url = `${JSEARCH_API}?query=${encodeURIComponent(query)}&page=1&num_pages=3&date_posted=month&country=${country}`;
+                const res = await fetch(url, {
+                    headers: {
+                        'X-RapidAPI-Key': JSEARCH_KEY,
+                        'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+                    }
+                });
                 
-                // Trasformiamo i lavori scout nel formato dell'API per uniformità
-                const formattedScout = scoutJobs.map(j => ({
-                    slug: j.id,
-                    title: j.title,
-                    company_name: j.company,
-                    location: j.location,
-                    url: j.url,
-                    description: "Selezionato dallo Scout 🤖",
-                    tags: ["🤖 Scout Pick", j.is_junior ? "Junior" : "Tech"],
-                    remote: j.location.toLowerCase().includes('remote')
-                }));
-
-                allJobs = [...formattedScout, ...filteredApiJobs];
+                if (!res.ok) {
+                    console.log(`JSearch [${country}] failed: ${res.status}`);
+                    return [];
+                }
+                
+                const data = await res.json();
+                if (data.data) {
+                    return data.data.map(j => ({
+                        slug: j.job_id || Math.random().toString(),
+                        title: j.job_title || '',
+                        company_name: j.employer_name || '',
+                        location: [j.job_city, j.job_state, j.job_country].filter(Boolean).join(', ') || 'Remote',
+                        url: j.job_apply_link || j.job_google_link || '',
+                        description: j.job_description || '',
+                        tags: [getSourceTag(j.job_publisher), j.job_is_remote ? 'Remote' : ''].filter(Boolean),
+                        remote: j.job_is_remote || false
+                    }));
+                }
+                return [];
+            } catch (e) {
+                console.log(`Errore JSearch [${country}]:`, e);
+                return [];
             }
-        } catch(e) { console.log("Scout data non ancora disponibile."); }
+        })
+    );
 
-        renderJobs(allJobs);
-    } catch (err) {
-        jobsContainer.innerHTML = '<div class="empty-state">Errore di connessione. Riprova più tardi.</div>';
+    for (const result of results) {
+        if (result.status === 'fulfilled') {
+            jobs = jobs.concat(result.value);
+        }
+    }
+    
+    console.log(`JSearch: ${jobs.length} lavori trovati`);
+    return jobs;
+}
+
+function getSourceTag(publisher) {
+    if (!publisher) return '🔍 Google Jobs';
+    const p = publisher.toLowerCase();
+    if (p.includes('linkedin')) return '💼 LinkedIn';
+    if (p.includes('indeed')) return '🟢 Indeed';
+    if (p.includes('glassdoor')) return '🟡 Glassdoor';
+    if (p.includes('ziprecruiter')) return '🟣 ZipRecruiter';
+    return '🔍 ' + publisher;
+}
+
+// 2. DATI SCOUT LOCALI (jobstobedone.works, etc)
+async function fetchLocalScout() {
+    try {
+        const res = await fetch('data/jobs.json?v=' + new Date().getTime());
+        if (!res.ok) return [];
+        const scoutJobs = await res.json();
+        return scoutJobs.map(j => {
+            let sourceTag = '🤖 Scout';
+            if (j.source && j.source.toLowerCase().includes('jobstobedone')) sourceTag = '✨ Jobstobedone';
+            else if (j.source && j.source.toLowerCase().includes('linkedin')) sourceTag = '💼 LinkedIn';
+            else if (j.source && j.source.toLowerCase().includes('indeed')) sourceTag = '🟢 Indeed';
+
+            return {
+                slug: j.id || Math.random().toString(),
+                title: j.title || '',
+                company_name: j.company || '',
+                location: j.location || '',
+                url: j.url || '',
+                description: j.description || '',
+                tags: [sourceTag, j.is_junior ? 'Entry Level' : 'Tech'],
+                remote: (j.location || '').toLowerCase().includes('remote')
+            };
+        });
+    } catch (e) {
+        console.log('Errore locale:', e);
+        return [];
     }
 }
 
-function handleSearch() {
+// 3. API ARBEITNOW
+async function fetchArbeitnow() {
+    try {
+        const res = await fetch(ARBEITNOW_API);
+        const data = await res.json();
+        return (data.data || []).map(j => ({
+            ...j,
+            tags: j.tags || [],
+            remote: j.remote || false
+        }));
+    } catch (e) {
+        console.log('Errore Arbeitnow:', e);
+        return [];
+    }
+}
+
+// 4. API REMOTIVE (Lavori Tech Remote)
+async function fetchRemotive() {
+    let jobs = [];
+    const categories = ['software-dev', 'design'];
+    for (const cat of categories) {
+        try {
+            const res = await fetch(`${REMOTIVE_API}?category=${cat}`);
+            const data = await res.json();
+            if (data && data.jobs) {
+                const mapped = data.jobs.map(j => ({
+                    slug: j.id ? j.id.toString() : Math.random().toString(),
+                    title: j.title || '',
+                    company_name: j.company_name || '',
+                    location: j.candidate_required_location || 'Remote',
+                    url: j.url || '',
+                    description: j.description || '',
+                    tags: ['🌍 Remotive', j.job_type || ''].filter(Boolean),
+                    remote: true
+                }));
+                jobs = jobs.concat(mapped);
+            }
+        } catch (e) {
+            console.log(`Errore Remotive ${cat}:`, e);
+        }
+    }
+    return jobs;
+}
+
+// =============================================
+// FILTRI
+// =============================================
+function applyFilters() {
     const query = jobQueryInput.value.toLowerCase();
     const country = countryFilter.value.toLowerCase();
-    const englishOnly = englishOnlyToggle.checked;
-    const level = levelFilter.value.toLowerCase();
+    const langFilterOn = englishOnlyToggle.checked;
 
     let filtered = allJobs.filter(job => {
-        const titleAndDesc = (job.title + job.description).toLowerCase();
+        const titleLower = (job.title || '').toLowerCase();
+        const descLower = (job.description || '').toLowerCase();
+        const locationLower = (job.location || '').toLowerCase();
+        const companyLower = (job.company_name || '').toLowerCase();
+        
+        // 1. ESCLUSIONE SENIOR (Rigida - sul titolo)
+        const seniorTerms = ['senior', 'sr.', 'lead', 'manager', 'head of', 'principal', 
+                           'staff', 'director', 'architect', 'supervisor', 'vp ', 'chief'];
+        if (seniorTerms.some(term => titleLower.includes(term))) return false;
 
-        // 1. Filtro Parole Chiave / Titolo
-        const matchesQuery = !query || 
-            job.title.toLowerCase().includes(query) || 
-            job.company_name.toLowerCase().includes(query) ||
-            job.tags.some(t => t.toLowerCase().includes(query));
-            
-        // 2. Filtro Nazione
-        const matchesCountry = !country || 
-            job.location.toLowerCase().includes(country);
+        // 2. SOLO ENTRY LEVEL (titolo O descrizione)
+        const juniorTerms = ['junior', 'jr', 'intern', 'stage', 'entry', 'apprendistato', 
+                           'trainee', 'graduate', 'tirocinio', 'praktikum', 'associate',  
+                           'volunteer', 'volontario', 'werkstudent', 'apprentice',
+                           'entry-level', 'entry level', 'beginner'];
+        const isEntry = juniorTerms.some(t => titleLower.includes(t)) ||
+                        juniorTerms.some(t => descLower.includes(t)) ||
+                        (job.tags && job.tags.some(tag => 
+                            juniorTerms.some(t => (tag || '').toLowerCase().includes(t))
+                        ));
+        if (!isEntry) return false;
 
-        // 3. Filtro Lingua (molto più severo)
-        const isEnglishOrItalian = detectAllowedLanguage(job);
-        const matchesLanguage = !englishOnly || isEnglishOrItalian;
-
-        // 4. Filtro Livello (Anti-Senior rigoroso)
-        let matchesLevel = true;
-        if (level === 'internship' || level === 'entry') {
-            const seniorTerms = ['senior', 'lead', 'manager', 'head', 'principal', 'staff', 'direttore', 'director'];
-            const hasSeniorTerm = seniorTerms.some(term => job.title.toLowerCase().includes(term));
-            
-            const juniorTerms = ['intern', 'stage', 'entry', 'junior', 'apprendistato', 'trainee', 'graduate', 'tirocinio'];
-            const hasJuniorTerm = juniorTerms.some(term => titleAndDesc.includes(term));
-            
-            // Se cerco junior, non deve avere termini senior nel titolo
-            matchesLevel = !hasSeniorTerm && (level === '' || hasJuniorTerm || job.title.toLowerCase().includes('junior'));
-        } else if (level) {
-            matchesLevel = titleAndDesc.includes(level);
+        // 3. FILTRO LINGUA (Solo IT/EN)
+        if (langFilterOn) {
+            if (!isItalianOrEnglish(job)) return false;
         }
 
-        return matchesQuery && matchesCountry && matchesLanguage && matchesLevel;
+        // 4. Filtro Parole Chiave
+        const matchesQuery = !query || 
+            titleLower.includes(query) || 
+            companyLower.includes(query) ||
+            (job.tags && job.tags.some(t => (t || '').toLowerCase().includes(query)));
+            
+        // 5. Filtro Nazione
+        const matchesCountry = !country || locationLower.includes(country);
+
+        return matchesQuery && matchesCountry;
     });
 
     renderJobs(filtered);
 }
 
+function isItalianOrEnglish(job) {
+    const title = (job.title || '').toLowerCase();
+    const desc = (job.description || '').toLowerCase();
+    const text = title + ' ' + desc;
+    const loc = (job.location || '').toLowerCase();
+    
+    // Se è in Italia, accettalo sempre
+    if (loc.includes('italy') || loc.includes('italia') || loc.includes('milan') || 
+        loc.includes('rome') || loc.includes('roma') || loc.includes('torino') || 
+        loc.includes('turin') || loc.includes('napoli') || loc.includes('naples') ||
+        loc.includes('firenze') || loc.includes('florence') || loc.includes('bologna') ||
+        loc.includes('padova') || loc.includes('venezia') || loc.includes('genova')) {
+        return true;
+    }
+    
+    // Indicatori forti di lingua NON EN/IT -> scarta
+    const germanIndicators = [' und ', ' die ', ' der ', ' das ', ' mit ', ' für ', ' wir ', ' oder ', ' wenn ', ' nach '];
+    const frenchIndicators = [' avec ', ' pour ', ' nous ', ' dans ', ' sont ', ' être ', ' vous '];
+    const spanishIndicators = [' para ', ' trabajo ', ' empresa ', ' pueden ', ' experiencia en '];
+    const dutchIndicators = [' het ', ' een ', ' van ', ' voor ', ' met ', ' zijn '];
+    const swedishIndicators = [' och ', ' för ', ' som ', ' att ', ' med '];
+    
+    const germanCount = germanIndicators.filter(w => text.includes(w)).length;
+    const frenchCount = frenchIndicators.filter(w => text.includes(w)).length;
+    const spanishCount = spanishIndicators.filter(w => text.includes(w)).length;
+    const dutchCount = dutchIndicators.filter(w => text.includes(w)).length;
+    const swedishCount = swedishIndicators.filter(w => text.includes(w)).length;
+    
+    // Se troviamo 2+ indicatori di una lingua straniera, è scritto in quella lingua
+    if (germanCount >= 2 || frenchCount >= 2 || spanishCount >= 2 || 
+        dutchCount >= 2 || swedishCount >= 2) {
+        return false;
+    }
+    
+    // Indicatori positivi di EN o IT
+    const enIndicators = ['experience', 'requirements', 'responsibilities', 'we are looking',
+                         'the role', 'you will', 'about us', 'apply', 'skills', 'proficiency',
+                         'english', 'team', 'work with', 'join', 'opportunity'];
+    const itIndicators = ['requisiti', 'esperienza', 'responsabilità', 'siamo alla ricerca',
+                         'candidati', 'italiano', 'contratto', 'azienda', 'ruolo', 'competenze',
+                         'cerchiamo', 'offriamo', 'ambiente di lavoro'];
+    
+    const hasEn = enIndicators.some(w => text.includes(w));
+    const hasIt = itIndicators.some(w => text.includes(w));
+    
+    // Se ha indicatori EN o IT, OK. Se non ha nessun indicatore ma nemmeno stranieri, OK (potrebbe essere titolo corto)
+    return hasEn || hasIt || text.length < 200;
+}
+
+// =============================================
 // RENDERING
+// =============================================
 function renderJobs(jobs) {
     if (jobs.length === 0) {
-        jobsContainer.innerHTML = '<div class="empty-state">Nessun lavoro trovato.</div>';
+        jobsContainer.innerHTML = '<div class="empty-state">Nessun lavoro trovato con questi filtri.</div>';
         return;
     }
+
+    // Mostra il conteggio
+    const countEl = document.getElementById('jobs-count');
+    if (countEl) countEl.textContent = `${jobs.length} lavori trovati`;
 
     jobsContainer.innerHTML = jobs.map(job => {
         const isSaved = savedJobs.some(s => s.slug === job.slug);
         const requirements = detectRequirements(job);
+        const safeslug = (job.slug || '').replace(/'/g, "\\'");
         
         return `
-            <div class="ios-card" onclick="showJobDetail('${job.slug}')">
+            <div class="ios-card" onclick="showJobDetail('${safeslug}')">
                 <div class="card-header">
-                    <div class="card-icon">${job.company_name.charAt(0)}</div>
+                    <div class="card-icon">${(job.company_name || '?').charAt(0)}</div>
                     <div class="card-title-group">
                         <div class="card-title">${job.title}</div>
                         <div class="card-subtitle">${job.company_name}</div>
                     </div>
-                    <button class="save-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); toggleSave('${job.slug}')">
+                    <button class="save-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); toggleSave('${safeslug}')">
                         ${isSaved ? '★' : '☆'}
                     </button>
                 </div>
                 <div class="card-tags">
                     ${requirements.map(req => `<span class="mini-tag green">${req}</span>`).join('')}
+                    ${(job.tags || []).filter(t => t && t.startsWith('💼') || t && t.startsWith('🟢') || t && t.startsWith('✨') || t && t.startsWith('🌍') || t && t.startsWith('🔍') || t && t.startsWith('🟡') || t && t.startsWith('🟣')).map(t => `<span class="mini-tag">${t}</span>`).join('')}
                     ${job.remote ? '<span class="mini-tag">Remote</span>' : ''}
                 </div>
                 <div class="card-footer">
@@ -201,7 +401,7 @@ function renderTracker() {
     trackerContainer.innerHTML = applications.map(app => `
         <div class="ios-card">
             <div class="card-header">
-                <div class="card-icon">${app.company.charAt(0)}</div>
+                <div class="card-icon">${(app.company || '?').charAt(0)}</div>
                 <div class="card-title-group">
                     <div class="card-title">${app.title}</div>
                     <div class="card-subtitle">${app.company} • ${app.status}</div>
@@ -223,15 +423,16 @@ function renderSaved() {
     }
     
     savedContainer.innerHTML = savedData.map(job => {
+        const safeslug = (job.slug || '').replace(/'/g, "\\'");
         return `
-            <div class="ios-card" onclick="showJobDetail('${job.slug}')">
+            <div class="ios-card" onclick="showJobDetail('${safeslug}')">
                 <div class="card-header">
-                    <div class="card-icon">${job.company_name.charAt(0)}</div>
+                    <div class="card-icon">${(job.company_name || '?').charAt(0)}</div>
                     <div class="card-title-group">
                         <div class="card-title">${job.title}</div>
                         <div class="card-subtitle">${job.company_name}</div>
                     </div>
-                    <button class="save-btn active" onclick="event.stopPropagation(); toggleSave('${job.slug}')">
+                    <button class="save-btn active" onclick="event.stopPropagation(); toggleSave('${safeslug}')">
                         ★
                     </button>
                 </div>
@@ -243,12 +444,22 @@ function renderSaved() {
     }).join('');
 }
 
+// =============================================
 // MODAL DETTAGLI
+// =============================================
 window.showJobDetail = function(slug) {
     const job = allJobs.find(j => j.slug === slug);
     if (!job) return;
 
     const isSaved = savedJobs.some(s => s.slug === job.slug);
+    const safeslug = slug.replace(/'/g, "\\'");
+    
+    // Pulisci la descrizione HTML
+    const cleanDesc = (job.description || 'Nessuna descrizione disponibile.')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .substring(0, 800);
     
     modalBody.innerHTML = `
         <h2 style="font-size: 1.5rem; margin-bottom: 5px;">${job.title}</h2>
@@ -262,15 +473,15 @@ window.showJobDetail = function(slug) {
         </div>
 
         <div style="background: #F2F2F7; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
-            <p style="font-size: 0.9rem; font-weight: 600; color: var(--ios-secondary-label); margin-bottom: 8px;">Descrizione Preview</p>
-            <div class="job-description-preview" style="font-size: 0.9rem; color: #444; max-height: 150px; overflow-y: auto;">
-                ${job.description}
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--ios-secondary-label); margin-bottom: 8px;">Descrizione</p>
+            <div style="font-size: 0.9rem; color: #444; max-height: 200px; overflow-y: auto; line-height: 1.6;">
+                ${cleanDesc}${cleanDesc.length >= 800 ? '...' : ''}
             </div>
         </div>
 
         <div class="modal-actions">
-            <button class="btn-apple-primary" onclick="applyToJob('${job.slug}')">Candidati Ora</button>
-            <button class="btn-apple-secondary" onclick="toggleSave('${job.slug}'); showJobDetail('${job.slug}')">
+            <button class="btn-apple-primary" onclick="applyToJob('${safeslug}')">Candidati Ora</button>
+            <button class="btn-apple-secondary" onclick="toggleSave('${safeslug}'); showJobDetail('${safeslug}')">
                 ${isSaved ? 'Rimuovi dai Salvati' : 'Salva Lavoro'}
             </button>
         </div>
@@ -279,19 +490,23 @@ window.showJobDetail = function(slug) {
     modal.classList.add('active');
 };
 
+// =============================================
 // LOGICA CORE
+// =============================================
 window.toggleSave = function(slug) {
     const index = savedJobs.findIndex(s => s.slug === slug);
     if (index > -1) savedJobs.splice(index, 1);
     else savedJobs.push({ slug, date: new Date().toLocaleDateString() });
     
     localStorage.setItem('ej_saved', JSON.stringify(savedJobs));
-    renderJobs(allJobs);
+    applyFilters();
     renderSaved();
 };
 
 window.applyToJob = function(slug) {
     const job = allJobs.find(j => j.slug === slug);
+    if (!job) return;
+    
     const appId = Date.now().toString();
     
     applications.push({
@@ -306,14 +521,17 @@ window.applyToJob = function(slug) {
     localStorage.setItem('ej_applications', JSON.stringify(applications));
     updateStats();
     modal.classList.remove('active');
-    alert('Candidatura registrata nel tracker!');
     
-    // Apri link originale
-    window.open(job.url, '_blank');
+    if (job.url) {
+        window.open(job.url, '_blank');
+    }
+    
+    alert('Candidatura registrata nel tracker!');
 };
 
 window.updateAppStatus = function(id) {
     const app = applications.find(a => a.id === id);
+    if (!app) return;
     const stages = ['Inviata', 'Colloquio 1', 'Test Tecnico', 'Colloquio Finale', 'Offerta', 'Rifiutata'];
     const currentIdx = stages.indexOf(app.status);
     const nextIdx = (currentIdx + 1) % stages.length;
@@ -324,39 +542,21 @@ window.updateAppStatus = function(id) {
     updateStats();
 };
 
+// =============================================
 // UTILS
+// =============================================
 function detectRequirements(job) {
     const reqs = [];
-    const text = (job.title + job.description).toLowerCase();
+    const text = ((job.title || '') + (job.description || '')).toLowerCase();
     
-    if (text.includes('ux') || text.includes('ui') || text.includes('figma')) reqs.push('Design Focus');
-    if (text.includes('react') || text.includes('vue') || text.includes('javascript')) reqs.push('JS Master');
-    if (text.includes('intern') || text.includes('junior') || text.includes('stage')) reqs.push('Entry Friendly');
-    if (text.includes('english')) reqs.push('English Req');
+    if (text.includes('ux') || text.includes('ui') || text.includes('figma')) reqs.push('Design');
+    if (text.includes('react') || text.includes('vue') || text.includes('angular')) reqs.push('Frontend');
+    if (text.includes('python') || text.includes('java') || text.includes('node')) reqs.push('Backend');
+    if (text.includes('intern') || text.includes('junior') || text.includes('stage') || text.includes('tirocinio')) reqs.push('Entry Level');
+    if (text.includes('english') || text.includes('inglese')) reqs.push('English');
+    if (text.includes('italiano') || text.includes('italian')) reqs.push('Italiano');
     
-    return reqs.length ? reqs : ['General Tech'];
-}
-
-function detectAllowedLanguage(job) {
-    const text = (job.title + job.description).toLowerCase();
-    
-    // Lista Nera: se contiene troppe parole di queste lingue, scartalo
-    const forbiddenKeywords = [
-        ' und ', ' die ', ' der ', ' das ', ' mit ', ' für ', // Tedesco
-        ' est ', ' avec ', ' nelle ', ' pour ', ' une ', ' des ', // Francese
-        ' och ', ' för ', ' som ' // Svedese/Altro
-    ];
-    
-    const hasForbidden = forbiddenKeywords.filter(kw => text.includes(kw)).length > 2;
-    if (hasForbidden) return false;
-
-    // Lista Bianca: deve contenere termini EN o IT
-    const allowedKeywords = [
-        'english', 'proficiency', 'fluency', 'the role', 'we are looking', 'experience in',
-        'italiano', 'requisiti', 'siamo alla ricerca', 'esperienza', 'responsabilità', 'candidati'
-    ];
-    
-    return allowedKeywords.some(kw => text.includes(kw));
+    return reqs.length ? reqs : ['General'];
 }
 
 function updateStats() {
@@ -369,8 +569,8 @@ function updateDate() {
     document.getElementById('current-date').textContent = new Date().toLocaleDateString('it-IT', options);
 }
 
-function showLoader() {
-    jobsContainer.innerHTML = '<div class="empty-state">Caricamento lavori in corso...</div>';
+function showLoader(msg) {
+    jobsContainer.innerHTML = `<div class="empty-state">${msg || 'Caricamento lavori in corso...'}</div>`;
 }
 
 // RICERCA ESTERNA

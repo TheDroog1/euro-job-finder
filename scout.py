@@ -1,54 +1,137 @@
-import requests
+import urllib.request
 import json
+import re
 import os
 from datetime import datetime
 
-# CONFIGURAZIONE
-SOURCES = {
-    "arbeitnow": "https://www.arbeitnow.com/api/job-board-api",
-}
+# ============================================================
+# SCOUT v2 - Raccoglie lavori REALI da fonti gratuite
+# Fonti: Arbeitnow API + Jobstobedone.works (scraping)
+# ============================================================
 
 def fetch_arbeitnow():
-    print("Scansionando Arbeitnow...")
+    """Recupera lavori dall'API pubblica di Arbeitnow"""
+    print("📡 Scansionando Arbeitnow...")
     try:
-        response = requests.get(SOURCES["arbeitnow"], timeout=10)
-        data = response.json()
+        req = urllib.request.Request(
+            "https://www.arbeitnow.com/api/job-board-api",
+            headers={'User-Agent': 'Mozilla/5.0'}
+        )
+        with urllib.request.urlopen(req, timeout=15) as response:
+            data = json.loads(response.read().decode('utf-8'))
+        
         jobs = []
         for j in data.get("data", []):
-            # Filtro base: tech/design e junior/intern
-            text = (j["title"] + j["description"]).lower()
             title_lower = j["title"].lower()
-            is_senior = any(x in title_lower for x in ['senior', 'lead', 'manager', 'head', 'principal', 'staff'])
-            is_junior = any(x in text for x in ['junior', 'intern', 'stage', 'apprendistato', 'trainee', 'graduate', 'tirocinio'])
+            desc_lower = j.get("description", "").lower()
+            text = title_lower + " " + desc_lower
             
-            if not is_senior:
-                jobs.append({
-                    "id": j["slug"],
-                    "title": j["title"],
-                    "company": j["company_name"],
-                    "location": j["location"],
-                    "url": j["url"],
-                    "source": "Arbeitnow",
-                    "date": datetime.now().strftime("%d/%m/%Y"),
-                    "is_junior": is_junior
-                })
+            # Escludi Senior
+            senior_terms = ['senior', 'lead', 'manager', 'head', 'principal', 'staff', 'director', 'architect']
+            if any(x in title_lower for x in senior_terms):
+                continue
+            
+            # Solo Entry Level
+            junior_terms = ['junior', 'intern', 'stage', 'apprendistato', 'trainee', 
+                          'graduate', 'tirocinio', 'praktikum', 'entry', 'werkstudent']
+            is_junior = any(x in text for x in junior_terms)
+            
+            # Solo EN/IT - escludi tedesco/francese/svedese puro
+            forbidden = [' und ', ' die ', ' der ', ' das ', ' mit ', ' für ',
+                        ' avec ', ' pour ', ' une ', ' och ', ' för ']
+            forbidden_count = sum(1 for kw in forbidden if kw in desc_lower)
+            if forbidden_count > 2:
+                continue
+            
+            jobs.append({
+                "id": j["slug"],
+                "title": j["title"],
+                "company": j["company_name"],
+                "location": j["location"],
+                "url": j["url"],
+                "source": "Arbeitnow",
+                "date": datetime.now().strftime("%d/%m/%Y"),
+                "is_junior": is_junior,
+                "description": j.get("description", "")[:500]
+            })
+        
+        print(f"   ✅ Trovati {len(jobs)} lavori da Arbeitnow")
         return jobs
     except Exception as e:
-        print(f"Errore Arbeitnow: {e}")
+        print(f"   ❌ Errore Arbeitnow: {e}")
         return []
 
+
+def fetch_jobstobedone():
+    """Scraping dei lavori curati da jobstobedone.works"""
+    print("📡 Scansionando Jobstobedone.works...")
+    try:
+        req = urllib.request.Request(
+            "https://www.jobstobedone.works/",
+            headers={'User-Agent': 'Mozilla/5.0'}
+        )
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8')
+        
+        # Il sito usa Next.js e inserisce i dati nel HTML come JSON escaped
+        matches = re.finditer(
+            r'\\\"title\\\":\\\"(.*?)\\\",\\\"company\\\":\\\"(.*?)\\\".*?\\\"url\\\":\\\"(.*?)\\\".*?\\\"location\\\":\\\"(.*?)\\\".*?\\\"is_closed\\\":(true|false)',
+            html
+        )
+        
+        jobs = []
+        for match in matches:
+            title, company, job_url, location, is_closed = match.groups()
+            
+            # Salta le candidature chiuse
+            if is_closed == 'true':
+                continue
+            
+            # Decodifica unicode
+            title = title.replace('\\u0026', '&')
+            company = company.replace('\\u0026', '&')
+            job_url = job_url.replace('\\u0026', '&')
+            
+            jobs.append({
+                "id": "jtbd-" + re.sub(r'[^a-z0-9]', '', title.lower())[:40],
+                "title": title,
+                "company": company,
+                "location": location,
+                "url": job_url,
+                "source": "Jobstobedone",
+                "date": datetime.now().strftime("%d/%m/%Y"),
+                "is_junior": True,
+                "description": f"Curated entry-level design job from jobstobedone.works"
+            })
+        
+        print(f"   ✅ Trovati {len(jobs)} lavori da Jobstobedone")
+        return jobs
+    except Exception as e:
+        print(f"   ❌ Errore Jobstobedone: {e}")
+        return []
+
+
 def main():
-    all_curated_jobs = []
+    all_jobs = []
     
-    # Aggiungi risultati da varie fonti
-    all_curated_jobs.extend(fetch_arbeitnow())
+    all_jobs.extend(fetch_jobstobedone())
+    all_jobs.extend(fetch_arbeitnow())
     
-    # Salva i risultati in data/jobs.json
+    # Rimuovi duplicati per URL
+    seen_urls = set()
+    unique_jobs = []
+    for j in all_jobs:
+        if j["url"] not in seen_urls:
+            seen_urls.add(j["url"])
+            unique_jobs.append(j)
+    
+    # Salva i risultati
     os.makedirs("data", exist_ok=True)
     with open("data/jobs.json", "w", encoding="utf-8") as f:
-        json.dump(all_curated_jobs, f, ensure_ascii=False, indent=2)
+        json.dump(unique_jobs, f, ensure_ascii=False, indent=2)
     
-    print(f"Scansione completata. Trovati {len(all_curated_jobs)} lavori.")
+    print(f"\n🎯 Scansione completata. {len(unique_jobs)} lavori unici salvati in data/jobs.json")
+
 
 if __name__ == "__main__":
     main()
