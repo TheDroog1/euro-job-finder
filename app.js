@@ -350,16 +350,18 @@ window.applyToJob = function(id) {
     localStorage.setItem('ej_applications', JSON.stringify(applications));
     updateStats();
     
-    // 2. Chiudi modal e apri link SUBITO (evita blocchi popup)
+    // 2. Chiudi modal
     modal.classList.remove('active');
     
     if (job.url) {
-        // Apri in una nuova scheda, se fallisce (es. blocco popup) chiedi all'utente
-        const newWindow = window.open(job.url, '_blank');
-        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-            // Fallback per browser molto restrittivi
-            window.location.href = job.url;
-        }
+        // Usa un anchor tag fittizio per bypassare le restrizioni PWA di iOS
+        const a = document.createElement('a');
+        a.href = job.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     }
 };
 
@@ -377,12 +379,11 @@ window.updateAppStatus = function(id) {
 };
 
 window.removeApplication = function(id) {
-    if (confirm('Vuoi rimuovere questa candidatura dal tracker?')) {
-        applications = applications.filter(a => a.id !== id);
-        localStorage.setItem('ej_applications', JSON.stringify(applications));
-        renderTracker();
-        updateStats();
-    }
+    // Rimuoviamo il confirm() perché su iOS PWA viene spesso bloccato o ignorato
+    applications = applications.filter(a => a.id !== id);
+    localStorage.setItem('ej_applications', JSON.stringify(applications));
+    renderTracker();
+    updateStats();
 };
 
 // =============================================
