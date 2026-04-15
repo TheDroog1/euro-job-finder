@@ -141,12 +141,59 @@ def fetch_uiuxjobsboard():
         print(f"   ❌ Errore UIUXJobsBoard: {e}")
         return []
 
+def fetch_bebee():
+    """Scraping specializzato per beBee.com (estrae dai JSON di idratazione)"""
+    print("📡 Scansionando beBee...")
+    try:
+        url = "https://bebee.com/it/jobs/role/user-experience-ux"
+        req = urllib.request.Request(
+            url,
+            headers={
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            }
+        )
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8')
+            
+        jobs = []
+        # beBee inserisce i titoli e i link in un formato JSON quasi leggibile nel HTML
+        # Cerchiamo blocchi che sembrano titoli di lavori
+        titles = re.findall(r'children\\":\\"(.*? UX.*?)\\"', html)
+        links = re.findall(r'href\\":\\"/it/job/(.*?)\\"', html)
+        
+        # Uniamo i dati trovati (metodo euristico basato sulla struttura della pagina)
+        for i in range(min(len(titles), len(links))):
+            title = titles[i].replace('\\u0026', '&')
+            
+            # Filtro Junior/Senior
+            if 'senior' in title.lower() or 'lead' in title.lower():
+                continue
+                
+            jobs.append({
+                "id": "bebee-" + links[i][:30],
+                "title": title,
+                "company": "beBee Network",
+                "location": "Italia / Remote",
+                "url": f"https://bebee.com/it/job/{links[i]}",
+                "source": "🐝 beBee",
+                "date": datetime.now().strftime("%d/%m/%Y"),
+                "is_junior": True,
+                "description": "Annuncio trovato su beBee. Clicca per i dettagli dell'azienda."
+            })
+            
+        print(f"   ✅ Trovati {len(jobs)} lavori da beBee")
+        return jobs
+    except Exception as e:
+        print(f"   ❌ Errore beBee: {e}")
+        return []
+
 def main():
     all_jobs = []
     
     all_jobs.extend(fetch_jobstobedone())
     all_jobs.extend(fetch_devjobsscanner())
     all_jobs.extend(fetch_uiuxjobsboard())
+    all_jobs.extend(fetch_bebee())
     
     # Rimuovi duplicati per URL
     seen_urls = set()
