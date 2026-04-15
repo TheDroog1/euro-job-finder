@@ -146,8 +146,9 @@ def fetch_bebee():
     print("📡 Scansionando beBee (IT + Global)...")
     urls = [
         "https://bebee.com/it/jobs/role/user-experience-ux",
-        "https://bebee.com/jobs?q=junior+product+designer",
-        "https://bebee.com/jobs?q=ux+intern+budapest"
+        "https://bebee.com/hu/jobs/role/user-experience-ux",
+        "https://bebee.com/hu/jobs/role/product-designer",
+        "https://bebee.com/jobs?q=junior+product+designer+budapest"
     ]
     
     jobs = []
