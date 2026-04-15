@@ -105,8 +105,7 @@ def fetch_bebee():
     print("📡 Scansionando beBee (EU Search)...")
     urls = [
         "https://bebee.com/it/jobs/role/user-experience-ux",
-        "https://bebee.com/hu/jobs/role/product-designer",
-        "https://bebee.com/uk/jobs/role/user-experience-ux",
+        "https://bebee.com/jobs/role/product-designer",
         "https://bebee.com/jobs?q=junior+ux+designer+europe"
     ]
     jobs, seen_ids = [], set()
@@ -114,57 +113,79 @@ def fetch_bebee():
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
+            
+            # 1. Cerchiamo link esterni (LinkedIn etc) che beBee elenca
+            # Cerchiamo vari pattern di link esterni supportati da beBee
+            ext_patterns = [
+                r'href=[\'\"](https?://(?:it\.)?linkedin\.com/jobs/view/[^\'\"]+)[\'\"]',
+                r'href=[\'\"](https?://www\.cercojobs\.it/[^\'\"]+)[\'\"]',
+                r'href=[\'\"](https?://open\.app\.jobrapido\.com/[^\'\"]+)[\'\"]'
+            ]
+            
+            for pattern in ext_patterns:
+                external_links = re.findall(pattern, html)
+                for link in external_links:
+                    clean_link = link.replace('\\u0026', '&').replace('\\', '').split('"')[0]
+                    if clean_link in seen_ids: continue
+                    seen_ids.add(clean_link)
+                    
+                    # Estrai un titolo sensato dal link
+                    if 'linkedin.com' in clean_link:
+                        slug = clean_link.split('/view/')[1].split('/')[0]
+                        title = slug.replace('-', ' ').replace('at', '@').title()
+                    else:
+                        title = "Annuncio Esterno (beBee)"
+                        
+                    if not is_relevant_role(title): continue
+                    
+                    jobs.append({
+                        "id": "ext-" + "".join(filter(str.isalnum, clean_link))[-15:],
+                        "title": title, "company": "Sorgente Esterna 🔗", "location": "Europe / Italy",
+                        "url": clean_link, "source": "🐝 beBee (Direct)",
+                        "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
+                        "description": "beBee ti rimanda a questa sorgente esterna. Clicca per i dettagli originali."
+                    })
+
+            # 2. Cerchiamo i classici slug beBee (solo se non abbiamo già lo stesso job via link esterno)
             slugs = re.findall(r'([a-zA-Z0-9-]{10,}-(?:[0-9]{5,10}))', html)
             for slug in slugs:
                 if slug in seen_ids or 'global-error' in slug or 'user-experience' not in slug.lower() and 'designer' not in slug.lower(): continue
                 seen_ids.add(slug)
-                
                 raw_text = re.sub(r'-[0-9]{5,}$', '', slug.split('--')[0] if '--' in slug else slug)
                 clean_title = raw_text.replace('-', ' ').title()
                 if not is_relevant_role(clean_title): continue
                 
                 jobs.append({
                     "id": f"bebee-{slug[-8:]}",
-                    "title": clean_title, 
-                    "company": "beBee 🔗", 
-                    "location": "Località nell'annuncio",
-                    "url": f"https://bebee.com/job/{slug}", 
-                    "source": "🐝 beBee",
-                    "date": datetime.now().strftime("%d/%m/%Y"), 
-                    "is_junior": True,
-                    "description": f"Dettagli completi e nome dell'azienda sono accessibili visitando il link: {clean_title}"
+                    "title": clean_title, "company": "beBee 🔗", "location": "Vedi Annuncio",
+                    # Usiamo il prefisso /it/ per evitare il redirect in colombia/home
+                    "url": f"https://bebee.com/it/job/{slug}", "source": "🐝 beBee",
+                    "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
+                    "description": f"Dettagli completi disponibili al link: {clean_title}"
                 })
         except Exception as e: print(f"   ❌ Errore beBee: {e}")
     return jobs
 
 def fetch_uiuxjobsboard():
-    print("📡 Scansionando UIUXJobsBoard...")
+    print("📡 Scansionando UIUXJobsBoard (Metadati JSON)...")
     try:
         req = urllib.request.Request("https://uiuxjobsboard.com/", headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
         jobs = []
-        # URL corretto per UIUXJobsBoard è /job/id-titolo-localita
-        matches = re.finditer(r'href=[\'\"](/job/[a-zA-Z0-9-]+)[\'\"]', html)
-        seen_slugs = set()
+        # Estraiamo i dati dal blocco JSON di NextJS/Hydration che è più affidabile
+        matches = re.finditer(r'\\"title\\",\\"(.*?)\\",.*?\\"slug\\",\\"(.*?)\\"', html)
         for match in matches:
-            slug_path = match.group(1) # es: /job/1435526-product-designer-london
-            slug = slug_path.replace('/job/', '')
-            if slug in seen_slugs: continue
-            seen_slugs.add(slug)
-            
-            clean_title = re.sub(r'^[0-9]+-', '', slug).replace('-', ' ').title()
-            if not is_relevant_role(clean_title): continue
+            title, slug = match.groups()
+            if not is_relevant_role(title): continue
             
             jobs.append({
                 "id": "uiux-" + slug[:15],
-                "title": clean_title, 
-                "company": "UIUX Board 🎨", 
-                "location": "Vedi Dettagli",
-                "url": f"https://uiuxjobsboard.com{slug_path}", 
+                "title": title.replace('\\u0026', '&'), 
+                "company": "UIUX Board 🎨", "location": "Remote / EU",
+                "url": f"https://uiuxjobsboard.com/job/{slug}", 
                 "source": "🎨 UIUX Jobs",
-                "date": datetime.now().strftime("%d/%m/%Y"), 
-                "is_junior": True,
-                "description": f"Annuncio da UIUX Jobs Board. Informazioni originarie: {clean_title}"
+                "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
+                "description": f"Postazione specializzata per Design. Titolo: {title}"
             })
         return jobs
     except Exception as e: print(f"   ❌ Errore UIUX: {e}"); return []
