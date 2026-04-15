@@ -333,8 +333,8 @@ window.applyToJob = function(id) {
     const job = allJobs.find(j => j.id === id);
     if (!job) return;
     
+    // 1. Registra nel tracker
     const appId = Date.now().toString();
-    
     applications.push({
         id: appId,
         jobId: job.id,
@@ -346,13 +346,18 @@ window.applyToJob = function(id) {
     
     localStorage.setItem('ej_applications', JSON.stringify(applications));
     updateStats();
+    
+    // 2. Chiudi modal e apri link SUBITO (evita blocchi popup)
     modal.classList.remove('active');
     
     if (job.url) {
-        window.open(job.url, '_blank');
+        // Apri in una nuova scheda, se fallisce (es. blocco popup) chiedi all'utente
+        const newWindow = window.open(job.url, '_blank');
+        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+            // Fallback per browser molto restrittivi
+            window.location.href = job.url;
+        }
     }
-    
-    alert('Candidatura registrata nel tracker!');
 };
 
 window.updateAppStatus = function(id) {
