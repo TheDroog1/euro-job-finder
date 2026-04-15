@@ -11,7 +11,7 @@ const appContent = document.getElementById('app-content');
 const pageTitle = document.getElementById('page-title');
 const jobQueryInput = document.getElementById('job-query');
 const countryFilter = document.getElementById('country-filter');
-const englishOnlyToggle = document.getElementById('english-only');
+
 const modal = document.getElementById('job-detail-modal');
 const modalBody = document.getElementById('modal-body');
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ricerca e Filtri
     jobQueryInput.addEventListener('input', debounce(applyFilters, 500));
     countryFilter.addEventListener('change', applyFilters);
-    englishOnlyToggle.addEventListener('change', applyFilters);
+
     
     // Chiudi modal cliccando fuori
     modal.addEventListener('click', (e) => {
@@ -109,6 +109,7 @@ async function fetchLocalScout() {
                 location: j.location || '',
                 url: j.url || '',
                 description: j.description || '',
+                source: j.source || '🤖 Scout',
                 tags: [j.source || '🤖 Scout', j.is_junior ? 'Entry Level' : 'Tech'],
                 remote: (j.location || '').toLowerCase().includes('remote')
             };
