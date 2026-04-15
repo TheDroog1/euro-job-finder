@@ -80,7 +80,7 @@ async function fetchAllJobs() {
         // Deduplica per titolo+azienda
         const seen = new Set();
         allJobs = allJobs.filter(job => {
-            const key = (job.title + '|' + job.company_name).toLowerCase();
+            const key = (job.title + '|' + job.company).toLowerCase();
             if (seen.has(key)) return false;
             seen.add(key);
             return true;
@@ -103,9 +103,9 @@ async function fetchLocalScout() {
         const scoutJobs = await res.json();
         return scoutJobs.map(j => {
             return {
-                slug: j.id || Math.random().toString(),
+                id: j.id || Math.random().toString(),
                 title: j.title || '',
-                company_name: j.company || '',
+                company: j.company || '',
                 location: j.location || '',
                 url: j.url || '',
                 description: j.description || '',
@@ -131,7 +131,7 @@ function applyFilters() {
         const titleLower = (job.title || '').toLowerCase();
         const descLower = (job.description || '').toLowerCase();
         const locationLower = (job.location || '').toLowerCase();
-        const companyLower = (job.company_name || '').toLowerCase();
+        const companyLower = (job.company || '').toLowerCase();
         
         // 1. ESCLUSIONE SENIOR (Rigida - sul titolo)
         const seniorTerms = ['senior', 'sr.', 'lead', 'manager', 'head of', 'principal', 
@@ -288,7 +288,7 @@ window.showJobDetail = function(id) {
     
     modalBody.innerHTML = `
         <h2 style="font-size: 1.5rem; margin-bottom: 5px;">${job.title}</h2>
-        <p style="color: var(--ios-secondary-label); margin-bottom: 20px;">${job.company_name} • ${job.location}</p>
+        <p style="color: var(--ios-secondary-label); margin-bottom: 20px;">${job.company} • ${job.location}</p>
         
         <div class="section-title-group" style="padding: 10px 0;">
             <h3 style="font-size: 1.1rem;">Requisiti Minimi</h3>
