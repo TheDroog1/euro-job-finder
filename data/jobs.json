@@ -449,5 +449,16 @@
     "date": "15/04/2026",
     "is_junior": true,
     "description": "Portati alla pagina sorgente per i dettagli completi su azienda e location."
+  },
+  {
+    "id": "rec-ux studio-junior-product-desig",
+    "title": "Junior Product Designer",
+    "company": "UX Studio",
+    "location": "Budapest / Hybrid",
+    "url": "https://uxstudio.recruitee.com/o/junior-product-designer",
+    "source": "🏢 Agency Hub",
+    "date": "15/04/2026",
+    "is_junior": true,
+    "description": "Posizione aperta presso l'agenzia UX Studio."
   }
 ]
