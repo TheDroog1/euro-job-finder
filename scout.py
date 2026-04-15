@@ -100,64 +100,10 @@ def fetch_devjobsscanner():
         except Exception as e: print(f"   ❌ Errore DevScanner: {e}")
     return jobs
 
-def fetch_bebee():
-    print("📡 Scansionando beBee (EU Search)...")
-    urls = [
-        "https://bebee.com/it/jobs/role/user-experience-ux",
-        "https://bebee.com/hu/jobs/role/product-designer",
-        "https://bebee.com/uk/jobs/role/user-experience-ux",
-        "https://bebee.com/jobs?q=junior+ux+designer+europe"
-    ]
-    jobs, seen_ids = [], set()
-    for url in urls:
-        try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
-            slugs = re.findall(r'([a-zA-Z0-9-]{10,}-[0-9]{8})', html)
-            for slug in slugs:
-                if slug in seen_ids or 'global-error' in slug: continue
-                seen_ids.add(slug)
-                title = slug.split('--')[0].replace('-', ' ').title()
-                if not is_relevant_role(title): continue
-                
-                # beBee di solito aggiusta in base all'endpoint o dominio, usiamo un fallback generico per location
-                jobs.append({
-                    "id": f"bebee-{slug[-8:]}",
-                    "title": title, "company": "beBee Network", "location": "Europe / Remote",
-                    "url": f"https://bebee.com/job/{slug}", "source": "🐝 beBee",
-                    "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
-                    "description": "Portati alla pagina originale per i dettagli (IT/EN supportati)."
-                })
-        except Exception as e: print(f"   ❌ Errore beBee: {e}")
-    return jobs
-
-def fetch_uiuxjobsboard():
-    print("📡 Scansionando UIUXJobsBoard...")
-    try:
-        req = urllib.request.Request("https://uiuxjobsboard.com/", headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
-        jobs = []
-        matches = re.finditer(r'\\"title\\",\\"(.*?)\\",\\"slug\\",\\"([0-9a-zA-Z-]+)\\"', html)
-        for match in matches:
-            title, slug = match.groups()
-            if not is_relevant_role(title): continue
-            
-            jobs.append({
-                "id": "uiux-" + slug[:20],
-                "title": title.replace('\\u0026', '&'), "company": "Design Agency", "location": "Europe / Remote",
-                "url": f"https://uiuxjobsboard.com/jobs/{slug}", "source": "🎨 UIUX Jobs",
-                "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
-                "description": "Specialized UI/UX design board posting."
-            })
-        return jobs
-    except Exception as e: print(f"   ❌ Errore UIUX: {e}"); return []
-
 def main():
     all_jobs = []
     all_jobs.extend(fetch_jobstobedone())
     all_jobs.extend(fetch_devjobsscanner())
-    all_jobs.extend(fetch_uiuxjobsboard())
-    all_jobs.extend(fetch_bebee())
     
     seen_urls, unique_jobs = set(), []
     for j in all_jobs:

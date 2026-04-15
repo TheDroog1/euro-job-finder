@@ -296,10 +296,13 @@ h1 {
     font-weight: 700;
     font-size: 1.1rem;
     color: var(--ios-label);
-    margin-bottom: 2px;
-    white-space: nowrap;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.3;
 }
 
 .card-subtitle {
