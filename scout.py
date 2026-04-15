@@ -39,17 +39,23 @@ def is_in_europe(location):
     return True
 
 def fetch_jobstobedone():
-    """TUTTI i lavori da JTBD (già filtrati alla fonte)"""
+    """TUTTI i lavori da JTBD (già filtrati alla fonte con descrizione)"""
     print("📡 Scansionando Jobstobedone.works (Premium Source)...")
     try:
         req = urllib.request.Request("https://www.jobstobedone.works/", headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as r: html = r.read().decode('utf-8')
-        matches = re.finditer(r'\\\"title\\\":\\\"(.*?)\\\",\\\"company\\\":\\\"(.*?)\\\".*?\\\"url\\\":\\\"(.*?)\\\".*?\\\"location\\\":\\\"(.*?)\\\".*?\\\"is_closed\\\":(true|false)', html)
+        
+        # Regex migliorata per catturare anche la descrizione
+        matches = re.finditer(r'\\\"title\\\":\\\"(.*?)\\\",\\\"company\\\":\\\"(.*?)\\\",\\\"description\\\":\\\"(.*?)\\\",\\\"url\\\":\\\"(.*?)\\\",.*?\\\"location\\\":\\\"(.*?)\\\",.*?\\\"is_closed\\\":(true|false)', html)
+        
         jobs = []
         for match in matches:
-            title, company, job_url, location, is_closed = match.groups()
+            title, company, desc, job_url, location, is_closed = match.groups()
             if is_closed == 'true': continue
-            # JTBD è già filtrato in Europa, saltiamo il controllo
+            
+            # Pulizia descrizione (rimozione escape e limitazione)
+            clean_desc = desc.replace('\\n', '\n').replace('\\u0026', '&').replace('\\"', '"')
+            
             jobs.append({
                 "id": "jtbd-" + re.sub(r'[^a-z0-9]', '', title.lower())[:40],
                 "title": title.replace('\\u0026', '&'),
@@ -59,9 +65,9 @@ def fetch_jobstobedone():
                 "source": "✨ Jobstobedone",
                 "date": datetime.now().strftime("%d/%m/%Y"),
                 "is_junior": True,
-                "description": "Curated entry-level design role."
+                "description": clean_desc if clean_desc else "Annuncio curato per Junior Profile."
             })
-        print(f"   ✅ Trovati {len(jobs)} lavori (JTBD)")
+        print(f"   ✅ Trovati {len(jobs)} lavori (JTBD con descrizioni)")
         return jobs
     except Exception as e: print(f"   ❌ Errore JTBD: {e}"); return []
 
