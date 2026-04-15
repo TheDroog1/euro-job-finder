@@ -139,11 +139,42 @@ def fetch_bebee():
         except Exception as e: print(f"   ❌ Errore beBee: {e}")
     return jobs
 
+def fetch_uiuxjobsboard():
+    print("📡 Scansionando UIUXJobsBoard...")
+    try:
+        req = urllib.request.Request("https://uiuxjobsboard.com/", headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=15) as response: html = response.read().decode('utf-8')
+        jobs = []
+        matches = re.finditer(r'\\"title\\",\\"(.*?)\\",\\"slug\\",\\"([0-9a-zA-Z-]+)\\"', html)
+        for match in matches:
+            title, slug = match.groups()
+            
+            # Ricostruiamo un titolo pulito dal raw slug come fatto per beBee
+            clean_title = slug.replace('-', ' ').title()
+            
+            if not is_relevant_role(title) and not is_relevant_role(clean_title): continue
+            
+            jobs.append({
+                "id": "uiux-" + slug[:20],
+                "title": title.replace('\\u0026', '&') + " (Dettagli nel Link)", 
+                "company": "UIUX Board 🎨", 
+                "location": "Località nel link",
+                "url": f"https://uiuxjobsboard.com/jobs/{slug}", 
+                "source": "🎨 UIUX Jobs",
+                "date": datetime.now().strftime("%d/%m/%Y"), 
+                "is_junior": True,
+                "description": f"Questo ruolo è ospitato su UIUXJobsBoard. Contenuto decifrato dal link originale: {clean_title}"
+            })
+        return jobs
+    except Exception as e: print(f"   ❌ Errore UIUX: {e}"); return []
+
 def main():
     all_jobs = []
     all_jobs.extend(fetch_jobstobedone())
     all_jobs.extend(fetch_devjobsscanner())
     all_jobs.extend(fetch_bebee())
+    all_jobs.extend(fetch_uiuxjobsboard())
+
 
     
     seen_urls, unique_jobs = set(), []
