@@ -220,28 +220,6 @@
     "description": "Do you want to have an internship with a mobile games studio, who has brought the world the most downloaded title ever?"
   },
   {
-    "id": "bebee-99509889",
-    "title": "User Experience Designer At Northline Studio",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/user-experience-designer-at-northline-studio-4399509889",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: User Experience Designer At Northline Studio"
-  },
-  {
-    "id": "bebee-99522178",
-    "title": "Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ui-visual-user-experience-designer-at-3bmeteo-meteosolutions-srl-4399522178",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl"
-  },
-  {
     "id": "bebee-60823345",
     "title": "User Experience Ux Designer Internship Pirelli Bari Puglia",
     "company": "beBee 🔗",
@@ -319,6 +297,28 @@
     "description": "Dettagli completi disponibili al link: Ux Designer Agile User Centered Prototyping Bitrock Milano"
   },
   {
+    "id": "bebee-99509889",
+    "title": "User Experience Designer At Northline Studio",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/user-experience-designer-at-northline-studio-4399509889",
+    "source": "🐝 beBee",
+    "date": "15/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: User Experience Designer At Northline Studio"
+  },
+  {
+    "id": "bebee-99522178",
+    "title": "Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ui-visual-user-experience-designer-at-3bmeteo-meteosolutions-srl-4399522178",
+    "source": "🐝 beBee",
+    "date": "15/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl"
+  },
+  {
     "id": "bebee-es-64166",
     "title": "Staff Product Designer Ui Focused Menlo Ventures Malaga",
     "company": "beBee 🔗",
@@ -363,17 +363,6 @@
     "description": "Dettagli completi disponibili al link: Junior Ux Designer Bending Spoons Barcelona"
   },
   {
-    "id": "bebee-62215950",
-    "title": "Ux Designer Bending Spoons Seville Andalusia",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-seville-andalusia--theirstack-662215950",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Seville Andalusia"
-  },
-  {
     "id": "bebee-62215952",
     "title": "Ux Designer Bending Spoons Malaga Andalusia",
     "company": "beBee 🔗",
@@ -383,6 +372,17 @@
     "date": "15/04/2026",
     "is_junior": true,
     "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Malaga Andalusia"
+  },
+  {
+    "id": "bebee-62215950",
+    "title": "Ux Designer Bending Spoons Seville Andalusia",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-seville-andalusia--theirstack-662215950",
+    "source": "🐝 beBee",
+    "date": "15/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Seville Andalusia"
   },
   {
     "id": "bebee-62215951",
@@ -429,17 +429,6 @@
     "description": "Dettagli completi disponibili al link: Ux Product Designer Nubeseo Benameji"
   },
   {
-    "id": "bebee-04122904",
-    "title": "Ux Designer Bending Spoons Malaga",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-malaga--fj-2104122904",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Malaga"
-  },
-  {
     "id": "bebee-04122917",
     "title": "Ux Designer Bending Spoons Bilbao",
     "company": "beBee 🔗",
@@ -462,48 +451,15 @@
     "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Rosalejo"
   },
   {
-    "id": "bebee-62216122",
-    "title": "Junior Ux Designer Bending Spoons Malaga Andalusia",
+    "id": "bebee-04122904",
+    "title": "Ux Designer Bending Spoons Malaga",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/junior-ux-designer-bending-spoons-malaga-andalusia--theirstack-662216122",
+    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-malaga--fj-2104122904",
     "source": "🐝 beBee",
     "date": "15/04/2026",
     "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Junior Ux Designer Bending Spoons Malaga Andalusia"
-  },
-  {
-    "id": "bebee-62024340",
-    "title": "Product Designer Ux Jungle",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/product-designer-ux-jungle--theirstack-662024340",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Product Designer Ux Jungle"
-  },
-  {
-    "id": "bebee-62216124",
-    "title": "Junior Ux Designer Bending Spoons Bilbao Basque Country",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/junior-ux-designer-bending-spoons-bilbao-basque-country--theirstack-662216124",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Junior Ux Designer Bending Spoons Bilbao Basque Country"
-  },
-  {
-    "id": "bebee-99113182",
-    "title": "Ux Ui Designer At Bending Spoons",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4399113182",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Ui Designer At Bending Spoons"
+    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Malaga"
   },
   {
     "id": "bebee-99119082",
@@ -511,6 +467,17 @@
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
     "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4399119082",
+    "source": "🐝 beBee",
+    "date": "15/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ux Ui Designer At Bending Spoons"
+  },
+  {
+    "id": "bebee-99113182",
+    "title": "Ux Ui Designer At Bending Spoons",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4399113182",
     "source": "🐝 beBee",
     "date": "15/04/2026",
     "is_junior": true,
@@ -550,37 +517,37 @@
     "description": "Dettagli completi disponibili al link: Ux Ui Product Designer At Nubeseo"
   },
   {
-    "id": "bebee-99105236",
+    "id": "bebee-01173905",
+    "title": "Junior Ux Ui Designer At Meetup",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/junior-ux-ui-designer-at-meetup-4401173905",
+    "source": "🐝 beBee",
+    "date": "15/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Junior Ux Ui Designer At Meetup"
+  },
+  {
+    "id": "bebee-01138399",
     "title": "Junior Ux Ui Designer At Bending Spoons",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/junior-ux-ui-designer-at-bending-spoons-4399105236",
+    "url": "https://bebee.com/it/job/junior-ux-ui-designer-at-bending-spoons-4401138399",
     "source": "🐝 beBee",
     "date": "15/04/2026",
     "is_junior": true,
     "description": "Dettagli completi disponibili al link: Junior Ux Ui Designer At Bending Spoons"
   },
   {
-    "id": "bebee-99368181",
-    "title": "Product Designer Ux Ui At Jungle",
+    "id": "bebee-01190627",
+    "title": "Junior Ux Ui Designer At Meetup",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/product-designer-ux-ui-at-jungle-4399368181",
+    "url": "https://bebee.com/it/job/junior-ux-ui-designer-at-meetup-4401190627",
     "source": "🐝 beBee",
     "date": "15/04/2026",
     "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Product Designer Ux Ui At Jungle"
-  },
-  {
-    "id": "bebee-99119084",
-    "title": "Junior Ux Ui Designer At Bending Spoons",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/junior-ux-ui-designer-at-bending-spoons-4399119084",
-    "source": "🐝 beBee",
-    "date": "15/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Junior Ux Ui Designer At Bending Spoons"
+    "description": "Dettagli completi disponibili al link: Junior Ux Ui Designer At Meetup"
   },
   {
     "id": "uiux-1436126-product",
