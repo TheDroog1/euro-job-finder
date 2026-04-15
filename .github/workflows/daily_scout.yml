@@ -2,7 +2,7 @@ name: Daily Job Scout
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Ogni giorno alle 4:00 AM
+    - cron: '0 */6 * * *' # Ogni 6 ore (ore 0, 6, 12, 18)
   workflow_dispatch: # Permette di lanciarlo manualmente da GitHub
 
 jobs:
