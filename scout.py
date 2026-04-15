@@ -27,6 +27,17 @@ def is_relevant_role(title):
     if any(ex in t for ex in exclusions): return False
     return any(tr in t for tr in targets)
 
+def is_in_europe(location):
+    """Filtra le nazioni fuori Europa più comuni che gli aggregatori potrebbero includere per errore."""
+    loc = location.lower()
+    # Nazioni/Continenti da escludere
+    non_eu = ['india', 'usa', 'united states', 'america', 'canada', 'australia', 'brazil', 'china', 
+              'japan', 'singapore', 'mexico', 'remote us', 'remote usa', 'africa', 'asia', 
+              'new york', 'california', 'texas', 'san francisco']
+    if any(n in loc for n in non_eu): 
+        return False
+    return True
+
 def fetch_jobstobedone():
     """TUTTI i lavori da JTBD (già filtrati alla fonte)"""
     print("📡 Scansionando Jobstobedone.works (Premium Source)...")
@@ -38,6 +49,7 @@ def fetch_jobstobedone():
         for match in matches:
             title, company, job_url, location, is_closed = match.groups()
             if is_closed == 'true': continue
+            # JTBD è già filtrato in Europa, saltiamo il controllo
             jobs.append({
                 "id": "jtbd-" + re.sub(r'[^a-z0-9]', '', title.lower())[:40],
                 "title": title.replace('\\u0026', '&'),
@@ -59,13 +71,14 @@ def fetch_devjobsscanner():
     jobs = []
     for q in queries:
         try:
-            url = f"https://www.devjobsscanner.com/search/?search={q}"
+            url = f"https://www.devjobsscanner.com/search/?search={q}&location=Europe"
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             with urllib.request.urlopen(req, timeout=15) as r: html = r.read().decode('utf-8')
             matches = re.finditer(r'\\"company\\":\\"(.*?)\\".*?\\"location\\":\\"(.*?)\\".*?\\"title\\":\\"(.*?)\\".*?\\"url\\":\\"(.*?)\\"', html)
             for m in matches:
                 company, location, title, job_url = m.groups()
                 if not is_relevant_role(title): continue
+                if not is_in_europe(location): continue
                 # Qui non abbiamo la descrizione facile, ma il titolo è quasi sempre EN/IT su DJS
                 jobs.append({
                     "id": "djs-" + "".join(filter(str.isalnum, title.lower()))[:15] + "-" + str(len(jobs)),
@@ -100,6 +113,8 @@ def fetch_bebee():
                 seen_ids.add(slug)
                 title = slug.split('--')[0].replace('-', ' ').title()
                 if not is_relevant_role(title): continue
+                
+                # beBee di solito aggiusta in base all'endpoint o dominio, usiamo un fallback generico per location
                 jobs.append({
                     "id": f"bebee-{slug[-8:]}",
                     "title": title, "company": "beBee Network", "location": "Europe / Remote",
@@ -120,9 +135,10 @@ def fetch_uiuxjobsboard():
         for match in matches:
             title, slug = match.groups()
             if not is_relevant_role(title): continue
+            
             jobs.append({
                 "id": "uiux-" + slug[:20],
-                "title": title.replace('\\u0026', '&'), "company": "Design Agency", "location": "Remote / Europe",
+                "title": title.replace('\\u0026', '&'), "company": "Design Agency", "location": "Europe / Remote",
                 "url": f"https://uiuxjobsboard.com/jobs/{slug}", "source": "🎨 UIUX Jobs",
                 "date": datetime.now().strftime("%d/%m/%Y"), "is_junior": True,
                 "description": "Specialized UI/UX design board posting."

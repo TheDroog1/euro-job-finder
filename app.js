@@ -125,7 +125,7 @@ async function fetchLocalScout() {
 function applyFilters() {
     const query = jobQueryInput.value.toLowerCase();
     const country = countryFilter.value.toLowerCase();
-    const langFilterOn = englishOnlyToggle.checked;
+
 
     let filtered = allJobs.filter(job => {
         const titleLower = (job.title || '').toLowerCase();
@@ -150,11 +150,6 @@ function applyFilters() {
                         ));
         if (!isEntry) return false;
 
-        // 3. FILTRO LINGUA (Solo IT/EN)
-        if (langFilterOn) {
-            if (!isItalianOrEnglish(job)) return false;
-        }
-
         // 4. Filtro Parole Chiave
         const matchesQuery = !query || 
             titleLower.includes(query) || 
@@ -170,54 +165,7 @@ function applyFilters() {
     renderJobs(filtered);
 }
 
-function isItalianOrEnglish(job) {
-    const title = (job.title || '').toLowerCase();
-    const desc = (job.description || '').toLowerCase();
-    const text = title + ' ' + desc;
-    const loc = (job.location || '').toLowerCase();
-    
-    // Se è in Italia, accettalo sempre
-    if (loc.includes('italy') || loc.includes('italia') || loc.includes('milan') || 
-        loc.includes('rome') || loc.includes('roma') || loc.includes('torino') || 
-        loc.includes('turin') || loc.includes('napoli') || loc.includes('naples') ||
-        loc.includes('firenze') || loc.includes('florence') || loc.includes('bologna') ||
-        loc.includes('padova') || loc.includes('venezia') || loc.includes('genova')) {
-        return true;
-    }
-    
-    // Indicatori forti di lingua NON EN/IT -> scarta
-    const germanIndicators = [' und ', ' die ', ' der ', ' das ', ' mit ', ' für ', ' wir ', ' oder ', ' wenn ', ' nach '];
-    const frenchIndicators = [' avec ', ' pour ', ' nous ', ' dans ', ' sont ', ' être ', ' vous '];
-    const spanishIndicators = [' para ', ' trabajo ', ' empresa ', ' pueden ', ' experiencia en '];
-    const dutchIndicators = [' het ', ' een ', ' van ', ' voor ', ' met ', ' zijn '];
-    const swedishIndicators = [' och ', ' för ', ' som ', ' att ', ' med '];
-    
-    const germanCount = germanIndicators.filter(w => text.includes(w)).length;
-    const frenchCount = frenchIndicators.filter(w => text.includes(w)).length;
-    const spanishCount = spanishIndicators.filter(w => text.includes(w)).length;
-    const dutchCount = dutchIndicators.filter(w => text.includes(w)).length;
-    const swedishCount = swedishIndicators.filter(w => text.includes(w)).length;
-    
-    // Se troviamo 2+ indicatori di una lingua straniera, è scritto in quella lingua
-    if (germanCount >= 2 || frenchCount >= 2 || spanishCount >= 2 || 
-        dutchCount >= 2 || swedishCount >= 2) {
-        return false;
-    }
-    
-    // Indicatori positivi di EN o IT
-    const enIndicators = ['experience', 'requirements', 'responsibilities', 'we are looking',
-                         'the role', 'you will', 'about us', 'apply', 'skills', 'proficiency',
-                         'english', 'team', 'work with', 'join', 'opportunity'];
-    const itIndicators = ['requisiti', 'esperienza', 'responsabilità', 'siamo alla ricerca',
-                         'candidati', 'italiano', 'contratto', 'azienda', 'ruolo', 'competenze',
-                         'cerchiamo', 'offriamo', 'ambiente di lavoro'];
-    
-    const hasEn = enIndicators.some(w => text.includes(w));
-    const hasIt = itIndicators.some(w => text.includes(w));
-    
-    // Se ha indicatori EN o IT, OK. Se non ha nessun indicatore ma nemmeno stranieri, OK (potrebbe essere titolo corto)
-    return hasEn || hasIt || text.length < 200;
-}
+
 
 // =============================================
 // RENDERING
@@ -427,8 +375,7 @@ function detectRequirements(job) {
     const text = ((job.title || '') + (job.description || '')).toLowerCase();
     
     if (text.includes('ux') || text.includes('ui') || text.includes('figma')) reqs.push('Design');
-    if (text.includes('react') || text.includes('vue') || text.includes('angular')) reqs.push('Frontend');
-    if (text.includes('python') || text.includes('java') || text.includes('node')) reqs.push('Backend');
+    if (text.includes('react') || text.includes('vue') || text.includes('angular') || text.includes('front')) reqs.push('Frontend');
     if (text.includes('intern') || text.includes('junior') || text.includes('stage') || text.includes('tirocinio')) reqs.push('Entry Level');
     if (text.includes('english') || text.includes('inglese')) reqs.push('English');
     if (text.includes('italiano') || text.includes('italian')) reqs.push('Italiano');
