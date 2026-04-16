@@ -220,6 +220,402 @@
     "description": "Do you want to have an internship with a mobile games studio, who has brought the world the most downloaded title ever?"
   },
   {
+    "id": "djs-diseñadoruiuxju-0",
+    "title": "Diseñador UI/UX Junior",
+    "company": "Atlantic Quantum Innovations",
+    "location": "Barranquilla, Atlántico, Colombia",
+    "url": "https://co.linkedin.com/jobs/view/dise%C3%B1ador-ui-ux-junior-at-atlantic-quantum-innovations-4340742809?position=5\\u0026pageNum=14\\u0026refId=oKexrrYOIq3NNH0jLOCvHg%3D%3D\\u0026trackingId=LcHebt84e7hw0f4KwlnDJw%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Barranquilla, Atlántico, Colombia"
+  },
+  {
+    "id": "djs-junioruxuidesig-1",
+    "title": "Junior UX/UI designer",
+    "company": "Bending Spoons",
+    "location": "Barcelona, Catalonia, Spain",
+    "url": "https://es.linkedin.com/jobs/view/junior-ux-ui-designer-at-bending-spoons-4397648254?position=2\\u0026pageNum=57\\u0026refId=560bB0zZGAdT%2FWqWnW6%2BeA%3D%3D\\u0026trackingId=B1J3PswZx8SYqJCg9G36YA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Barcelona, Catalonia, Spain"
+  },
+  {
+    "id": "djs-junioruxuidesig-2",
+    "title": "Junior UX/UI designer",
+    "company": "Meetup",
+    "location": "Madrid, Community of Madrid, Spain",
+    "url": "https://es.linkedin.com/jobs/view/junior-ux-ui-designer-at-meetup-4397684240?position=10\\u0026pageNum=14\\u0026refId=7zgqHvq08NwWTbem5NSs6Q%3D%3D\\u0026trackingId=zdZyhR31n0zh64PcAEtWqA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Madrid, Community of Madrid, Spain"
+  },
+  {
+    "id": "djs-junioruxuidesig-3",
+    "title": "Junior UX/UI designer",
+    "company": "Meetup",
+    "location": "Barcelona, Catalonia, Spain",
+    "url": "https://es.linkedin.com/jobs/view/junior-ux-ui-designer-at-meetup-4397696154?position=6\\u0026pageNum=20\\u0026refId=PvannBw9LMy8IaQ%2BI7FEFQ%3D%3D\\u0026trackingId=xpom0N6am9OI5iIw%2FyDqww%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Barcelona, Catalonia, Spain"
+  },
+  {
+    "id": "djs-junioruxuidesig-4",
+    "title": "Junior UX/UI designer",
+    "company": "Bending Spoons",
+    "location": "Madrid, Community of Madrid, Spain",
+    "url": "https://es.linkedin.com/jobs/view/junior-ux-ui-designer-at-bending-spoons-4397647272?position=7\\u0026pageNum=45\\u0026refId=c0s2Jp%2BT%2BNi2jYL6TLOLSg%3D%3D\\u0026trackingId=B5fW%2BJCIUnH%2BuWKFkG6dpQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Madrid, Community of Madrid, Spain"
+  },
+  {
+    "id": "djs-junioruxuidesig-5",
+    "title": "Junior UX/UI designer",
+    "company": "Bending Spoons",
+    "location": "Berlin, Berlin, Germany",
+    "url": "https://de.linkedin.com/jobs/view/junior-ux-ui-designer-at-bending-spoons-4397657063?position=5\\u0026pageNum=17\\u0026refId=NPX%2F9gdd4vtTrAe98%2BfWIg%3D%3D\\u0026trackingId=H6pg6bWv%2BOiH2vNbwabvkA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Berlin, Berlin, Germany"
+  },
+  {
+    "id": "djs-junioruxuidesig-6",
+    "title": "Junior UX/UI designer",
+    "company": "Bending Spoons",
+    "location": "Paris, Île-de-France, France",
+    "url": "https://fr.linkedin.com/jobs/view/junior-ux-ui-designer-at-bending-spoons-4397634491?position=3\\u0026pageNum=22\\u0026refId=hVVGAuFRYzH0hUhwTQCfVw%3D%3D\\u0026trackingId=Eq8T6ijvWMMFKx%2B2O%2BBL5Q%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Paris, Île-de-France, France"
+  },
+  {
+    "id": "djs-junioruxuidesig-7",
+    "title": "Junior UX/UI designer",
+    "company": "Bending Spoons",
+    "location": "Milan, Lombardy, Italy",
+    "url": "https://it.linkedin.com/jobs/view/junior-ux-ui-designer-at-bending-spoons-4397634494?position=9\\u0026pageNum=29\\u0026refId=Y2Dl1j9T4Loby1bpsJS2Kg%3D%3D\\u0026trackingId=Upt6BOyEHckPnv4f%2BlEzxg%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Milan, Lombardy, Italy"
+  },
+  {
+    "id": "djs-juniorbrandu002-8",
+    "title": "Junior Brand & UX Designer",
+    "company": "Platform Marketing Agency",
+    "location": "Belfast, Northern Ireland, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-brand-ux-designer-at-platform-marketing-agency-4400396987?position=10\\u0026pageNum=70\\u0026refId=KIjOW6wJxwJ5re%2B90ef7ag%3D%3D\\u0026trackingId=W%2FKSpyzJ5Rw9PuDRoRjwrg%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Belfast, Northern Ireland, United Kingdom"
+  },
+  {
+    "id": "djs-junioruxuidesig-9",
+    "title": "Junior UX/UI designer",
+    "company": "Bending Spoons",
+    "location": "London, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-ux-ui-designer-at-bending-spoons-4397654086?position=10\\u0026pageNum=21\\u0026refId=HOqu7KhPDzMzhNynbgQkug%3D%3D\\u0026trackingId=IrbY3wyOLsRnFgZkrS90dg%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: London, England, United Kingdom"
+  },
+  {
+    "id": "djs-junioruxuidesig-10",
+    "title": "Junior UX/UI designer",
+    "company": "Meetup",
+    "location": "London, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-ux-ui-designer-at-meetup-4397689184?position=6\\u0026pageNum=5\\u0026refId=g331GJPy1RqsnP5z7K9izw%3D%3D\\u0026trackingId=g%2B3OJgrjrnNqcuGXTG%2BdSQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: London, England, United Kingdom"
+  },
+  {
+    "id": "djs-junioruxdesigne-11",
+    "title": "Junior UX Designer",
+    "company": "Motorola Solutions",
+    "location": "Uxbridge, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-ux-designer-at-motorola-solutions-4387293596?position=7\\u0026pageNum=48\\u0026refId=RSb0WnBkJcSv20eY4Fw2KQ%3D%3D\\u0026trackingId=5aPMhBt0PaQG8SJ9MK%2Fkxg%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Uxbridge, England, United Kingdom"
+  },
+  {
+    "id": "djs-junioruxdesigne-12",
+    "title": "Junior UX Designer",
+    "company": "Opus Recruitment Solutions",
+    "location": "York, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-ux-designer-at-opus-recruitment-solutions-4389564006?position=2\\u0026pageNum=76\\u0026refId=m%2Fj%2B5FPQtAzc7B%2Bp9y0pWA%3D%3D\\u0026trackingId=hVPVBGuNiBTxIvBmeQ7fPA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: York, England, United Kingdom"
+  },
+  {
+    "id": "djs-junioruxdesigne-13",
+    "title": "Junior UX Designer",
+    "company": "Hawk-Eye Innovations",
+    "location": "Basingstoke, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-ux-designer-at-hawk-eye-innovations-4393200430?position=2\\u0026pageNum=16\\u0026refId=F6ZsgItYqRuUJ%2FKVGjSvVA%3D%3D\\u0026trackingId=69aCgmOneuhzQWUjWMVX3A%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Basingstoke, England, United Kingdom"
+  },
+  {
+    "id": "djs-juniorengineerm-14",
+    "title": "(Junior) Engineer (m/w/d) UX Development",
+    "company": "invenio",
+    "location": "Frankfurt, Hesse, Germany",
+    "url": "https://de.linkedin.com/jobs/view/junior-engineer-m-w-d-ux-development-at-invenio-4383728323?position=7\\u0026pageNum=86\\u0026refId=JgHI2aS4GldqPFxEJnU%2FdQ%3D%3D\\u0026trackingId=KHWuM2BiZYa8nZnkNT4cIQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Frankfurt, Hesse, Germany"
+  },
+  {
+    "id": "djs-uiuxdesignerjun-15",
+    "title": "UI/UX Designer Junior (H/F/X) - Alternance",
+    "company": "Pixmania",
+    "location": "Paris, Île-de-France, France",
+    "url": "https://fr.linkedin.com/jobs/view/ui-ux-designer-junior-h-f-x-alternance-at-pixmania-4399856984?position=4\\u0026pageNum=17\\u0026refId=adBzxWapf2%2FdocAId5BUtw%3D%3D\\u0026trackingId=bJq2QH01xx2PrXmx8mbxxA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Paris, Île-de-France, France"
+  },
+  {
+    "id": "djs-juniorfrontendd-16",
+    "title": "Junior Frontend Developer (Hybrid working set-up)",
+    "company": "Qualitest",
+    "location": "Bucharest, Bucharest, Romania",
+    "url": "https://ro.linkedin.com/jobs/view/junior-frontend-developer-hybrid-working-set-up-at-qualitest-4399316494?position=3\\u0026pageNum=0\\u0026refId=ZfFGpVIJcCyMIB2W4MhcyA%3D%3D\\u0026trackingId=s%2BgXR8A%2B52v6Z6S6N0c8jQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Bucharest, Bucharest, Romania"
+  },
+  {
+    "id": "djs-studentfrontend-17",
+    "title": "Student Frontend Developer (Undergrad Sophomore/Junior )",
+    "company": "Sponsy",
+    "location": "Brooklyn, NY",
+    "url": "https://www.linkedin.com/jobs/view/student-frontend-developer-undergrad-sophomore-junior-at-sponsy-4399107377?position=9\\u0026pageNum=47\\u0026refId=AVy3%2F4RrWkR7D3C16gjjBA%3D%3D\\u0026trackingId=8yHpfBN8BjvocaF%2FlNxAfA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Brooklyn, NY"
+  },
+  {
+    "id": "djs-juniorfrontends-18",
+    "title": "Junior Frontend Software Developer",
+    "company": "altermAInd",
+    "location": "Milan, Lombardy, Italy",
+    "url": "https://it.linkedin.com/jobs/view/junior-frontend-software-developer-at-altermaind-4387851923?position=1\\u0026pageNum=2\\u0026refId=arwi17q7ig%2FOJeq2kFG9Iw%3D%3D\\u0026trackingId=DEuIrTD0iHGWTjVvJkK4jw%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Milan, Lombardy, Italy"
+  },
+  {
+    "id": "djs-juniorfrontendd-19",
+    "title": "JUNIOR FRONTEND DEVELOPMENT SPECIALIST",
+    "company": "Oniverse",
+    "location": "Verona, Veneto, Italy",
+    "url": "https://it.linkedin.com/jobs/view/junior-frontend-development-specialist-at-oniverse-4396484574?position=3\\u0026pageNum=8\\u0026refId=RDPgLeybPA5UvTRfFGVT0Q%3D%3D\\u0026trackingId=GRxi1Ur0CS1h0VtDB5M5AA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Verona, Veneto, Italy"
+  },
+  {
+    "id": "djs-frontenddevelop-20",
+    "title": "Frontend Developer (Junior/Mid) – Microfrontends",
+    "company": "Nexi Digital",
+    "location": "Milan, Lombardy, Italy",
+    "url": "https://it.linkedin.com/jobs/view/frontend-developer-junior-mid-%E2%80%93-microfrontends-at-nexi-digital-4390303433?position=5\\u0026pageNum=13\\u0026refId=9nPTetPJKWd7O165%2FPJ52Q%3D%3D\\u0026trackingId=WVZcqDcKJlVOrON7Nhk%2FwA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Milan, Lombardy, Italy"
+  },
+  {
+    "id": "djs-juniorfrontendd-21",
+    "title": "Junior Frontend Developer",
+    "company": "Digisourced.",
+    "location": "Germany",
+    "url": "https://de.linkedin.com/jobs/view/junior-frontend-developer-at-digisourced-4388349176?position=3\\u0026pageNum=0\\u0026refId=fpYbcPHKlyDY9bdyUS4pJg%3D%3D\\u0026trackingId=1oEH0xN97IOw6rps6JkzcA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Germany"
+  },
+  {
+    "id": "djs-juniorfrontendd-22",
+    "title": "Junior Frontend Developer",
+    "company": "Government Digital Service",
+    "location": "Greater Bristol Area, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-frontend-developer-at-government-digital-service-4398278289?position=5\\u0026pageNum=0\\u0026refId=Hz9tnvi04719NYy2%2B2LE6Q%3D%3D\\u0026trackingId=7BCN5UPZ8yW2wbT3aAJMIg%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Greater Bristol Area, United Kingdom"
+  },
+  {
+    "id": "djs-juniorfrontendd-23",
+    "title": "Junior Frontend Developer",
+    "company": "Government Digital Service",
+    "location": "Manchester Area, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-frontend-developer-at-government-digital-service-4398288057?position=4\\u0026pageNum=0\\u0026refId=Hz9tnvi04719NYy2%2B2LE6Q%3D%3D\\u0026trackingId=a9E5dzEJAjNpZYD6c96NCQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Manchester Area, United Kingdom"
+  },
+  {
+    "id": "djs-juniorfrontendd-24",
+    "title": "Junior Frontend Developer",
+    "company": "Società Editoriale Il Fatto (SEIF)",
+    "location": "Milan, Lombardy, Italy",
+    "url": "https://it.linkedin.com/jobs/view/junior-frontend-developer-at-societ%C3%A0-editoriale-il-fatto-seif-4398236932?position=1\\u0026pageNum=6\\u0026refId=Lw55uVJXXEOYPCuV9ttEYQ%3D%3D\\u0026trackingId=gJEx6MVhW6NE6FEhxmFn3A%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Milan, Lombardy, Italy"
+  },
+  {
+    "id": "djs-juniorfrontendd-25",
+    "title": "Junior Frontend Developer (Hybrid working set-up)",
+    "company": "Qualitest acq",
+    "location": "Bucharest, Bucharest, Romania",
+    "url": "https://ro.linkedin.com/jobs/view/junior-frontend-developer-hybrid-working-set-up-at-qualitest-acq-4388341423?position=3\\u0026pageNum=0\\u0026refId=3QocDimsnrbx4SF%2FUDTKOA%3D%3D\\u0026trackingId=a8iTzPBVb%2BIXy4B3SRN0Sw%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Bucharest, Bucharest, Romania"
+  },
+  {
+    "id": "djs-juniorfrontendd-26",
+    "title": "Junior Frontend Developer (m/w/d)",
+    "company": "ABRIO | Shopify Plus Partner",
+    "location": "Frankfurt, Hesse, Germany",
+    "url": "https://de.linkedin.com/jobs/view/junior-frontend-developer-m-w-d-at-abrio-shopify-plus-partner-4386834699?position=6\\u0026pageNum=0\\u0026refId=5jE89giPVsLXd4Jmd5VWUg%3D%3D\\u0026trackingId=x2VjSQV4n%2FMGeoumj%2BC2fQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Frankfurt, Hesse, Germany"
+  },
+  {
+    "id": "djs-juniorproductde-27",
+    "title": "Junior Product Designer - Audiobooks",
+    "company": "Spotify",
+    "location": "London, England, United Kingdom",
+    "url": "https://uk.linkedin.com/jobs/view/junior-product-designer-audiobooks-at-spotify-4339049444?position=2\\u0026pageNum=22\\u0026refId=okwMxvORAlRdI8D5RattEw%3D%3D\\u0026trackingId=nTUnVVEK11onzQnqRAXclw%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: London, England, United Kingdom"
+  },
+  {
+    "id": "djs-stagejunioruxde-28",
+    "title": "Stage - Junior UX Designer & Product owner (H/F)",
+    "company": "Citalid",
+    "location": "Paris, Île-de-France, France",
+    "url": "https://fr.linkedin.com/jobs/view/stage-junior-ux-designer-product-owner-h-f-at-citalid-4334731100?position=10\\u0026pageNum=66\\u0026refId=87XDhvRqfwoOlei1RSO9lQ%3D%3D\\u0026trackingId=8V9RO6LcSZcT4a9%2Fa67GaQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Paris, Île-de-France, France"
+  },
+  {
+    "id": "djs-junioruiuxdesig-29",
+    "title": "Junior UI/UX Designer (Product Designer)",
+    "company": "SEGULA Technologies",
+    "location": "Bucharest, Bucharest, Romania",
+    "url": "https://ro.linkedin.com/jobs/view/junior-ui-ux-designer-product-designer-at-segula-technologies-4357715046?position=5\\u0026pageNum=18\\u0026refId=HczU0E7aVr7YuLic2gT0Gg%3D%3D\\u0026trackingId=Os65szgBp17oNTmy1aueAw%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Bucharest, Bucharest, Romania"
+  },
+  {
+    "id": "djs-juniormultimedi-30",
+    "title": "Junior Multimedia Designer",
+    "company": "ALX Africa",
+    "location": "",
+    "url": "https://remoteOK.com/remote-jobs/remote-junior-multimedia-designer-alx-africa-1130177",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: "
+  },
+  {
+    "id": "djs-juniorgraphicde-31",
+    "title": "Junior Graphic Designer (production, technical)",
+    "company": "Prowess Consulting",
+    "location": "Bellevue, WA",
+    "url": "https://www.linkedin.com/jobs/view/junior-graphic-designer-production-technical-at-prowess-consulting-4320524924?position=9\\u0026pageNum=88\\u0026refId=ISneDoAQY%2Fx9pP%2BxH3soBg%3D%3D\\u0026trackingId=WbNlcW60tTBFJK5k5TEEMg%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Bellevue, WA"
+  },
+  {
+    "id": "djs-productdesigner-32",
+    "title": "Product Designer",
+    "company": "Ratehub.ca",
+    "location": "Bogota, D.C., Capital District, Colombia",
+    "url": "https://co.linkedin.com/jobs/view/product-designer-at-ratehub-ca-4400662979?position=3\\u0026pageNum=43\\u0026refId=k%2BPGmcLjerec3%2B3kh5UhIw%3D%3D\\u0026trackingId=irL57haKSvuh%2FulRytwKxA%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Bogota, D.C., Capital District, Colombia"
+  },
+  {
+    "id": "djs-productdesigner-33",
+    "title": "Product Designer",
+    "company": "KellyMitchell Group",
+    "location": "Utica-Rome Area",
+    "url": "https://www.linkedin.com/jobs/view/product-designer-at-kellymitchell-group-4400938308?position=9\\u0026pageNum=29\\u0026refId=s%2FeMkZcuaUmp1X6iKQDIPw%3D%3D\\u0026trackingId=63GHSuNeF8P2G%2FVFeTbfVQ%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Utica-Rome Area"
+  },
+  {
+    "id": "bebee-99509889",
+    "title": "User Experience Designer At Northline Studio",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/user-experience-designer-at-northline-studio-4399509889",
+    "source": "🐝 beBee",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: User Experience Designer At Northline Studio"
+  },
+  {
+    "id": "bebee-99522178",
+    "title": "Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ui-visual-user-experience-designer-at-3bmeteo-meteosolutions-srl-4399522178",
+    "source": "🐝 beBee",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl"
+  },
+  {
     "id": "bebee-60823345",
     "title": "User Experience Ux Designer Internship Pirelli Bari Puglia",
     "company": "beBee 🔗",
@@ -275,26 +671,15 @@
     "description": "Dettagli completi disponibili al link: User Experience Ux Designer Internship Pirelli Bari"
   },
   {
-    "id": "bebee-99509889",
-    "title": "User Experience Designer At Northline Studio",
+    "id": "bebee-es-64166",
+    "title": "Staff Product Designer Ui Focused Menlo Ventures Malaga",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/user-experience-designer-at-northline-studio-4399509889",
+    "url": "https://bebee.com/it/job/staff-product-designer-ui-focused-menlo-ventures-malaga--bs-es-64166",
     "source": "🐝 beBee",
     "date": "16/04/2026",
     "is_junior": true,
-    "description": "Dettagli completi disponibili al link: User Experience Designer At Northline Studio"
-  },
-  {
-    "id": "bebee-99522178",
-    "title": "Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ui-visual-user-experience-designer-at-3bmeteo-meteosolutions-srl-4399522178",
-    "source": "🐝 beBee",
-    "date": "16/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ui Visual User Experience Designer At 3Bmeteo Meteosolutions Srl"
+    "description": "Dettagli completi disponibili al link: Staff Product Designer Ui Focused Menlo Ventures Malaga"
   },
   {
     "id": "bebee--8104633",
@@ -306,17 +691,6 @@
     "date": "16/04/2026",
     "is_junior": true,
     "description": "Dettagli completi disponibili al link: Staff Product Designer Ui Focused Menlo Ventures Madrid"
-  },
-  {
-    "id": "bebee-es-64166",
-    "title": "Staff Product Designer Ui Focused Menlo Ventures Malaga",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/staff-product-designer-ui-focused-menlo-ventures-malaga--bs-es-64166",
-    "source": "🐝 beBee",
-    "date": "16/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Staff Product Designer Ui Focused Menlo Ventures Malaga"
   },
   {
     "id": "bebee-8a-13779",
@@ -385,26 +759,15 @@
     "description": "Dettagli completi disponibili al link: Ux Designer Set Europa Madrid Madrid Provincia"
   },
   {
-    "id": "bebee-63551236",
-    "title": "Ux Designer Bending Spoons Barcelona Catalonia",
+    "id": "bebee-63753440",
+    "title": "Ux Designer Product Designer Lhh Malaga Andalusia",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-barcelona-catalonia--theirstack-663551236",
+    "url": "https://bebee.com/it/job/ux-designer-product-designer-lhh-malaga-andalusia--theirstack-663753440",
     "source": "🐝 beBee",
     "date": "16/04/2026",
     "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Barcelona Catalonia"
-  },
-  {
-    "id": "bebee-64025377",
-    "title": "Ux Designer Centro Regional De Servicios Avanzados Sa Csa Burgos Castilla And Leon",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-designer-centro-regional-de-servicios-avanzados-sa-csa-burgos-castilla-and-leon--theirstack-664025377",
-    "source": "🐝 beBee",
-    "date": "16/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Designer Centro Regional De Servicios Avanzados Sa Csa Burgos Castilla And Leon"
+    "description": "Dettagli completi disponibili al link: Ux Designer Product Designer Lhh Malaga Andalusia"
   },
   {
     "id": "bebee-63551237",
@@ -418,6 +781,28 @@
     "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Madrid Community Of Madrid"
   },
   {
+    "id": "bebee-64025377",
+    "title": "Ux Designer Centro Regional De Servicios Avanzados Sa Csa Burgos Castilla And Leon",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ux-designer-centro-regional-de-servicios-avanzados-sa-csa-burgos-castilla-and-leon--theirstack-664025377",
+    "source": "🐝 beBee",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ux Designer Centro Regional De Servicios Avanzados Sa Csa Burgos Castilla And Leon"
+  },
+  {
+    "id": "bebee-63551236",
+    "title": "Ux Designer Bending Spoons Barcelona Catalonia",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-barcelona-catalonia--theirstack-663551236",
+    "source": "🐝 beBee",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Barcelona Catalonia"
+  },
+  {
     "id": "bebee-63291795",
     "title": "Ux Product Designer Nubeseo Andalusia",
     "company": "beBee 🔗",
@@ -427,28 +812,6 @@
     "date": "16/04/2026",
     "is_junior": true,
     "description": "Dettagli completi disponibili al link: Ux Product Designer Nubeseo Andalusia"
-  },
-  {
-    "id": "bebee-62215952",
-    "title": "Ux Designer Bending Spoons Malaga Andalusia",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-malaga-andalusia--theirstack-662215952",
-    "source": "🐝 beBee",
-    "date": "16/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Malaga Andalusia"
-  },
-  {
-    "id": "bebee-62215950",
-    "title": "Ux Designer Bending Spoons Seville Andalusia",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-seville-andalusia--theirstack-662215950",
-    "source": "🐝 beBee",
-    "date": "16/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Seville Andalusia"
   },
   {
     "id": "bebee-06648100",
@@ -462,15 +825,26 @@
     "description": "Dettagli completi disponibili al link: Ux Product Designer Nubeseo Benameji"
   },
   {
-    "id": "bebee-62215951",
-    "title": "Ux Designer Bending Spoons Valencia Valencian Community",
+    "id": "bebee-62215950",
+    "title": "Ux Designer Bending Spoons Seville Andalusia",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-valencia-valencian-community--theirstack-662215951",
+    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-seville-andalusia--theirstack-662215950",
     "source": "🐝 beBee",
     "date": "16/04/2026",
     "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Valencia Valencian Community"
+    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Seville Andalusia"
+  },
+  {
+    "id": "bebee-62215952",
+    "title": "Ux Designer Bending Spoons Malaga Andalusia",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-malaga-andalusia--theirstack-662215952",
+    "source": "🐝 beBee",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ux Designer Bending Spoons Malaga Andalusia"
   },
   {
     "id": "bebee-00119588",
@@ -506,11 +880,22 @@
     "description": "Dettagli completi disponibili al link: Ux Ui Designer At Set Europa"
   },
   {
-    "id": "bebee-01121666",
+    "id": "bebee-00773545",
+    "title": "Ux Ui Designer Product Designer At Lhh",
+    "company": "beBee 🔗",
+    "location": "Vedi Annuncio",
+    "url": "https://bebee.com/it/job/ux-ui-designer-product-designer-at-lhh-4400773545",
+    "source": "🐝 beBee",
+    "date": "16/04/2026",
+    "is_junior": true,
+    "description": "Dettagli completi disponibili al link: Ux Ui Designer Product Designer At Lhh"
+  },
+  {
+    "id": "bebee-01124630",
     "title": "Ux Ui Designer At Bending Spoons",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4401121666",
+    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4401124630",
     "source": "🐝 beBee",
     "date": "16/04/2026",
     "is_junior": true,
@@ -528,11 +913,11 @@
     "description": "Dettagli completi disponibili al link: Ux Ui Designer At Centro Regional De Servicios Avanzados S A Csa"
   },
   {
-    "id": "bebee-01124630",
+    "id": "bebee-01121666",
     "title": "Ux Ui Designer At Bending Spoons",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4401124630",
+    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4401121666",
     "source": "🐝 beBee",
     "date": "16/04/2026",
     "is_junior": true,
@@ -550,17 +935,6 @@
     "description": "Dettagli completi disponibili al link: Ux Ui Product Designer At Nubeseo"
   },
   {
-    "id": "bebee-99119082",
-    "title": "Ux Ui Designer At Bending Spoons",
-    "company": "beBee 🔗",
-    "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4399119082",
-    "source": "🐝 beBee",
-    "date": "16/04/2026",
-    "is_junior": true,
-    "description": "Dettagli completi disponibili al link: Ux Ui Designer At Bending Spoons"
-  },
-  {
     "id": "bebee-99113182",
     "title": "Ux Ui Designer At Bending Spoons",
     "company": "beBee 🔗",
@@ -572,11 +946,11 @@
     "description": "Dettagli completi disponibili al link: Ux Ui Designer At Bending Spoons"
   },
   {
-    "id": "bebee-99119081",
+    "id": "bebee-99119082",
     "title": "Ux Ui Designer At Bending Spoons",
     "company": "beBee 🔗",
     "location": "Vedi Annuncio",
-    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4399119081",
+    "url": "https://bebee.com/it/job/ux-ui-designer-at-bending-spoons-4399119082",
     "source": "🐝 beBee",
     "date": "16/04/2026",
     "is_junior": true,
