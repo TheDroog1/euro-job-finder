@@ -108,13 +108,15 @@ def fetch_devjobsscanner():
 
 
 def fetch_bebee():
-    print("📡 Scansionando beBee (Restored Engine)...")
-    # Usiamo URL più specifici per beBee perché "Europe" generico dà 0 risultati
+    print("📡 Scansionando beBee (Regional Engine)...")
+    # Usiamo i parametri query ?q= e &l= che sono più stabili dei path
     search_urls = [
-        "https://bebee.com/it/jobs/role/user-experience-ux",
-        "https://bebee.com/it/jobs?q=junior+ux+designer",
-        "https://bebee.com/it/jobs?q=product+designer",
-        "https://bebee.com/it/jobs?q=ux+designer+remote"
+        "https://bebee.com/it/jobs?q=ux+ui+designer&l=Italia",
+        "https://bebee.com/it/jobs?q=junior+ux+designer&l=Milano",
+        "https://bebee.com/it/jobs?q=product+designer&l=Roma",
+        "https://bebee.com/it/jobs?q=frontend+junior&l=Torino",
+        "https://bebee.com/it/jobs?q=ux+designer&l=Spain",
+        "https://bebee.com/it/jobs?q=ui+designer&l=Germany"
     ]
     jobs, seen_urls = [], set()
     
