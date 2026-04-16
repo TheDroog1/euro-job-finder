@@ -8,6 +8,12 @@ from datetime import datetime
 # SCOUT v6 - ULTRA-FILTERED ENGINE (UX/UI + FRONTEND + IT/EN)
 # ============================================================
 
+def is_junior(title, desc=""):
+    """Determina se un ruolo è junior basandosi su parole chiave."""
+    junior_keywords = ["junior", "jr", "entry", "stage", "intern", "tirocinio", "apprendista", "associate", "mentorship", "graduate"]
+    text = (title + " " + desc).lower()
+    return any(kw in text for kw in junior_keywords)
+
 def is_it_or_en(text):
     """Semplice rilevamento lingua: cerca parole comuni IT/EN"""
     text = text.lower()
@@ -102,72 +108,69 @@ def fetch_devjobsscanner():
 
 
 def fetch_bebee():
-    print("📡 Scansionando beBee (EU Search)...")
-    urls = [
-        "https://bebee.com/jobs?q=ux+designer&l=Italy",
-        "https://bebee.com/jobs?q=product+designer&l=Europe",
-        "https://bebee.com/jobs?q=junior+ux+designer&l=Europe"
+    print("📡 Scansionando beBee (Restored Engine)...")
+    # Usiamo URL più specifici per beBee perché "Europe" generico dà 0 risultati
+    search_urls = [
+        "https://bebee.com/it/jobs/role/user-experience-ux",
+        "https://bebee.com/it/jobs?q=junior+ux+designer",
+        "https://bebee.com/it/jobs?q=product+designer",
+        "https://bebee.com/it/jobs?q=ux+designer+remote"
     ]
     jobs, seen_urls = [], set()
     
-    for url in urls:
+    # Mappatura dei suffissi beBee ai nomi delle sorgenti originali
+    source_map = {
+        "--fj-": "InfoJobs",
+        "--in-": "LinkedIn",
+        "--gl-": "Glassdoor",
+        "--id-": "Indeed",
+        "--bs-": "beBee Source",
+        "--ts-": "TheirStack",
+        "--ot-": "Otta"
+    }
+
+    for url in search_urls:
         try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'})
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'})
             with urllib.request.urlopen(req, timeout=15) as response:
                 html = response.read().decode('utf-8', errors='ignore')
             
-            # Estraiamo i dati strutturati (JSON-LD)
-            ld_matches = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.DOTALL)
+            # Pattern per link lavori beBee: /it/job/titolo-lavoro-123456789
+            # Catturiamo sia /it/job/ che /it/jobs/
+            job_matches = re.findall(r'https://bebee\.com/[a-z]{2}/job[s]?/([a-z0-9-]+-[0-9]{5,})', html)
             
-            # Estraiamo tutti i link esterni dalla pagina (LinkedIn, InfoJobs, Glassdoor, etc.)
-            external_links = re.findall(r'href=[\"\'](https?://(?:[a-z]+\.)?(?:linkedin|infojobs|glassdoor|indeed|simplyhired|monster|jobrapido|careerbuilder|workable|lever|greenhouse)\.[a-z.]+/[^\"]+)[\"\']', html, re.IGNORECASE)
-            
-            # Pulizia e deduplicazione link esterni
-            clean_external = []
-            for link in external_links:
-                l = link.replace('\\u0026', '&').replace('\\', '').split('"')[0].split("'")[0]
-                if l not in clean_external: clean_external.append(l)
-
-            job_idx = 0
-            for ld_text in ld_matches:
-                try:
-                    data = json.loads(ld_text.strip())
-                    if not isinstance(data, dict) or data.get('@type') != 'JobPosting': continue
-                    
-                    title = data.get('title', 'Unknown Title')
-                    company = data.get('hiringOrganization', {}).get('name', 'Cloud Source')
-                    location = data.get('jobLocation', {}).get('address', {}).get('addressLocality', 'Europe')
-                    desc = data.get('description', 'Dettagli nell\'annuncio')
-                    
-                    if not is_relevant_role(title): continue
-                    
-                    # Logica associazione: beBee elenca i link esterni nello stesso ordine delle card/JSON-LD
-                    raw_url = data.get('url', url)
-                    final_url = raw_url
-                    
-                    if job_idx < len(clean_external):
-                        # Se il link esterno sembra sensato, usiamolo
-                        final_url = clean_external[job_idx]
-                        job_idx += 1
-                    
-                    if final_url in seen_urls: continue
-                    seen_urls.add(final_url)
-                    
-                    jobs.append({
-                        "id": hashlib.md5(final_url.encode()).hexdigest()[:12],
-                        "title": title,
-                        "company": company,
-                        "location": location,
-                        "url": final_url,
-                        "source": "🔗 Sorgente Diretta" if "bebee.com" not in final_url else "🐝 beBee (Interno)",
-                        "date": datetime.now().strftime("%d/%m/%Y"),
-                        "is_junior": is_junior(title, desc),
-                        "description": clean_html(desc)[:500] if desc else "Dettagli completi disponibili al link."
-                    })
-                except: continue
+            for slug in job_matches:
+                if "global-error" in slug: continue
+                full_url = f"https://bebee.com/it/job/{slug}" # Forza /it/job/ per stabilità
+                if full_url in seen_urls: continue
+                seen_urls.add(full_url)
                 
+                # Deduciamo la sorgente reale dal suffisso del slug
+                detected_source = "beBee"
+                for suffix, name in source_map.items():
+                    if suffix in slug:
+                        detected_source = name
+                        break
+                
+                # Pulizia titolo dallo slug
+                title_part = slug.split("--")[0] if "--" in slug else re.sub(r'-[0-9]+$', '', slug)
+                title = title_part.replace("-", " ").title()
+                
+                if not is_relevant_role(title): continue
+                
+                jobs.append({
+                    "id": f"bb-{slug[-10:]}",
+                    "title": title,
+                    "company": "beBee Network",
+                    "location": "Italia / Europa",
+                    "url": full_url,
+                    "source": f"🐝 {detected_source}",
+                    "date": datetime.now().strftime("%d/%m/%Y"),
+                    "is_junior": is_junior(title, ""),
+                    "description": f"Annuncio rintracciato via beBee ({detected_source}). Clicca per accedere all'offerta originale su beBee."
+                })
         except Exception as e:
-            print(f"   ⚠️ Errore beBee ({url[:30]}...): {e}")
+            print(f"   ⚠️ Errore beBee {url[:30]}: {e}")
             
     return jobs
 
