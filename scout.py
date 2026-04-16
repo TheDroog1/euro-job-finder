@@ -108,74 +108,56 @@ def fetch_devjobsscanner():
 
 
 def fetch_bebee():
-    print("📡 Scansionando beBee (Regional Engine)...")
-    # Usiamo i parametri query ?q= e &l= che sono più stabili dei path
-    search_urls = [
-        "https://bebee.com/it/jobs?q=ux+ui+designer&l=Italia",
-        "https://bebee.com/it/jobs?q=junior+ux+designer&l=Milano",
-        "https://bebee.com/it/jobs?q=product+designer&l=Roma",
-        "https://bebee.com/it/jobs?q=frontend+junior&l=Torino",
-        "https://bebee.com/it/jobs?q=ux+designer&l=Spain",
-        "https://bebee.com/it/jobs?q=ui+designer&l=Germany"
-    ]
+    print("📡 Scansionando beBee (Pan-European Engine)...")
+    
+    # Paesi Europei supportati da beBee come richiesto
+    countries = ["it", "uk", "es", "de", "fr", "nl", "ie"]
+    roles = ["ux+ui+designer", "junior+ux+designer", "product+designer", "frontend+junior"]
+    
     jobs, seen_urls = [], set()
     
-    # Mappatura dei suffissi beBee ai nomi delle sorgenti originali
-    source_map = {
-        "--fj-": "InfoJobs",
-        "--in-": "LinkedIn",
-        "--gl-": "Glassdoor",
-        "--id-": "Indeed",
-        "--bs-": "beBee Source",
-        "--ts-": "TheirStack",
-        "--ot-": "Otta"
-    }
-
-    for url in search_urls:
-        try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'})
-            with urllib.request.urlopen(req, timeout=15) as response:
-                html = response.read().decode('utf-8', errors='ignore')
-            
-            # Pattern per link lavori beBee: /it/job/titolo-lavoro-123456789
-            # Catturiamo sia /it/job/ che /it/jobs/
-            job_matches = re.findall(r'https://bebee\.com/[a-z]{2}/job[s]?/([a-z0-9-]+-[0-9]{5,})', html)
-            
-            for slug in job_matches:
-                if "global-error" in slug: continue
-                full_url = f"https://bebee.com/it/job/{slug}" # Forza /it/job/ per stabilità
-                if full_url in seen_urls: continue
-                seen_urls.add(full_url)
+    for country in countries:
+        for role in roles:
+            # Costruiamo l'URL seguendo lo schema bebee.com/[country]/jobs?q=[role]
+            url = f"https://bebee.com/{country}/jobs?q={role}"
+            try:
+                # User-Agent più realistico per evitare blocchi regionali
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'})
+                with urllib.request.urlopen(req, timeout=15) as response:
+                    html = response.read().decode('utf-8', errors='ignore')
                 
-                # Deduciamo la sorgente reale dal suffisso del slug
-                detected_source = "beBee"
-                for suffix, name in source_map.items():
-                    if suffix in slug:
-                        detected_source = name
-                        break
+                # Pattern per link lavori beBee: cattura l'ID e il titolo
+                job_matches = re.findall(fr'https://bebee\.com/{country}/job[s]?/([a-z0-9-]+-[0-9]{{5,}})', html)
                 
-                # Pulizia titolo dallo slug
-                title_part = slug.split("--")[0] if "--" in slug else re.sub(r'-[0-9]+$', '', slug)
-                title = title_part.replace("-", " ").title()
+                for slug in job_matches:
+                    if "global-error" in slug: continue
+                    full_url = f"https://bebee.com/{country}/job/{slug}"
+                    if full_url in seen_urls: continue
+                    seen_urls.add(full_url)
+                    
+                    # Titolo pulito dallo slug
+                    title_part = slug.split("--")[0] if "--" in slug else re.sub(r'-[0-9]+$', '', slug)
+                    title = title_part.replace("-", " ").title()
+                    
+                    if not is_relevant_role(title): continue
+                    
+                    jobs.append({
+                        "id": f"bb-{country}-{slug[-10:]}",
+                        "title": title,
+                        "company": "beBee Network",
+                        "location": country.upper(),
+                        "url": full_url,
+                        "source": f"🐝 beBee ({country.upper()})",
+                        "date": datetime.now().strftime("%d/%m/%Y"),
+                        "is_junior": is_junior(title, ""),
+                        "description": f"Annuncio rintracciato su beBee {country.upper()}. Clicca per i dettagli."
+                    })
+            except Exception as e:
+                # Messaggio sintetico per non intasare la console
+                pass
                 
-                if not is_relevant_role(title): continue
-                
-                jobs.append({
-                    "id": f"bb-{slug[-10:]}",
-                    "title": title,
-                    "company": "beBee Network",
-                    "location": "Italia / Europa",
-                    "url": full_url,
-                    "source": f"🐝 {detected_source}",
-                    "date": datetime.now().strftime("%d/%m/%Y"),
-                    "is_junior": is_junior(title, ""),
-                    "description": f"Annuncio rintracciato via beBee ({detected_source}). Clicca per accedere all'offerta originale su beBee."
-                })
-        except Exception as e:
-            print(f"   ⚠️ Errore beBee {url[:30]}: {e}")
-            
+    print(f"   ✅ beBee ha finito la scansione europea.")
     return jobs
-
 
 def fetch_uiuxjobsboard():
     print("📡 Scansionando UIUXJobsBoard (Metadati JSON)...")
