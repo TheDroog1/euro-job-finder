@@ -1,5 +1,27 @@
 [
   {
+    "id": "jtbd-stageuxdesign",
+    "title": "Stage UX Design",
+    "company": "Gall & Gall",
+    "location": "Zandaam, Netherlands",
+    "url": "https://werk.gall.nl/vacature/2050",
+    "source": "✨ Jobstobedone",
+    "date": "27/05/2026",
+    "is_junior": true,
+    "description": "$12"
+  },
+  {
+    "id": "jtbd-uxdesigninternship",
+    "title": "UX Design Internship",
+    "company": "Versuni",
+    "location": "Amsterdam, Netherlands",
+    "url": "https://careers.versuni.com/gb/en/job/VUFVERGB7744EXTERNALENGB/Internship-UX-Design-Intern",
+    "source": "✨ Jobstobedone",
+    "date": "27/05/2026",
+    "is_junior": true,
+    "description": "$14"
+  },
+  {
     "id": "jtbd-voodoo",
     "title": "Voodoo",
     "company": "Junior UI/UX Designer - Cortex’ Studio",
@@ -8,7 +30,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$12"
+    "description": "$15"
   },
   {
     "id": "jtbd-juniorproductdesigner",
@@ -19,7 +41,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$14"
+    "description": "$17"
   },
   {
     "id": "jtbd-juniorproductdesignerxdgroupexperiencede",
@@ -30,7 +52,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$15"
+    "description": "$18"
   },
   {
     "id": "jtbd-uidesignerjunior",
@@ -41,7 +63,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$17"
+    "description": "$1a"
   },
   {
     "id": "jtbd-juniorproductdesignerux",
@@ -52,7 +74,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$18"
+    "description": "$1b"
   },
   {
     "id": "jtbd-learningexperiencedesigner",
@@ -63,7 +85,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$1a"
+    "description": "$1d"
   },
   {
     "id": "jtbd-uxresearcher",
@@ -74,7 +96,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$1c"
+    "description": "$1f"
   },
   {
     "id": "jtbd-uxresearcherintern2026summerbsms",
@@ -85,7 +107,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$1e"
+    "description": "$21"
   },
   {
     "id": "jtbd-uxresearcherinternship",
@@ -96,7 +118,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$1f"
+    "description": "$22"
   },
   {
     "id": "jtbd-userexperienceresearcher",
@@ -107,7 +129,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$21"
+    "description": "$24"
   },
   {
     "id": "jtbd-userinterfaceuidesigninternship",
@@ -118,7 +140,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$22"
+    "description": "$25"
   },
   {
     "id": "jtbd-innercircleproductdesignintern",
@@ -129,7 +151,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$24"
+    "description": "$27"
   },
   {
     "id": "jtbd-uxdesigninterninteractiondesign",
@@ -140,7 +162,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$26"
+    "description": "$29"
   },
   {
     "id": "jtbd-juniorproductdesigner6monthcontract",
@@ -151,7 +173,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$28"
+    "description": "$2b"
   },
   {
     "id": "jtbd-uiuxinternship",
@@ -162,7 +184,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$2a"
+    "description": "$2d"
   },
   {
     "id": "jtbd-juniorproductdesigner",
@@ -173,7 +195,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$2b"
+    "description": "$2e"
   },
   {
     "id": "jtbd-junioruxuidesigner",
@@ -184,7 +206,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$2c"
+    "description": "$2f"
   },
   {
     "id": "jtbd-internuxdesigner",
@@ -195,7 +217,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$2e"
+    "description": "$31"
   },
   {
     "id": "jtbd-uxresearchinternremote",
@@ -206,7 +228,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$30"
+    "description": "$33"
   },
   {
     "id": "jtbd-productdesigninternshipprogram",
@@ -217,7 +239,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$32"
+    "description": "$35"
   },
   {
     "id": "jtbd-uxresearchu0026designinternpaid",
@@ -228,7 +250,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$34"
+    "description": "$37"
   },
   {
     "id": "jtbd-uxresearcherintern",
@@ -239,7 +261,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$36"
+    "description": "$39"
   },
   {
     "id": "jtbd-internshipuxresearch",
@@ -250,7 +272,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$38"
+    "description": "$3b"
   },
   {
     "id": "jtbd-userexperiencedesignerinternship",
@@ -261,7 +283,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$3a"
+    "description": "$3d"
   },
   {
     "id": "jtbd-juniorproductdesigner",
@@ -272,7 +294,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$3c"
+    "description": "$3f"
   },
   {
     "id": "jtbd-uxcontentdesignerinternpaid",
@@ -283,7 +305,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$3d"
+    "description": "$40"
   },
   {
     "id": "jtbd-junioruxuidesignerinternship",
@@ -294,7 +316,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$3e"
+    "description": "$41"
   },
   {
     "id": "jtbd-digitalconsultantintern",
@@ -305,7 +327,7 @@
     "source": "✨ Jobstobedone",
     "date": "27/05/2026",
     "is_junior": true,
-    "description": "$40"
+    "description": "$43"
   },
   {
     "id": "djs-diseñadoruiuxju-0",
@@ -880,25 +902,25 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--683652821",
-    "title": "Graphic Ux Ui Designer Full Time Innovation Group Milano Lombardia",
+    "id": "bb-it-0334242426",
+    "title": "Junior Ux Ui Designer Altro Trento",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/graphic-ux-ui-designer-full-time-innovation-group-milano-lombardia--theirstack-683652821",
+    "url": "https://bebee.com/it/job/junior-ux-ui-designer-altro-trento--jooble--1824346660334242426",
     "source": "🐝 beBee (IT)",
     "date": "27/05/2026",
-    "is_junior": false,
+    "is_junior": true,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--683492629",
-    "title": "Digital Designer Ux Ui Deutsche Telekom Milan Lombardy",
+    "id": "bb-it-0334242426",
+    "title": "Junior Ui Ux Designer Altro Trento",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/digital-designer-ux-ui-deutsche-telekom-milan-lombardy--theirstack-683492629",
+    "url": "https://bebee.com/it/job/junior-ui-ux-designer-altro-trento--jooble--1824346660334242426",
     "source": "🐝 beBee (IT)",
     "date": "27/05/2026",
-    "is_junior": false,
+    "is_junior": true,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
@@ -1045,22 +1067,22 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it-bb-9133224",
-    "title": "Product Designer Mdotm Como",
+    "id": "bb-it-ku-5900402",
+    "title": "Product Designer Mdotm Romano Di Lombardia",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/product-designer-mdotm-como--tideri-3086d65c-3373-45c6-90bb-9133224",
+    "url": "https://bebee.com/it/job/product-designer-mdotm-romano-di-lombardia--joblooku-5900402",
     "source": "🐝 beBee (IT)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it-ku-5900402",
-    "title": "Product Designer Mdotm Romano Di Lombardia",
+    "id": "bb-it-bb-9133224",
+    "title": "Product Designer Mdotm Como",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/product-designer-mdotm-romano-di-lombardia--joblooku-5900402",
+    "url": "https://bebee.com/it/job/product-designer-mdotm-como--tideri-3086d65c-3373-45c6-90bb-9133224",
     "source": "🐝 beBee (IT)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1155,17 +1177,6 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--689343383",
-    "title": "Frontend Vuejs Developer Wurth Phoenix Bolzano Bozen Trentino Alto Adige",
-    "company": "beBee Network",
-    "location": "IT",
-    "url": "https://bebee.com/it/job/frontend-vuejs-developer-wurth-phoenix-bolzano-bozen-trentino-alto-adige--theirstack-689343383",
-    "source": "🐝 beBee (IT)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
-  },
-  {
     "id": "bb-it--689941168",
     "title": "Java Frontend Sw Engineer Junior Intermediate T Defence Rome Latium",
     "company": "beBee Network",
@@ -1174,6 +1185,17 @@
     "source": "🐝 beBee (IT)",
     "date": "27/05/2026",
     "is_junior": true,
+    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-it--689343383",
+    "title": "Frontend Vuejs Developer Wurth Phoenix Bolzano Bozen Trentino Alto Adige",
+    "company": "beBee Network",
+    "location": "IT",
+    "url": "https://bebee.com/it/job/frontend-vuejs-developer-wurth-phoenix-bolzano-bozen-trentino-alto-adige--theirstack-689343383",
+    "source": "🐝 beBee (IT)",
+    "date": "27/05/2026",
+    "is_junior": false,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
@@ -1199,17 +1221,6 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--688420790",
-    "title": "Frontend Developer Javascript Hrm Group Milan Lombardy",
-    "company": "beBee Network",
-    "location": "IT",
-    "url": "https://bebee.com/it/job/frontend-developer-javascript-hrm-group-milan-lombardy--theirstack-688420790",
-    "source": "🐝 beBee (IT)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
-  },
-  {
     "id": "bb-it--688582708",
     "title": "Associate Frontend Developer Olive Tree Consulting Group Rome Latium",
     "company": "beBee Network",
@@ -1218,6 +1229,17 @@
     "source": "🐝 beBee (IT)",
     "date": "27/05/2026",
     "is_junior": true,
+    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-it--688420790",
+    "title": "Frontend Developer Javascript Hrm Group Milan Lombardy",
+    "company": "beBee Network",
+    "location": "IT",
+    "url": "https://bebee.com/it/job/frontend-developer-javascript-hrm-group-milan-lombardy--theirstack-688420790",
+    "source": "🐝 beBee (IT)",
+    "date": "27/05/2026",
+    "is_junior": false,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
@@ -1353,22 +1375,22 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--688854309",
-    "title": "Disenador A Ux Ayesa Digital Gipuzkoa Basque Country",
+    "id": "bb-es--690693985",
+    "title": "Ux Designer Barcelona Work Study Programme Harbourspace Barcelona Catalonia",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/disenador-a-ux-ayesa-digital-gipuzkoa-basque-country--theirstack-688854309",
+    "url": "https://bebee.com/es/job/ux-designer-barcelona-work-study-programme-harbourspace-barcelona-catalonia--theirstack-690693985",
     "source": "🐝 beBee (ES)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--690693985",
-    "title": "Ux Designer Barcelona Work Study Programme Harbourspace Barcelona Catalonia",
+    "id": "bb-es--688854309",
+    "title": "Disenador A Ux Ayesa Digital Gipuzkoa Basque Country",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/ux-designer-barcelona-work-study-programme-harbourspace-barcelona-catalonia--theirstack-690693985",
+    "url": "https://bebee.com/es/job/disenador-a-ux-ayesa-digital-gipuzkoa-basque-country--theirstack-688854309",
     "source": "🐝 beBee (ES)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1452,11 +1474,11 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--684001660",
-    "title": "Ux Conversational Designer Chatbots Ai Blip Madrid Community Of Madrid",
+    "id": "bb-es--353214176",
+    "title": "Ui Designer After Malaga",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/ux-conversational-designer-chatbots-ai-blip-madrid-community-of-madrid--theirstack-684001660",
+    "url": "https://bebee.com/es/job/ui-designer-after-malaga--buscojob-353214176",
     "source": "🐝 beBee (ES)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1551,22 +1573,22 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--688230810",
-    "title": "Product Designer Mid Level Fluidra Sant Cugat Del Valles Catalonia",
+    "id": "bb-es--688235900",
+    "title": "Product Designer Digital Luma Mural Canada Del Trigo Region De Murcia",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/product-designer-mid-level-fluidra-sant-cugat-del-valles-catalonia--theirstack-688230810",
+    "url": "https://bebee.com/es/job/product-designer-digital-luma-mural-canada-del-trigo-region-de-murcia--theirstack-688235900",
     "source": "🐝 beBee (ES)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--688235900",
-    "title": "Product Designer Digital Luma Mural Canada Del Trigo Region De Murcia",
+    "id": "bb-es--688230810",
+    "title": "Product Designer Mid Level Fluidra Sant Cugat Del Valles Catalonia",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/product-designer-digital-luma-mural-canada-del-trigo-region-de-murcia--theirstack-688235900",
+    "url": "https://bebee.com/es/job/product-designer-mid-level-fluidra-sant-cugat-del-valles-catalonia--theirstack-688230810",
     "source": "🐝 beBee (ES)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1628,6 +1650,17 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
+    "id": "bb-es--691087935",
+    "title": "Frontend Developer Web Designer Tirant Lo Blanch",
+    "company": "beBee Network",
+    "location": "ES",
+    "url": "https://bebee.com/es/job/frontend-developer-web-designer-tirant-lo-blanch--theirstack-691087935",
+    "source": "🐝 beBee (ES)",
+    "date": "27/05/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
+  },
+  {
     "id": "bb-es--689992362",
     "title": "Desarrollador Frontend Trs Staffing It Madrid",
     "company": "beBee Network",
@@ -1644,17 +1677,6 @@
     "company": "beBee Network",
     "location": "ES",
     "url": "https://bebee.com/es/job/frontend-developer-alphayotta-sant-cugat-del-valles-catalonia--theirstack-689150727",
-    "source": "🐝 beBee (ES)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-es--691087935",
-    "title": "Frontend Developer Web Designer Tirant Lo Blanch",
-    "company": "beBee Network",
-    "location": "ES",
-    "url": "https://bebee.com/es/job/frontend-developer-web-designer-tirant-lo-blanch--theirstack-691087935",
     "source": "🐝 beBee (ES)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1710,6 +1732,17 @@
     "company": "beBee Network",
     "location": "DE",
     "url": "https://bebee.com/de/job/ux-designer-web-mobile-apps-wogra-ag-augsburg--theirstack-691026668",
+    "source": "🐝 beBee (DE)",
+    "date": "27/05/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-de-n-14635821",
+    "title": "Product Designer Ux Digitale Leute School Cologne",
+    "company": "beBee Network",
+    "location": "DE",
+    "url": "https://bebee.com/de/job/product-designer-ux-digitale-leute-school-cologne--join-14635821",
     "source": "🐝 beBee (DE)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1815,11 +1848,11 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--690103737",
-    "title": "Digital Product Designer Ux Ui Finanzennet Zero Gmbh Berlin Berlin",
+    "id": "bb-de-n-14703927",
+    "title": "Graphic Product Designer Timleon Wuppertal",
     "company": "beBee Network",
     "location": "DE",
-    "url": "https://bebee.com/de/job/digital-product-designer-ux-ui-finanzennet-zero-gmbh-berlin-berlin--theirstack-690103737",
+    "url": "https://bebee.com/de/job/graphic-product-designer-timleon-wuppertal--join-14703927",
     "source": "🐝 beBee (DE)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1848,22 +1881,22 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--688945586",
-    "title": "Product Designer Football Thryve Berlin",
+    "id": "bb-de-n-14262630",
+    "title": "Product Designer Workforce Solutions All Genders Hrs Gmbh Berlin",
     "company": "beBee Network",
     "location": "DE",
-    "url": "https://bebee.com/de/job/product-designer-football-thryve-berlin--theirstack-688945586",
+    "url": "https://bebee.com/de/job/product-designer-workforce-solutions-all-genders-hrs-gmbh-berlin--join-14262630",
     "source": "🐝 beBee (DE)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de-n-14262630",
-    "title": "Product Designer Workforce Solutions All Genders Hrs Gmbh Berlin",
+    "id": "bb-de--688945586",
+    "title": "Product Designer Football Thryve Berlin",
     "company": "beBee Network",
     "location": "DE",
-    "url": "https://bebee.com/de/job/product-designer-workforce-solutions-all-genders-hrs-gmbh-berlin--join-14262630",
+    "url": "https://bebee.com/de/job/product-designer-football-thryve-berlin--theirstack-688945586",
     "source": "🐝 beBee (DE)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1903,44 +1936,11 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--688344007",
-    "title": "Staff Product Designer Superhuman Berlin Berlin",
+    "id": "bb-de--692564990",
+    "title": "Frontend Developer Rotaract Club Of Sushant University Berlin",
     "company": "beBee Network",
     "location": "DE",
-    "url": "https://bebee.com/de/job/staff-product-designer-superhuman-berlin-berlin--theirstack-688344007",
-    "source": "🐝 beBee (DE)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-de--688151093",
-    "title": "Technical Product Designer Schaaf Gmbh Co Kg Erkelenz North Rhine Westphalia",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/technical-product-designer-schaaf-gmbh-co-kg-erkelenz-north-rhine-westphalia--theirstack-688151093",
-    "source": "🐝 beBee (DE)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-de--692326267",
-    "title": "Frontend Developer Ateneo Blue Consulting Group Berlin",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-ateneo-blue-consulting-group-berlin--theirstack-692326267",
-    "source": "🐝 beBee (DE)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-de--692519436",
-    "title": "Frontend Developer Friends With Dignity Ltd Berlin",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-friends-with-dignity-ltd-berlin--theirstack-692519436",
+    "url": "https://bebee.com/de/job/frontend-developer-rotaract-club-of-sushant-university-berlin--theirstack-692564990",
     "source": "🐝 beBee (DE)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -1958,17 +1958,6 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--692218758",
-    "title": "Frontend Developer Sharer Initiative For Development And Innovation Berlin",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-sharer-initiative-for-development-and-innovation-berlin--theirstack-692218758",
-    "source": "🐝 beBee (DE)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
     "id": "bb-de--692165246",
     "title": "Frontend Developer Women Economic Forum Wef Germany Berlin",
     "company": "beBee Network",
@@ -1980,11 +1969,33 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--692564990",
-    "title": "Frontend Developer Rotaract Club Of Sushant University Berlin",
+    "id": "bb-de--692326267",
+    "title": "Frontend Developer Ateneo Blue Consulting Group Berlin",
     "company": "beBee Network",
     "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-rotaract-club-of-sushant-university-berlin--theirstack-692564990",
+    "url": "https://bebee.com/de/job/frontend-developer-ateneo-blue-consulting-group-berlin--theirstack-692326267",
+    "source": "🐝 beBee (DE)",
+    "date": "27/05/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-de--692218758",
+    "title": "Frontend Developer Sharer Initiative For Development And Innovation Berlin",
+    "company": "beBee Network",
+    "location": "DE",
+    "url": "https://bebee.com/de/job/frontend-developer-sharer-initiative-for-development-and-innovation-berlin--theirstack-692218758",
+    "source": "🐝 beBee (DE)",
+    "date": "27/05/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-de--692519436",
+    "title": "Frontend Developer Friends With Dignity Ltd Berlin",
+    "company": "beBee Network",
+    "location": "DE",
+    "url": "https://bebee.com/de/job/frontend-developer-friends-with-dignity-ltd-berlin--theirstack-692519436",
     "source": "🐝 beBee (DE)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2057,17 +2068,6 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--688677541",
-    "title": "Frontend Developer Zentrumcl Berlin",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-zentrumcl-berlin--theirstack-688677541",
-    "source": "🐝 beBee (DE)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr--691452678",
     "title": "Ux Designer Primal 5 Rue Georges Besse 34830 Clapiers France",
     "company": "beBee Network",
@@ -2123,22 +2123,22 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--690070227",
-    "title": "Ux Designer Confirme Auction Computing 2000 Le Mans 72",
+    "id": "bb-fr--690939013",
+    "title": "Ux Designer Design System Product Alternance Seqone Genomics Fontenay Aux Roses 92",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/ux-designer-confirme-auction-computing-2000-le-mans-72--theirstack-690070227",
+    "url": "https://bebee.com/fr/job/ux-designer-design-system-product-alternance-seqone-genomics-fontenay-aux-roses-92--theirstack-690939013",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--690939013",
-    "title": "Ux Designer Design System Product Alternance Seqone Genomics Fontenay Aux Roses 92",
+    "id": "bb-fr--690070227",
+    "title": "Ux Designer Confirme Auction Computing 2000 Le Mans 72",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/ux-designer-design-system-product-alternance-seqone-genomics-fontenay-aux-roses-92--theirstack-690939013",
+    "url": "https://bebee.com/fr/job/ux-designer-confirme-auction-computing-2000-le-mans-72--theirstack-690070227",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2178,6 +2178,17 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
+    "id": "bb-fr--690210220",
+    "title": "Ui Designer Licorne Society Rue De Chabrol 75010 Paris France",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/ui-designer-licorne-society-rue-de-chabrol-75010-paris-france--theirstack-690210220",
+    "source": "🐝 beBee (FR)",
+    "date": "27/05/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
     "id": "bb-fr--688168276",
     "title": "Alternance Ux Designer Lecointre Paris La Garenne Colombes Ile De",
     "company": "beBee Network",
@@ -2200,11 +2211,11 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--690210220",
-    "title": "Ui Designer Licorne Society Rue De Chabrol 75010 Paris France",
+    "id": "bb-fr--692582839",
+    "title": "Product Designer Ux Alternant Accenture France 118 Avenue De France 75013 Paris France",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/ui-designer-licorne-society-rue-de-chabrol-75010-paris-france--theirstack-690210220",
+    "url": "https://bebee.com/fr/job/product-designer-ux-alternant-accenture-france-118-avenue-de-france-75013-paris-france--theirstack-692582839",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2216,17 +2227,6 @@
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/consultant-ux-designer-mc2i-paris-ile-de--theirstack-689469461",
-    "source": "🐝 beBee (FR)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-fr--692582839",
-    "title": "Product Designer Ux Alternant Accenture France 118 Avenue De France 75013 Paris France",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/product-designer-ux-alternant-accenture-france-118-avenue-de-france-75013-paris-france--theirstack-692582839",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2271,17 +2271,6 @@
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/apprentissage-designer-ux-et-ui-mbda-france-1-avenue-reaumur-92350-le-plessis-robinson-france--theirstack-692542100",
-    "source": "🐝 beBee (FR)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-fr--688106370",
-    "title": "Ui Designer Acensi Courbevoie Ile De",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/ui-designer-acensi-courbevoie-ile-de--theirstack-688106370",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2365,17 +2354,6 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--690037865",
-    "title": "Apprenticeship Product Designer Assistant Betclic Group Bordeaux Nouvelle Aquitaine",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/apprenticeship-product-designer-assistant-betclic-group-bordeaux-nouvelle-aquitaine--theirstack-690037865",
-    "source": "🐝 beBee (FR)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr--690090837",
     "title": "Product Designer E Commerce Nexton Paris Ile De",
     "company": "beBee Network",
@@ -2387,14 +2365,25 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--688385063",
-    "title": "Product Designer Intern Mcleuker Paris Ile De",
+    "id": "bb-fr--689273189",
+    "title": "Product Designer Meilleurtaux Paris Ile De",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/product-designer-intern-mcleuker-paris-ile-de--theirstack-688385063",
+    "url": "https://bebee.com/fr/job/product-designer-meilleurtaux-paris-ile-de--theirstack-689273189",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
-    "is_junior": true,
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-fr--690037865",
+    "title": "Apprenticeship Product Designer Assistant Betclic Group Bordeaux Nouvelle Aquitaine",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/apprenticeship-product-designer-assistant-betclic-group-bordeaux-nouvelle-aquitaine--theirstack-690037865",
+    "source": "🐝 beBee (FR)",
+    "date": "27/05/2026",
+    "is_junior": false,
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
@@ -2420,22 +2409,22 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--688421138",
-    "title": "Developer Frontend Dgtl Performance Toulouse Occitanie",
+    "id": "bb-fr--692042632",
+    "title": "Cdi Frontend Software Engineer Angular Hermes 24 Rue Du Faubourg Saint Honore 75008 Paris France",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/developer-frontend-dgtl-performance-toulouse-occitanie--theirstack-688421138",
+    "url": "https://bebee.com/fr/job/cdi-frontend-software-engineer-angular-hermes-24-rue-du-faubourg-saint-honore-75008-paris-france--theirstack-692042632",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--692042632",
-    "title": "Cdi Frontend Software Engineer Angular Hermes 24 Rue Du Faubourg Saint Honore 75008 Paris France",
+    "id": "bb-fr--688421138",
+    "title": "Developer Frontend Dgtl Performance Toulouse Occitanie",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/cdi-frontend-software-engineer-angular-hermes-24-rue-du-faubourg-saint-honore-75008-paris-france--theirstack-692042632",
+    "url": "https://bebee.com/fr/job/developer-frontend-dgtl-performance-toulouse-occitanie--theirstack-688421138",
     "source": "🐝 beBee (FR)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2530,17 +2519,6 @@
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl-2167640911",
-    "title": "Ux Designer Creative Clicks Amsterdam",
-    "company": "beBee Network",
-    "location": "NL",
-    "url": "https://bebee.com/nl/job/ux-designer-creative-clicks-amsterdam--fj-2167640911",
-    "source": "🐝 beBee (NL)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
-  },
-  {
     "id": "bb-nl--690032875",
     "title": "Medior Ux Designer Saxum Amsterdam North Holland",
     "company": "beBee Network",
@@ -2552,22 +2530,22 @@
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl--691309896",
-    "title": "Ux Designer As Watson Group Renswoude",
+    "id": "bb-nl--690794609",
+    "title": "Ux Designer Pieter Doesburg Amersfoort Utrecht",
     "company": "beBee Network",
     "location": "NL",
-    "url": "https://bebee.com/nl/job/ux-designer-as-watson-group-renswoude--theirstack-691309896",
+    "url": "https://bebee.com/nl/job/ux-designer-pieter-doesburg-amersfoort-utrecht--theirstack-690794609",
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl--690794609",
-    "title": "Ux Designer Pieter Doesburg Amersfoort Utrecht",
+    "id": "bb-nl--691309896",
+    "title": "Ux Designer As Watson Group Renswoude",
     "company": "beBee Network",
     "location": "NL",
-    "url": "https://bebee.com/nl/job/ux-designer-pieter-doesburg-amersfoort-utrecht--theirstack-690794609",
+    "url": "https://bebee.com/nl/job/ux-designer-as-watson-group-renswoude--theirstack-691309896",
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2618,17 +2596,6 @@
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl-2159545164",
-    "title": "Digital Designer Ux Ui Onecom Amsterdam",
-    "company": "beBee Network",
-    "location": "NL",
-    "url": "https://bebee.com/nl/job/digital-designer-ux-ui-onecom-amsterdam--fj-2159545164",
-    "source": "🐝 beBee (NL)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
-  },
-  {
     "id": "bb-nl--690741222",
     "title": "Stage Creative Frontend Development Ui Ux Wordpress Vanaf September 2026 Active Collective Beverwijk",
     "company": "beBee Network",
@@ -2637,6 +2604,17 @@
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": true,
+    "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-nl-2159545164",
+    "title": "Digital Designer Ux Ui Onecom Amsterdam",
+    "company": "beBee Network",
+    "location": "NL",
+    "url": "https://bebee.com/nl/job/digital-designer-ux-ui-onecom-amsterdam--fj-2159545164",
+    "source": "🐝 beBee (NL)",
+    "date": "27/05/2026",
+    "is_junior": false,
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
@@ -2659,6 +2637,17 @@
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": false,
+    "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-nl--689290007",
+    "title": "Afstudeerstage User Experience Designer Ux Design For Interaction Hbo Wo 2 Plaatsen Beschikbaar Geme",
+    "company": "beBee Network",
+    "location": "NL",
+    "url": "https://bebee.com/nl/job/afstudeerstage-user-experience-designer-ux-design-for-interaction-hbo-wo-2-plaatsen-beschikbaar-geme--theirstack-689290007",
+    "source": "🐝 beBee (NL)",
+    "date": "27/05/2026",
+    "is_junior": true,
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
@@ -2695,22 +2684,22 @@
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl--690473597",
-    "title": "Product Designer Booking Boosters Enschede Overijssel",
+    "id": "bb-nl--690512610",
+    "title": "Product Designer Booking Experts Enschede",
     "company": "beBee Network",
     "location": "NL",
-    "url": "https://bebee.com/nl/job/product-designer-booking-boosters-enschede-overijssel--theirstack-690473597",
+    "url": "https://bebee.com/nl/job/product-designer-booking-experts-enschede--theirstack-690512610",
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl--690512610",
-    "title": "Product Designer Booking Experts Enschede",
+    "id": "bb-nl--690473597",
+    "title": "Product Designer Booking Boosters Enschede Overijssel",
     "company": "beBee Network",
     "location": "NL",
-    "url": "https://bebee.com/nl/job/product-designer-booking-experts-enschede--theirstack-690512610",
+    "url": "https://bebee.com/nl/job/product-designer-booking-boosters-enschede-overijssel--theirstack-690473597",
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": false,
@@ -2772,17 +2761,6 @@
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl--684743359",
-    "title": "Product Designer Web Picnic Technologies Amsterdam North Holland",
-    "company": "beBee Network",
-    "location": "NL",
-    "url": "https://bebee.com/nl/job/product-designer-web-picnic-technologies-amsterdam-north-holland--theirstack-684743359",
-    "source": "🐝 beBee (NL)",
-    "date": "27/05/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
-  },
-  {
     "id": "bb-nl--691849794",
     "title": "Frontend Developer Ios Peaktew Emea",
     "company": "beBee Network",
@@ -2805,22 +2783,22 @@
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl--690356348",
-    "title": "Frontend Developer Business Intelligence Rijksvastgoedbedrijf Rvb Den Haag",
+    "id": "bb-nl--690265595",
+    "title": "Frontend Developer Business Intelligence Rijksvastgoedbedrijf The Hague South Holland",
     "company": "beBee Network",
     "location": "NL",
-    "url": "https://bebee.com/nl/job/frontend-developer-business-intelligence-rijksvastgoedbedrijf-rvb-den-haag--theirstack-690356348",
+    "url": "https://bebee.com/nl/job/frontend-developer-business-intelligence-rijksvastgoedbedrijf-the-hague-south-holland--theirstack-690265595",
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
-    "id": "bb-nl--690265595",
-    "title": "Frontend Developer Business Intelligence Rijksvastgoedbedrijf The Hague South Holland",
+    "id": "bb-nl--690356348",
+    "title": "Frontend Developer Business Intelligence Rijksvastgoedbedrijf Rvb Den Haag",
     "company": "beBee Network",
     "location": "NL",
-    "url": "https://bebee.com/nl/job/frontend-developer-business-intelligence-rijksvastgoedbedrijf-the-hague-south-holland--theirstack-690265595",
+    "url": "https://bebee.com/nl/job/frontend-developer-business-intelligence-rijksvastgoedbedrijf-rvb-den-haag--theirstack-690356348",
     "source": "🐝 beBee (NL)",
     "date": "27/05/2026",
     "is_junior": false,
