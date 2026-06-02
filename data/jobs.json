@@ -814,22 +814,22 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it-2176008245",
-    "title": "Ux Designer Bending Spoons Turin",
+    "id": "bb-it-2176008073",
+    "title": "Ux Designer Bending Spoons Florence",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-turin--fj-2176008245",
+    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-florence--fj-2176008073",
     "source": "🐝 beBee (IT)",
     "date": "02/06/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it-2176008073",
-    "title": "Ux Designer Bending Spoons Florence",
+    "id": "bb-it-2176008245",
+    "title": "Ux Designer Bending Spoons Turin",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-florence--fj-2176008073",
+    "url": "https://bebee.com/it/job/ux-designer-bending-spoons-turin--fj-2176008245",
     "source": "🐝 beBee (IT)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -957,14 +957,14 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--691438300",
-    "title": "Ui Designer Inevent None Piedmont",
+    "id": "bb-it--695070569",
+    "title": "Ux Design Stage Curriculare Ovs Spa Mestre Veneto",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/ui-designer-inevent-none-piedmont--theirstack-691438300",
+    "url": "https://bebee.com/it/job/ux-design-stage-curriculare-ovs-spa-mestre-veneto--theirstack-695070569",
     "source": "🐝 beBee (IT)",
     "date": "02/06/2026",
-    "is_junior": false,
+    "is_junior": true,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
@@ -973,6 +973,17 @@
     "company": "beBee Network",
     "location": "IT",
     "url": "https://bebee.com/it/job/graphic-e-ux-designer-punto-informatico-villorba-veneto--theirstack-693936239",
+    "source": "🐝 beBee (IT)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-it--691438300",
+    "title": "Ui Designer Inevent None Piedmont",
+    "company": "beBee Network",
+    "location": "IT",
+    "url": "https://bebee.com/it/job/ui-designer-inevent-none-piedmont--theirstack-691438300",
     "source": "🐝 beBee (IT)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -1122,17 +1133,6 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it-8b2e-26723",
-    "title": "Product Designer Andrea Bizzotto Spa Castel Dazzano",
-    "company": "beBee Network",
-    "location": "IT",
-    "url": "https://bebee.com/it/job/product-designer-andrea-bizzotto-spa-castel-dazzano--tideri-32870949-b44d-4829-8b2e-26723",
-    "source": "🐝 beBee (IT)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
-  },
-  {
     "id": "bb-it--697227234",
     "title": "Frontend Grafton Recruitment Naples Campania",
     "company": "beBee Network",
@@ -1155,22 +1155,22 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--694080871",
-    "title": "Flutter Frontend Developer Peaktew Latam",
+    "id": "bb-it--694734167",
+    "title": "Frontend Developer React Javascript Esprimo Srl Asti Piedmont",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/flutter-frontend-developer-peaktew-latam--theirstack-694080871",
+    "url": "https://bebee.com/it/job/frontend-developer-react-javascript-esprimo-srl-asti-piedmont--theirstack-694734167",
     "source": "🐝 beBee (IT)",
     "date": "02/06/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--694734167",
-    "title": "Frontend Developer React Javascript Esprimo Srl Asti Piedmont",
+    "id": "bb-it--694080871",
+    "title": "Flutter Frontend Developer Peaktew Latam",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/frontend-developer-react-javascript-esprimo-srl-asti-piedmont--theirstack-694734167",
+    "url": "https://bebee.com/it/job/flutter-frontend-developer-peaktew-latam--theirstack-694080871",
     "source": "🐝 beBee (IT)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -1430,11 +1430,11 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--693731456",
-    "title": "Disenador Ux Primeit Espana Madrid Community Of Madrid",
+    "id": "bb-es--694021551",
+    "title": "Disenador Ux Alovia Consulting Sevilla Sevilla Provincia",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/disenador-ux-primeit-espana-madrid-community-of-madrid--theirstack-693731456",
+    "url": "https://bebee.com/es/job/disenador-ux-alovia-consulting-sevilla-sevilla-provincia--theirstack-694021551",
     "source": "🐝 beBee (ES)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -1507,22 +1507,33 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--695998554",
-    "title": "Product Designer Viaplay Group Barcelona Catalonia",
+    "id": "bb-es-2183797294",
+    "title": "Product Designer Nacar Careers Barcelona",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/product-designer-viaplay-group-barcelona-catalonia--theirstack-695998554",
+    "url": "https://bebee.com/es/job/product-designer-nacar-careers-barcelona--fj-2183797294",
     "source": "🐝 beBee (ES)",
     "date": "02/06/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--695482815",
-    "title": "Product Designer Livo Health Barcelona Catalonia",
+    "id": "bb-es-2183799038",
+    "title": "Product Designer N26 Barcelona",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/product-designer-livo-health-barcelona-catalonia--theirstack-695482815",
+    "url": "https://bebee.com/es/job/product-designer-n26-barcelona--fj-2183799038",
+    "source": "🐝 beBee (ES)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-es--698450664",
+    "title": "Product Designer Vml Madrid Madrid Provincia",
+    "company": "beBee Network",
+    "location": "ES",
+    "url": "https://bebee.com/es/job/product-designer-vml-madrid-madrid-provincia--theirstack-698450664",
     "source": "🐝 beBee (ES)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -1540,11 +1551,22 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--698450664",
-    "title": "Product Designer Vml Madrid Madrid Provincia",
+    "id": "bb-es--695998554",
+    "title": "Product Designer Viaplay Group Barcelona Catalonia",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/product-designer-vml-madrid-madrid-provincia--theirstack-698450664",
+    "url": "https://bebee.com/es/job/product-designer-viaplay-group-barcelona-catalonia--theirstack-695998554",
+    "source": "🐝 beBee (ES)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-es--695482815",
+    "title": "Product Designer Livo Health Barcelona Catalonia",
+    "company": "beBee Network",
+    "location": "ES",
+    "url": "https://bebee.com/es/job/product-designer-livo-health-barcelona-catalonia--theirstack-695482815",
     "source": "🐝 beBee (ES)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -1595,6 +1617,17 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
+    "id": "bb-es--696548977",
+    "title": "Frontend Engineer Ing Madrid Via De Los Poblados",
+    "company": "beBee Network",
+    "location": "ES",
+    "url": "https://bebee.com/es/job/frontend-engineer-ing-madrid-via-de-los-poblados--theirstack-696548977",
+    "source": "🐝 beBee (ES)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
+  },
+  {
     "id": "bb-es--695498525",
     "title": "Frontend Developer Peaktew Emea",
     "company": "beBee Network",
@@ -1606,11 +1639,11 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--696548977",
-    "title": "Frontend Engineer Ing Madrid Via De Los Poblados",
+    "id": "bb-es--700725112",
+    "title": "Novice Frontend Engineer Ing Madrid Via De Los Poblados",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/frontend-engineer-ing-madrid-via-de-los-poblados--theirstack-696548977",
+    "url": "https://bebee.com/es/job/novice-frontend-engineer-ing-madrid-via-de-los-poblados--theirstack-700725112",
     "source": "🐝 beBee (ES)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -1639,28 +1672,6 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es-2179245414",
-    "title": "Frontend Engineer Nationale Nederlanden Madrid",
-    "company": "beBee Network",
-    "location": "ES",
-    "url": "https://bebee.com/es/job/frontend-engineer-nationale-nederlanden-madrid--fj-2179245414",
-    "source": "🐝 beBee (ES)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-es--700725112",
-    "title": "Novice Frontend Engineer Ing Madrid Via De Los Poblados",
-    "company": "beBee Network",
-    "location": "ES",
-    "url": "https://bebee.com/es/job/novice-frontend-engineer-ing-madrid-via-de-los-poblados--theirstack-700725112",
-    "source": "🐝 beBee (ES)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
-  },
-  {
     "id": "bb-es--699366198",
     "title": "Ux Frontend Engineer Roche Sant Cugat Del Valles Barcelona Provincia",
     "company": "beBee Network",
@@ -1672,33 +1683,11 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--695856874",
-    "title": "Android Frontend Developer Peaktew Emea",
+    "id": "bb-es-2179245414",
+    "title": "Frontend Engineer Nationale Nederlanden Madrid",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/android-frontend-developer-peaktew-emea--theirstack-695856874",
-    "source": "🐝 beBee (ES)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-es--696547866",
-    "title": "Frontend Engineer Intern Ing Madrid Via De Los Poblados",
-    "company": "beBee Network",
-    "location": "ES",
-    "url": "https://bebee.com/es/job/frontend-engineer-intern-ing-madrid-via-de-los-poblados--theirstack-696547866",
-    "source": "🐝 beBee (ES)",
-    "date": "02/06/2026",
-    "is_junior": true,
-    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-es--695433525",
-    "title": "Frontend React Nextjs Knowmad Mood 100 Remoto",
-    "company": "beBee Network",
-    "location": "ES",
-    "url": "https://bebee.com/es/job/frontend-react-nextjs-knowmad-mood-100-remoto--theirstack-695433525",
+    "url": "https://bebee.com/es/job/frontend-engineer-nationale-nederlanden-madrid--fj-2179245414",
     "source": "🐝 beBee (ES)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -1713,6 +1702,28 @@
     "source": "🐝 beBee (ES)",
     "date": "02/06/2026",
     "is_junior": true,
+    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-es--695856874",
+    "title": "Android Frontend Developer Peaktew Emea",
+    "company": "beBee Network",
+    "location": "ES",
+    "url": "https://bebee.com/es/job/android-frontend-developer-peaktew-emea--theirstack-695856874",
+    "source": "🐝 beBee (ES)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-es--695433525",
+    "title": "Frontend React Nextjs Knowmad Mood 100 Remoto",
+    "company": "beBee Network",
+    "location": "ES",
+    "url": "https://bebee.com/es/job/frontend-react-nextjs-knowmad-mood-100-remoto--theirstack-695433525",
+    "source": "🐝 beBee (ES)",
+    "date": "02/06/2026",
+    "is_junior": false,
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
@@ -1870,17 +1881,6 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--693861721",
-    "title": "Game Ui Designer Welevel Munchen",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/game-ui-designer-welevel-munchen--theirstack-693861721",
-    "source": "🐝 beBee (DE)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
     "id": "bb-de--700323883",
     "title": "Product Designer Vitt Berlin Be Germany",
     "company": "beBee Network",
@@ -1925,17 +1925,6 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de-2174404115",
-    "title": "Product Designer Agora Finance Ramstein Miesenbach",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/product-designer-agora-finance-ramstein-miesenbach--fj-2174404115",
-    "source": "🐝 beBee (DE)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
     "id": "bb-de--698401142",
     "title": "Junior Frontend Entwickler Heyjobs Wermelskirchen North Rhine Westphalia",
     "company": "beBee Network",
@@ -1944,28 +1933,6 @@
     "source": "🐝 beBee (DE)",
     "date": "02/06/2026",
     "is_junior": true,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-de--699808282",
-    "title": "Frontend Developer Zn Vostok Berlin",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-zn-vostok-berlin--theirstack-699808282",
-    "source": "🐝 beBee (DE)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-de--700548593",
-    "title": "Frontend Entwickler Toenda Software Gmbh Bremen",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-entwickler-toenda-software-gmbh-bremen--theirstack-700548593",
-    "source": "🐝 beBee (DE)",
-    "date": "02/06/2026",
-    "is_junior": false,
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
@@ -2013,6 +1980,28 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
+    "id": "bb-de--699808282",
+    "title": "Frontend Developer Zn Vostok Berlin",
+    "company": "beBee Network",
+    "location": "DE",
+    "url": "https://bebee.com/de/job/frontend-developer-zn-vostok-berlin--theirstack-699808282",
+    "source": "🐝 beBee (DE)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-de--700548593",
+    "title": "Frontend Entwickler Toenda Software Gmbh Bremen",
+    "company": "beBee Network",
+    "location": "DE",
+    "url": "https://bebee.com/de/job/frontend-entwickler-toenda-software-gmbh-bremen--theirstack-700548593",
+    "source": "🐝 beBee (DE)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
+  },
+  {
     "id": "bb-de--697261954",
     "title": "Frontend Developer Revinns Limited Berlin",
     "company": "beBee Network",
@@ -2035,22 +2024,22 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--696017400",
-    "title": "Frontend Developer Telecom Tech Outlook Berlin",
+    "id": "bb-de--695638789",
+    "title": "Frontend Developer Spin Berlin",
     "company": "beBee Network",
     "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-telecom-tech-outlook-berlin--theirstack-696017400",
+    "url": "https://bebee.com/de/job/frontend-developer-spin-berlin--theirstack-695638789",
     "source": "🐝 beBee (DE)",
     "date": "02/06/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--695638789",
-    "title": "Frontend Developer Spin Berlin",
+    "id": "bb-de--696017400",
+    "title": "Frontend Developer Telecom Tech Outlook Berlin",
     "company": "beBee Network",
     "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-developer-spin-berlin--theirstack-695638789",
+    "url": "https://bebee.com/de/job/frontend-developer-telecom-tech-outlook-berlin--theirstack-696017400",
     "source": "🐝 beBee (DE)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -2123,6 +2112,17 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
+    "id": "bb-fr--695864017",
+    "title": "Alternance Ux Designer Galileo Paris",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/alternance-ux-designer-galileo-paris--theirstack-695864017",
+    "source": "🐝 beBee (FR)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
     "id": "bb-fr--694539778",
     "title": "Ux Designer Stage Remunere Nomad Education Paris Ile De",
     "company": "beBee Network",
@@ -2145,33 +2145,11 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--695864017",
-    "title": "Alternance Ux Designer Galileo Paris",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/alternance-ux-designer-galileo-paris--theirstack-695864017",
-    "source": "🐝 beBee (FR)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr--695863521",
     "title": "Ux Ui Designer En Alternance Paris Galileo Paris",
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/ux-ui-designer-en-alternance-paris-galileo-paris--theirstack-695863521",
-    "source": "🐝 beBee (FR)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-fr--693728134",
-    "title": "Ux Designer Interactif Emraude Paris Ile De",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/ux-designer-interactif-emraude-paris-ile-de--theirstack-693728134",
     "source": "🐝 beBee (FR)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -2186,6 +2164,17 @@
     "source": "🐝 beBee (FR)",
     "date": "02/06/2026",
     "is_junior": true,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-fr--693728134",
+    "title": "Ux Designer Interactif Emraude Paris Ile De",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/ux-designer-interactif-emraude-paris-ile-de--theirstack-693728134",
+    "source": "🐝 beBee (FR)",
+    "date": "02/06/2026",
+    "is_junior": false,
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
@@ -2255,17 +2244,6 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--695116856",
-    "title": "Ux Designer Designer Ux Texdecor Willems 59",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/ux-designer-designer-ux-texdecor-willems-59--theirstack-695116856",
-    "source": "🐝 beBee (FR)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr--697983070",
     "title": "Ux Designer Relx Paris",
     "company": "beBee Network",
@@ -2277,33 +2255,22 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
+    "id": "bb-fr--695116856",
+    "title": "Ux Designer Designer Ux Texdecor Willems 59",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/ux-designer-designer-ux-texdecor-willems-59--theirstack-695116856",
+    "source": "🐝 beBee (FR)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
     "id": "bb-fr--695863611",
     "title": "Alternance Ui Ux Designer Galileo Nantes",
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/alternance-ui-ux-designer-galileo-nantes--theirstack-695863611",
-    "source": "🐝 beBee (FR)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-fr-2233046814",
-    "title": "Ux Designer Designer Ux Texdecor Group Willems",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/ux-designer-designer-ux-texdecor-group-willems--jobijoba-7292233046814",
-    "source": "🐝 beBee (FR)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-fr--696996284",
-    "title": "Product Designer Witco Inc Paris 75",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/product-designer-witco-inc-paris-75--theirstack-696996284",
     "source": "🐝 beBee (FR)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -2326,6 +2293,17 @@
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/product-designer-mozaik-160b-rue-de-paris-92100-boulogne-billancourt-france--theirstack-699698173",
+    "source": "🐝 beBee (FR)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-fr--696996284",
+    "title": "Product Designer Witco Inc Paris 75",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/product-designer-witco-inc-paris-75--theirstack-696996284",
     "source": "🐝 beBee (FR)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -2431,17 +2409,6 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--694622155",
-    "title": "Product Designer Exalt 10 Rue Vauvilliers 75001 Paris France",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/product-designer-exalt-10-rue-vauvilliers-75001-paris-france--theirstack-694622155",
-    "source": "🐝 beBee (FR)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr--700787492",
     "title": "Frontend Developer Typescript Reactjs Worldia Paris Idf France",
     "company": "beBee Network",
@@ -2486,6 +2453,17 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
+    "id": "bb-fr-ba-6805072",
+    "title": "Developpeur Full Stack Oriente Frontend React Data Informatis Paris",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/developpeur-full-stack-oriente-frontend-react-data-informatis-paris--jobijoba-6805072",
+    "source": "🐝 beBee (FR)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
     "id": "bb-fr--697299338",
     "title": "Staff Engineer Frontend Paris Doctolib Levallois Perret Ile De",
     "company": "beBee Network",
@@ -2502,17 +2480,6 @@
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/apprentissage-en-developpement-frontend-javascript-meteo-france-toulouse-occitanie--theirstack-696680476",
-    "source": "🐝 beBee (FR)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-fr-ba-6805072",
-    "title": "Developpeur Full Stack Oriente Frontend React Data Informatis Paris",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/developpeur-full-stack-oriente-frontend-react-data-informatis-paris--jobijoba-6805072",
     "source": "🐝 beBee (FR)",
     "date": "02/06/2026",
     "is_junior": false,
@@ -3069,6 +3036,17 @@
     "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
   },
   {
+    "id": "bb-ie-4067994694",
+    "title": "Experience Designer Ui B Capital Dublin",
+    "company": "beBee Network",
+    "location": "IE",
+    "url": "https://bebee.com/ie/job/experience-designer-ui-b-capital-dublin--jobs-sea-4067994694",
+    "source": "🐝 beBee (IE)",
+    "date": "02/06/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
+  },
+  {
     "id": "bb-ie-4065582015",
     "title": "Experience Designer Ui Salesforce Inc Dublin",
     "company": "beBee Network",
@@ -3107,17 +3085,6 @@
     "company": "beBee Network",
     "location": "IE",
     "url": "https://bebee.com/ie/job/emea-product-designer-gong-dublin-county-dublin--theirstack-688184256",
-    "source": "🐝 beBee (IE)",
-    "date": "02/06/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-ie-2160965817",
-    "title": "Emea Product Designer Gongio Dublin",
-    "company": "beBee Network",
-    "location": "IE",
-    "url": "https://bebee.com/ie/job/emea-product-designer-gongio-dublin--fj-2160965817",
     "source": "🐝 beBee (IE)",
     "date": "02/06/2026",
     "is_junior": false,
