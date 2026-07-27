@@ -649,22 +649,22 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--774123354",
-    "title": "Junior Ui Designer Sopra Steria Assago Lombardy",
+    "id": "bb-it--773752625",
+    "title": "Ui Designer Junior Sopra Steria Assago Lombardy",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/junior-ui-designer-sopra-steria-assago-lombardy--t7xk-774123354",
+    "url": "https://bebee.com/it/job/ui-designer-junior-sopra-steria-assago-lombardy--t7xk-773752625",
     "source": "🐝 beBee (IT)",
     "date": "27/07/2026",
     "is_junior": true,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--773752625",
-    "title": "Ui Designer Junior Sopra Steria Assago Lombardy",
+    "id": "bb-it--774123354",
+    "title": "Junior Ui Designer Sopra Steria Assago Lombardy",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/ui-designer-junior-sopra-steria-assago-lombardy--t7xk-773752625",
+    "url": "https://bebee.com/it/job/junior-ui-designer-sopra-steria-assago-lombardy--t7xk-774123354",
     "source": "🐝 beBee (IT)",
     "date": "27/07/2026",
     "is_junior": true,
@@ -687,6 +687,17 @@
     "company": "beBee Network",
     "location": "IT",
     "url": "https://bebee.com/it/job/product-designer-yibi-group-global-manufacturing-partner-for-luxury-jewelry-leather-goods-hardware--t7xk-774750336",
+    "source": "🐝 beBee (IT)",
+    "date": "27/07/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-it-2279840314",
+    "title": "Sr Product Designer Milan Eight Sleep Milan",
+    "company": "beBee Network",
+    "location": "IT",
+    "url": "https://bebee.com/it/job/sr-product-designer-milan-eight-sleep-milan--fj-2279840314",
     "source": "🐝 beBee (IT)",
     "date": "27/07/2026",
     "is_junior": false,
@@ -742,17 +753,6 @@
     "company": "beBee Network",
     "location": "IT",
     "url": "https://bebee.com/it/job/product-designer-complaion-greater-milan-metropolitan-area--t7xk-764071659",
-    "source": "🐝 beBee (IT)",
-    "date": "27/07/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-it--764537364",
-    "title": "Product Designer Content Experience Docebo Biassono Lombardy",
-    "company": "beBee Network",
-    "location": "IT",
-    "url": "https://bebee.com/it/job/product-designer-content-experience-docebo-biassono-lombardy--t7xk-764537364",
     "source": "🐝 beBee (IT)",
     "date": "27/07/2026",
     "is_junior": false,
@@ -968,6 +968,17 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
+    "id": "bb-de-n-16193090",
+    "title": "Ui Designer Verwaltungssprung Gmbh Berlin",
+    "company": "beBee Network",
+    "location": "DE",
+    "url": "https://bebee.com/de/job/ui-designer-verwaltungssprung-gmbh-berlin--join-16193090",
+    "source": "🐝 beBee (DE)",
+    "date": "27/07/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
+  },
+  {
     "id": "bb-de--777940329",
     "title": "Product Designer Zero To One Search Recruitment Agency Munich Bavaria",
     "company": "beBee Network",
@@ -1056,22 +1067,22 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr-2278504351",
-    "title": "Ui Designer Myva Support Myvas Job",
+    "id": "bb-fr--776874223",
+    "title": "Ui Ux Designer Ntt Data Europe Latam",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/ui-designer-myva-support-myvas-job--fj-2278504351",
+    "url": "https://bebee.com/fr/job/ui-ux-designer-ntt-data-europe-latam--t7xk-776874223",
     "source": "🐝 beBee (FR)",
     "date": "27/07/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--776874223",
-    "title": "Ui Ux Designer Ntt Data Europe Latam",
+    "id": "bb-fr-2278504351",
+    "title": "Ui Designer Myva Support Myvas Job",
     "company": "beBee Network",
     "location": "FR",
-    "url": "https://bebee.com/fr/job/ui-ux-designer-ntt-data-europe-latam--t7xk-776874223",
+    "url": "https://bebee.com/fr/job/ui-designer-myva-support-myvas-job--fj-2278504351",
     "source": "🐝 beBee (FR)",
     "date": "27/07/2026",
     "is_junior": false,
@@ -1298,6 +1309,17 @@
     "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
   },
   {
+    "id": "bb-nl--776505043",
+    "title": "Frontend Developer Vuejs Bullit Systems The Hague South Holland",
+    "company": "beBee Network",
+    "location": "NL",
+    "url": "https://bebee.com/nl/job/frontend-developer-vuejs-bullit-systems-the-hague-south-holland--t7xk-776505043",
+    "source": "🐝 beBee (NL)",
+    "date": "27/07/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
+  },
+  {
     "id": "bb-nl--773308239",
     "title": "Frontend Ontwikkelaar Ormer Ict Careers Assen Drenthe",
     "company": "beBee Network",
@@ -1314,17 +1336,6 @@
     "company": "beBee Network",
     "location": "NL",
     "url": "https://bebee.com/nl/job/frontend-developer-vivid-resourcing-utrecht--t7xk-773751137",
-    "source": "🐝 beBee (NL)",
-    "date": "27/07/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee NL. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-nl--776505043",
-    "title": "Frontend Developer Vuejs Bullit Systems The Hague South Holland",
-    "company": "beBee Network",
-    "location": "NL",
-    "url": "https://bebee.com/nl/job/frontend-developer-vuejs-bullit-systems-the-hague-south-holland--t7xk-776505043",
     "source": "🐝 beBee (NL)",
     "date": "27/07/2026",
     "is_junior": false,
@@ -1538,5 +1549,16 @@
     "date": "27/07/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
+  },
+  {
+    "id": "uiux-1539426-mid-lev",
+    "title": "Mid-Level Product Designer",
+    "company": "UIUX Board 🎨",
+    "location": "Remote / EU",
+    "url": "https://uiuxjobsboard.com/job/1539426-mid-level-product-designer-dublin-ireland",
+    "source": "🎨 UIUX Jobs",
+    "date": "27/07/2026",
+    "is_junior": true,
+    "description": "Postazione specializzata per Design. Titolo: Mid-Level Product Designer"
   }
 ]
