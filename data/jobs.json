@@ -242,18 +242,29 @@
     "description": "Role via DevScanner. Location: Berlin, Germany"
   },
   {
-    "id": "djs-juniorsoftwaree-16",
+    "id": "djs-juniorfrontende-16",
+    "title": "Junior Frontend Engineer",
+    "company": "TransPerfect",
+    "location": "Myrtle Beach, SC",
+    "url": "https://www.linkedin.com/jobs/view/junior-frontend-engineer-at-transperfect-4464387696?position=2\\u0026pageNum=37\\u0026refId=UkjWKjLJLERQ5P2cIo3roA%3D%3D\\u0026trackingId=1ZhZ2zoj8hWZcTiZgX%2FP4w%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "08/09/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Myrtle Beach, SC"
+  },
+  {
+    "id": "djs-juniorsoftwaree-17",
     "title": "Junior Software Engineer (Frontend Focused)",
     "company": "BigBear.ai",
     "location": "Annapolis Junction, MD",
-    "url": "https://www.linkedin.com/jobs/view/junior-software-engineer-frontend-focused-at-bigbear-ai-4438365945?position=7\\u0026pageNum=43\\u0026refId=M5SFW%2F2Hqc1fWnYW%2FUlQag%3D%3D\\u0026trackingId=OB21VWz1aN6TMjYM6PA%2FMQ%3D%3D",
+    "url": "https://www.linkedin.com/jobs/view/junior-software-engineer-frontend-focused-at-bigbear-ai-4438365945?position=5\\u0026pageNum=40\\u0026refId=hW1wK2TeImw1s8chr0YCvA%3D%3D\\u0026trackingId=xEIEEFxXtXyMwuj1gZDL2w%3D%3D",
     "source": "💻 DevScanner",
     "date": "08/09/2026",
     "is_junior": true,
     "description": "Role via DevScanner. Location: Annapolis Junction, MD"
   },
   {
-    "id": "djs-juniorfrontendd-17",
+    "id": "djs-juniorfrontendd-18",
     "title": "Junior Frontend Developer | Discovery & Ticketing Platform",
     "company": "Katapult",
     "location": "Mumbai Metropolitan Region",
@@ -264,7 +275,7 @@
     "description": "Role via DevScanner. Location: Mumbai Metropolitan Region"
   },
   {
-    "id": "djs-desarrolladorju-18",
+    "id": "djs-desarrolladorju-19",
     "title": "Desarrollador Junior FrontEnd",
     "company": "Cuatrocientoscuatro Programación S.L.",
     "location": "A Coruña, Galicia, Spain",
@@ -275,7 +286,7 @@
     "description": "Role via DevScanner. Location: A Coruña, Galicia, Spain"
   },
   {
-    "id": "djs-frontenddevelop-19",
+    "id": "djs-frontenddevelop-20",
     "title": "Frontend Developer Junior",
     "company": "Lottomatica",
     "location": "Greater Rome Metropolitan Area",
@@ -286,7 +297,7 @@
     "description": "Role via DevScanner. Location: Greater Rome Metropolitan Area"
   },
   {
-    "id": "djs-frontendsoftwar-20",
+    "id": "djs-frontendsoftwar-21",
     "title": "Frontend Software Engineer(Junior)",
     "company": "Subsidia",
     "location": "St Gallen, St Gallen, Switzerland",
@@ -297,7 +308,7 @@
     "description": "Role via DevScanner. Location: St Gallen, St Gallen, Switzerland"
   },
   {
-    "id": "djs-juniorgraphicde-21",
+    "id": "djs-juniorgraphicde-22",
     "title": "Junior Graphic Designer",
     "company": "Work Force Nexus",
     "location": "Remote, ",
@@ -308,7 +319,7 @@
     "description": "Role via DevScanner. Location: Remote, "
   },
   {
-    "id": "djs-juniorproductla-22",
+    "id": "djs-juniorproductla-23",
     "title": "JUNIOR PRODUCT LAYOUT DESIGNER (JUNIOR GRAPHIC DESIGNER)",
     "company": "Mail Shark",
     "location": "Reading, PA",
@@ -319,7 +330,7 @@
     "description": "Role via DevScanner. Location: Reading, PA"
   },
   {
-    "id": "djs-juniorgraphicde-23",
+    "id": "djs-juniorgraphicde-24",
     "title": "Junior Graphic Designer",
     "company": "Twine",
     "location": "",
@@ -330,7 +341,7 @@
     "description": "Role via DevScanner. Location: "
   },
   {
-    "id": "djs-juniorproductde-24",
+    "id": "djs-juniorproductde-25",
     "title": "Junior Product Designer - Audiobooks",
     "company": "Spotify",
     "location": "London, England, United Kingdom",
@@ -341,7 +352,7 @@
     "description": "Role via DevScanner. Location: London, England, United Kingdom"
   },
   {
-    "id": "djs-alternanceprodu-25",
+    "id": "djs-alternanceprodu-26",
     "title": "Alternance – Product web designer junior (H/F)",
     "company": "Galileo Global Education",
     "location": "Paris, Île-de-France, France",
@@ -352,7 +363,7 @@
     "description": "Role via DevScanner. Location: Paris, Île-de-France, France"
   },
   {
-    "id": "djs-stagejunioruxde-26",
+    "id": "djs-stagejunioruxde-27",
     "title": "Stage - Junior UX Designer & Product owner (H/F)",
     "company": "Citalid",
     "location": "Paris, Île-de-France, France",
@@ -363,7 +374,7 @@
     "description": "Role via DevScanner. Location: Paris, Île-de-France, France"
   },
   {
-    "id": "djs-juniorproductde-27",
+    "id": "djs-juniorproductde-28",
     "title": "Junior Product Designer",
     "company": "OLX",
     "location": "Barcelona, Catalonia, Spain",
@@ -374,7 +385,7 @@
     "description": "Role via DevScanner. Location: Barcelona, Catalonia, Spain"
   },
   {
-    "id": "djs-juniorproductde-28",
+    "id": "djs-juniorproductde-29",
     "title": "Junior Product Designer",
     "company": "Tacto",
     "location": "Munich, Bavaria, Germany",
@@ -385,7 +396,7 @@
     "description": "Role via DevScanner. Location: Munich, Bavaria, Germany"
   },
   {
-    "id": "djs-juniorproductde-29",
+    "id": "djs-juniorproductde-30",
     "title": "Junior Product Designer",
     "company": "Attensi",
     "location": "Oslo, Oslo, Norway",
@@ -396,7 +407,7 @@
     "description": "Role via DevScanner. Location: Oslo, Oslo, Norway"
   },
   {
-    "id": "djs-uiproductdesign-30",
+    "id": "djs-uiproductdesign-31",
     "title": "UI Product Designer Junior | Fintech",
     "company": "Sabina Divosi  -  Headhunter & Talent Partner",
     "location": "Madrid, Community of Madrid, Spain",
@@ -407,7 +418,7 @@
     "description": "Role via DevScanner. Location: Madrid, Community of Madrid, Spain"
   },
   {
-    "id": "djs-junioruiuxdesig-31",
+    "id": "djs-junioruiuxdesig-32",
     "title": "Junior UI/UX Designer (Product Designer)",
     "company": "SEGULA Technologies",
     "location": "Bucharest, Bucharest, Romania",
@@ -418,7 +429,7 @@
     "description": "Role via DevScanner. Location: Bucharest, Bucharest, Romania"
   },
   {
-    "id": "djs-productdesigner-32",
+    "id": "djs-productdesigner-33",
     "title": "Product Designer (Junior)",
     "company": "Formulary",
     "location": "Los Angeles Metropolitan Area",
@@ -506,22 +517,33 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--826008407",
-    "title": "Ux Designer Remote Hire Feed",
+    "id": "bb-it--832976546",
+    "title": "Junior Mid Frontend Developer Ux Ui Designer Mindearth Milan Lombardy",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/ux-designer-remote-hire-feed--t7xk-826008407",
+    "url": "https://bebee.com/it/job/junior-mid-frontend-developer-ux-ui-designer-mindearth-milan-lombardy--t7xk-832976546",
+    "source": "🐝 beBee (IT)",
+    "date": "08/09/2026",
+    "is_junior": true,
+    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-it--833305781",
+    "title": "Ui Designer Graphic Designer Web To Emotions Digital Agency Rome Latium",
+    "company": "beBee Network",
+    "location": "IT",
+    "url": "https://bebee.com/it/job/ui-designer-graphic-designer-web-to-emotions-digital-agency-rome-latium--t7xk-833305781",
     "source": "🐝 beBee (IT)",
     "date": "08/09/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--831816378",
-    "title": "Ui Designer Ai Products Remote Hire Feed",
+    "id": "bb-it--826008407",
+    "title": "Ux Designer Remote Hire Feed",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/ui-designer-ai-products-remote-hire-feed--t7xk-831816378",
+    "url": "https://bebee.com/it/job/ux-designer-remote-hire-feed--t7xk-826008407",
     "source": "🐝 beBee (IT)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -539,11 +561,11 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
-    "id": "bb-it--824737246",
-    "title": "Ux Designer Remote Hire Feed",
+    "id": "bb-it--831816378",
+    "title": "Ui Designer Ai Products Remote Hire Feed",
     "company": "beBee Network",
     "location": "IT",
-    "url": "https://bebee.com/it/job/ux-designer-remote-hire-feed--t7xk-824737246",
+    "url": "https://bebee.com/it/job/ui-designer-ai-products-remote-hire-feed--t7xk-831816378",
     "source": "🐝 beBee (IT)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -555,28 +577,6 @@
     "company": "beBee Network",
     "location": "IT",
     "url": "https://bebee.com/it/job/ui-designer-ai-products-remote-hire-feed--t7xk-830823952",
-    "source": "🐝 beBee (IT)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-it--832011397",
-    "title": "Ux Designer Remote Hire Feed",
-    "company": "beBee Network",
-    "location": "IT",
-    "url": "https://bebee.com/it/job/ux-designer-remote-hire-feed--t7xk-832011397",
-    "source": "🐝 beBee (IT)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-it-2351747216",
-    "title": "Ux Designer Remote Hire Feed",
-    "company": "beBee Network",
-    "location": "IT",
-    "url": "https://bebee.com/it/job/ux-designer-remote-hire-feed--fj-2351747216",
     "source": "🐝 beBee (IT)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -682,6 +682,17 @@
     "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
   },
   {
+    "id": "bb-it-2352698514",
+    "title": "Frontend Fullstack Developer Kpmg Spa Rome",
+    "company": "beBee Network",
+    "location": "IT",
+    "url": "https://bebee.com/it/job/frontend-fullstack-developer-kpmg-spa-rome--fj-2352698514",
+    "source": "🐝 beBee (IT)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee IT. Clicca per i dettagli."
+  },
+  {
     "id": "bb-it-2130763038",
     "title": "Frontend Engineer Mdotm Milan",
     "company": "beBee Network",
@@ -737,11 +748,22 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--832174579",
+    "id": "bb-es-2352397998",
     "title": "Ux Designer Remote Hire Feed",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/ux-designer-remote-hire-feed--t7xk-832174579",
+    "url": "https://bebee.com/es/job/ux-designer-remote-hire-feed--fj-2352397998",
+    "source": "🐝 beBee (ES)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-es--833127863",
+    "title": "Ux Designer Remote Hire Feed",
+    "company": "beBee Network",
+    "location": "ES",
+    "url": "https://bebee.com/es/job/ux-designer-remote-hire-feed--t7xk-833127863",
     "source": "🐝 beBee (ES)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -759,11 +781,11 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es--831236535",
+    "id": "bb-es--832174579",
     "title": "Ux Designer Remote Hire Feed",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/ux-designer-remote-hire-feed--t7xk-831236535",
+    "url": "https://bebee.com/es/job/ux-designer-remote-hire-feed--t7xk-832174579",
     "source": "🐝 beBee (ES)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -781,22 +803,22 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es-2347255028",
-    "title": "Ux Designer Accessibility Specialist North Barcelona",
+    "id": "bb-es--831236535",
+    "title": "Ux Designer Remote Hire Feed",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/ux-designer-accessibility-specialist-north-barcelona--fj-2347255028",
+    "url": "https://bebee.com/es/job/ux-designer-remote-hire-feed--t7xk-831236535",
     "source": "🐝 beBee (ES)",
     "date": "08/09/2026",
     "is_junior": false,
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es-2351022382",
-    "title": "Product Designer Ux Visual Design Punto Health Barcelona",
+    "id": "bb-es-2347255028",
+    "title": "Ux Designer Accessibility Specialist North Barcelona",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/product-designer-ux-visual-design-punto-health-barcelona--fj-2351022382",
+    "url": "https://bebee.com/es/job/ux-designer-accessibility-specialist-north-barcelona--fj-2347255028",
     "source": "🐝 beBee (ES)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -814,11 +836,11 @@
     "description": "Annuncio rintracciato su beBee ES. Clicca per i dettagli."
   },
   {
-    "id": "bb-es-2351957735",
-    "title": "Software Engineer Frontend Cells Ia",
+    "id": "bb-es-2352397742",
+    "title": "Product Designer Developer Boolanga",
     "company": "beBee Network",
     "location": "ES",
-    "url": "https://bebee.com/es/job/software-engineer-frontend-cells-ia--fj-2351957735",
+    "url": "https://bebee.com/es/job/product-designer-developer-boolanga--fj-2352397742",
     "source": "🐝 beBee (ES)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -979,17 +1001,6 @@
     "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
   },
   {
-    "id": "bb-de--831665994",
-    "title": "Frontend Engineer React Glassflow Berlin Germany",
-    "company": "beBee Network",
-    "location": "DE",
-    "url": "https://bebee.com/de/job/frontend-engineer-react-glassflow-berlin-germany--t7xk-831665994",
-    "source": "🐝 beBee (DE)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee DE. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr--832486086",
     "title": "Ux Designer Karens Paris Ile De",
     "company": "beBee Network",
@@ -1023,17 +1034,6 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr-2350785337",
-    "title": "Ux Designer Remote Hire Feed",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/ux-designer-remote-hire-feed--fj-2350785337",
-    "source": "🐝 beBee (FR)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr-2351054313",
     "title": "Alternance Ux Designer Ironhack La Boissiere Des Landes",
     "company": "beBee Network",
@@ -1050,6 +1050,17 @@
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/ux-designer-remote-hire-feed--fj-2351902455",
+    "source": "🐝 beBee (FR)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-fr-2350785337",
+    "title": "Ux Designer Remote Hire Feed",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/ux-designer-remote-hire-feed--fj-2350785337",
     "source": "🐝 beBee (FR)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -1111,6 +1122,17 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
+    "id": "bb-fr--833251784",
+    "title": "Cdi Ux Designer Hermes Pantin 93",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/cdi-ux-designer-hermes-pantin-93--t7xk-833251784",
+    "source": "🐝 beBee (FR)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
     "id": "bb-fr--830643987",
     "title": "Ui Designer Boursorama Boulogne Billancourt Ile De",
     "company": "beBee Network",
@@ -1155,6 +1177,17 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
+    "id": "bb-fr--833323058",
+    "title": "Product Designer Podnetwork Eu 76",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/product-designer-podnetwork-eu-76--t7xk-833323058",
+    "source": "🐝 beBee (FR)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
     "id": "bb-fr--831828661",
     "title": "Frontend Engineer Remote Hired",
     "company": "beBee Network",
@@ -1188,33 +1221,22 @@
     "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
   },
   {
-    "id": "bb-fr--831828595",
-    "title": "Frontend Engineer Vuejs Remote Hire Feed",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/frontend-engineer-vuejs-remote-hire-feed--t7xk-831828595",
-    "source": "🐝 beBee (FR)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-fr--832246918",
-    "title": "Frontend Web Developer Remote Quik Hire Staffing",
-    "company": "beBee Network",
-    "location": "FR",
-    "url": "https://bebee.com/fr/job/frontend-web-developer-remote-quik-hire-staffing--t7xk-832246918",
-    "source": "🐝 beBee (FR)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
-  },
-  {
     "id": "bb-fr-2352007155",
     "title": "Angular Frontend Developer Remote Hire Feed",
     "company": "beBee Network",
     "location": "FR",
     "url": "https://bebee.com/fr/job/angular-frontend-developer-remote-hire-feed--fj-2352007155",
+    "source": "🐝 beBee (FR)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee FR. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-fr--831828595",
+    "title": "Frontend Engineer Vuejs Remote Hire Feed",
+    "company": "beBee Network",
+    "location": "FR",
+    "url": "https://bebee.com/fr/job/frontend-engineer-vuejs-remote-hire-feed--t7xk-831828595",
     "source": "🐝 beBee (FR)",
     "date": "08/09/2026",
     "is_junior": false,
@@ -1397,6 +1419,28 @@
     "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
   },
   {
+    "id": "bb-ie-2352510803",
+    "title": "Frontend Developer Ryanair Europes Favourite Airline Swords",
+    "company": "beBee Network",
+    "location": "IE",
+    "url": "https://bebee.com/ie/job/frontend-developer-ryanair-europes-favourite-airline-swords--fj-2352510803",
+    "source": "🐝 beBee (IE)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
+  },
+  {
+    "id": "bb-ie-2352486095",
+    "title": "Frontend Developer Ryanair Group Holdings Swords",
+    "company": "beBee Network",
+    "location": "IE",
+    "url": "https://bebee.com/ie/job/frontend-developer-ryanair-group-holdings-swords--fj-2352486095",
+    "source": "🐝 beBee (IE)",
+    "date": "08/09/2026",
+    "is_junior": false,
+    "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
+  },
+  {
     "id": "bb-ie--830801706",
     "title": "Staff Frontend Engineer Gong Dublin County Dublin",
     "company": "beBee Network",
@@ -1446,39 +1490,6 @@
     "company": "beBee Network",
     "location": "IE",
     "url": "https://bebee.com/ie/job/frontend-code-evaluation-specialist-mercor-dublin--manatal-4340956",
-    "source": "🐝 beBee (IE)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-ie-2328983756",
-    "title": "Frontend Engineer Genesys Galway",
-    "company": "beBee Network",
-    "location": "IE",
-    "url": "https://bebee.com/ie/job/frontend-engineer-genesys-galway--fj-2328983756",
-    "source": "🐝 beBee (IE)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-ie--823832736",
-    "title": "Frontend Engineer Hired",
-    "company": "beBee Network",
-    "location": "IE",
-    "url": "https://bebee.com/ie/job/frontend-engineer-hired--t7xk-823832736",
-    "source": "🐝 beBee (IE)",
-    "date": "08/09/2026",
-    "is_junior": false,
-    "description": "Annuncio rintracciato su beBee IE. Clicca per i dettagli."
-  },
-  {
-    "id": "bb-ie-2340441127",
-    "title": "Frontend Engineer Afterquery Experts",
-    "company": "beBee Network",
-    "location": "IE",
-    "url": "https://bebee.com/ie/job/frontend-engineer-afterquery-experts--fj-2340441127",
     "source": "🐝 beBee (IE)",
     "date": "08/09/2026",
     "is_junior": false,
