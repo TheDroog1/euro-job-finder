@@ -341,18 +341,7 @@
     "description": "Role via DevScanner. Location: Reading, PA"
   },
   {
-    "id": "djs-juniorgraphicde-28",
-    "title": "Junior Graphic Designer",
-    "company": "Twine",
-    "location": "",
-    "url": "https://remoteOK.com/remote-jobs/remote-junior-graphic-designer-twine-1132062",
-    "source": "💻 DevScanner",
-    "date": "25/09/2026",
-    "is_junior": true,
-    "description": "Role via DevScanner. Location: "
-  },
-  {
-    "id": "djs-juniordesignerm-29",
+    "id": "djs-juniordesignerm-28",
     "title": "Junior Designer — Marketing & Product",
     "company": "Alastria Blockchain Ecosystem",
     "location": "Spain",
@@ -361,6 +350,17 @@
     "date": "25/09/2026",
     "is_junior": true,
     "description": "Role via DevScanner. Location: Spain"
+  },
+  {
+    "id": "djs-juniorgraphicde-29",
+    "title": "Junior Graphic Designer",
+    "company": "Twine",
+    "location": "",
+    "url": "https://remoteOK.com/remote-jobs/remote-junior-graphic-designer-twine-1132062",
+    "source": "💻 DevScanner",
+    "date": "25/09/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: "
   },
   {
     "id": "djs-juniorproductde-30",
