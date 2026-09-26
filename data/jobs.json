@@ -1,5 +1,16 @@
 [
   {
+    "id": "jtbd-productdesignerdesignsystems",
+    "title": "Product Designer, Design Systems",
+    "company": "Stripe",
+    "location": "Barcelona, Spain",
+    "url": "https://stripe.com/careers/listing/product-designer-design-systems/7983076",
+    "source": "✨ Jobstobedone",
+    "date": "26/09/2026",
+    "is_junior": true,
+    "description": "$12"
+  },
+  {
     "id": "jtbd-internuserexperiencedesign",
     "title": "Intern — User Experience Design",
     "company": "Labcorp",
@@ -8,7 +19,7 @@
     "source": "✨ Jobstobedone",
     "date": "26/09/2026",
     "is_junior": true,
-    "description": "$11"
+    "description": "$13"
   },
   {
     "id": "jtbd-uxcontentdesignerinternuxcopywriterengli",
@@ -19,18 +30,7 @@
     "source": "✨ Jobstobedone",
     "date": "26/09/2026",
     "is_junior": true,
-    "description": "$12"
-  },
-  {
-    "id": "jtbd-juniorproductdesigner",
-    "title": "Junior Product Designer",
-    "company": "MasterBorn",
-    "location": "Wrocław, Poland",
-    "url": "https://jobs.lever.co/masterborn-2/684aad8b-c3bb-48e1-a684-264a83b878ce",
-    "source": "✨ Jobstobedone",
-    "date": "26/09/2026",
-    "is_junior": true,
-    "description": "$13"
+    "description": "$14"
   },
   {
     "id": "djs-cheffedeprojetu-0",
@@ -330,18 +330,7 @@
     "description": "Role via DevScanner. Location: Greater Recife"
   },
   {
-    "id": "djs-juniorproductla-27",
-    "title": "JUNIOR PRODUCT LAYOUT DESIGNER (JUNIOR GRAPHIC DESIGNER)",
-    "company": "Mail Shark",
-    "location": "Reading, PA",
-    "url": "https://www.linkedin.com/jobs/view/junior-product-layout-designer-junior-graphic-designer-at-mail-shark-4421220432?position=3\\u0026pageNum=75\\u0026refId=SeI3Y%2Bvfrsp7yAo%2FQtx3IQ%3D%3D\\u0026trackingId=Cc1gnHds7ujL5KgW%2Bei0Gw%3D%3D",
-    "source": "💻 DevScanner",
-    "date": "26/09/2026",
-    "is_junior": true,
-    "description": "Role via DevScanner. Location: Reading, PA"
-  },
-  {
-    "id": "djs-juniorgraphicde-28",
+    "id": "djs-juniorgraphicde-27",
     "title": "Junior Graphic Designer",
     "company": "Twine",
     "location": "",
@@ -350,6 +339,17 @@
     "date": "26/09/2026",
     "is_junior": true,
     "description": "Role via DevScanner. Location: "
+  },
+  {
+    "id": "djs-juniorproductla-28",
+    "title": "JUNIOR PRODUCT LAYOUT DESIGNER (JUNIOR GRAPHIC DESIGNER)",
+    "company": "Mail Shark",
+    "location": "Reading, PA",
+    "url": "https://www.linkedin.com/jobs/view/junior-product-layout-designer-junior-graphic-designer-at-mail-shark-4421220432?position=3\\u0026pageNum=75\\u0026refId=SeI3Y%2Bvfrsp7yAo%2FQtx3IQ%3D%3D\\u0026trackingId=Cc1gnHds7ujL5KgW%2Bei0Gw%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "26/09/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Reading, PA"
   },
   {
     "id": "djs-juniordesignerm-29",
@@ -374,7 +374,18 @@
     "description": "Role via DevScanner. Location: London, England, United Kingdom"
   },
   {
-    "id": "djs-alternanceprodu-31",
+    "id": "djs-juniorproductde-31",
+    "title": "Junior Product Designer",
+    "company": "Morson Edge",
+    "location": "Bristol",
+    "url": "https://devitjobs.uk/jobs/Morson-Edge-Junior-Product-Designer",
+    "source": "💻 DevScanner",
+    "date": "26/09/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Bristol"
+  },
+  {
+    "id": "djs-alternanceprodu-32",
     "title": "Alternance – Product web designer junior (H/F)",
     "company": "Galileo Global Education",
     "location": "Paris, Île-de-France, France",
@@ -385,7 +396,7 @@
     "description": "Role via DevScanner. Location: Paris, Île-de-France, France"
   },
   {
-    "id": "djs-stagejunioruxde-32",
+    "id": "djs-stagejunioruxde-33",
     "title": "Stage - Junior UX Designer & Product owner (H/F)",
     "company": "Citalid",
     "location": "Paris, Île-de-France, France",
@@ -394,17 +405,6 @@
     "date": "26/09/2026",
     "is_junior": true,
     "description": "Role via DevScanner. Location: Paris, Île-de-France, France"
-  },
-  {
-    "id": "djs-uiproductdesign-33",
-    "title": "UI Product Designer Junior | Fintech",
-    "company": "Sabina Divosi  -  Headhunter & Talent Partner",
-    "location": "Madrid, Community of Madrid, Spain",
-    "url": "https://es.linkedin.com/jobs/view/ui-product-designer-junior-fintech-at-sabina-divosi-headhunter-talent-partner-4416159044?position=8\\u0026pageNum=33\\u0026refId=u%2BOZN%2BFWZiahYpqu96V5KA%3D%3D\\u0026trackingId=fVbxCz7LZNJX9gKBOa4uNg%3D%3D",
-    "source": "💻 DevScanner",
-    "date": "26/09/2026",
-    "is_junior": true,
-    "description": "Role via DevScanner. Location: Madrid, Community of Madrid, Spain"
   },
   {
     "id": "djs-juniorproductde-34",
@@ -440,7 +440,18 @@
     "description": "Role via DevScanner. Location: Oslo, Oslo, Norway"
   },
   {
-    "id": "djs-junioruiuxdesig-37",
+    "id": "djs-uiproductdesign-37",
+    "title": "UI Product Designer Junior | Fintech",
+    "company": "Sabina Divosi  -  Headhunter & Talent Partner",
+    "location": "Madrid, Community of Madrid, Spain",
+    "url": "https://es.linkedin.com/jobs/view/ui-product-designer-junior-fintech-at-sabina-divosi-headhunter-talent-partner-4416159044?position=8\\u0026pageNum=33\\u0026refId=u%2BOZN%2BFWZiahYpqu96V5KA%3D%3D\\u0026trackingId=fVbxCz7LZNJX9gKBOa4uNg%3D%3D",
+    "source": "💻 DevScanner",
+    "date": "26/09/2026",
+    "is_junior": true,
+    "description": "Role via DevScanner. Location: Madrid, Community of Madrid, Spain"
+  },
+  {
+    "id": "djs-junioruiuxdesig-38",
     "title": "Junior UI/UX Designer (Product Designer)",
     "company": "SEGULA Technologies",
     "location": "Bucharest, Bucharest, Romania",
@@ -451,7 +462,7 @@
     "description": "Role via DevScanner. Location: Bucharest, Bucharest, Romania"
   },
   {
-    "id": "djs-productdesigner-38",
+    "id": "djs-productdesigner-39",
     "title": "Product Designer (Junior)",
     "company": "Formulary",
     "location": "Los Angeles Metropolitan Area",
